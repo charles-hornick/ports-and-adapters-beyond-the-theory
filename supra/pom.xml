@@ -6,6 +6,15 @@
         <artifactId>behond-the-theory</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>supra</artifactId>
-    <name>Archetype - supra</name>
+    <name>supra</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.pragmatica-lite</groupId>
+            <artifactId>core</artifactId>
+            <version>0.11.2</version>
+        </dependency>
+    </dependencies>
 </project>

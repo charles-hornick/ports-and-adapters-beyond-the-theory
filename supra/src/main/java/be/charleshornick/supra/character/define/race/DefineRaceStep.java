@@ -1,5 +1,6 @@
 package be.charleshornick.supra.character.define.race;
 
+import be.charleshornick.supra.character.define.ToCharacter;
 import be.charleshornick.supra.character.port.ForLoadingRace;
 import be.charleshornick.supra.character.port.ForLoadingSnapshot;
 import be.charleshornick.supra.character.port.ForStoringSnapshot;
@@ -11,14 +12,14 @@ import org.pragmatica.lang.Option;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.Tuple;
 
-class DefineRaceStep implements DefineRace.ToCharacter {
+class DefineRaceStep implements ToCharacter {
 
     private final ForLoadingSnapshot forLoadingSnapshot;
     private final ForStoringSnapshot forStoringSnapshot;
     private final ForLoadingRace forLoadingRace;
     private final RaceName race;
 
-    public DefineRaceStep(final ForLoadingSnapshot forLoadingSnapshot, final ForStoringSnapshot forStoringSnapshot, final ForLoadingRace forLoadingRace, final RaceName race) {
+    DefineRaceStep(final ForLoadingSnapshot forLoadingSnapshot, final ForStoringSnapshot forStoringSnapshot, final ForLoadingRace forLoadingRace, final RaceName race) {
         this.forLoadingSnapshot = forLoadingSnapshot;
         this.forStoringSnapshot = forStoringSnapshot;
         this.forLoadingRace = forLoadingRace;
@@ -44,7 +45,7 @@ class DefineRaceStep implements DefineRace.ToCharacter {
     }
 
     private Result<Race> getRace(final RaceName raceName) {
-        return Option.some(this.race)
+        return Option.some(raceName)
                 .flatMap(this.forLoadingRace::getRaceDetails)
                 .toResult(ErrorCause.RACE_DOES_NOT_EXIST);
     }

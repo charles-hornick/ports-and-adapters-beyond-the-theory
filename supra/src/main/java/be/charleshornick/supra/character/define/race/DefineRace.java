@@ -1,17 +1,12 @@
 package be.charleshornick.supra.character.define.race;
 
+import be.charleshornick.supra.character.define.ToCharacter;
 import be.charleshornick.supra.character.port.ForLoadingRace;
 import be.charleshornick.supra.character.port.ForLoadingSnapshot;
 import be.charleshornick.supra.character.port.ForStoringSnapshot;
-import be.charleshornick.supra.shared.character.snapshot.Snapshot;
 import be.charleshornick.supra.shared.race.RaceName;
-import org.pragmatica.lang.Result;
 
 public class DefineRace {
-
-    public interface ToCharacter {
-        Result<Snapshot> toCharacterNamed(String name);
-    }
 
     private final ForLoadingSnapshot forLoadingSnapshot;
     private final ForStoringSnapshot forStoringSnapshot;

@@ -7,9 +7,9 @@ import be.charleshornick.supra.shared.race.RaceName;
 
 import java.util.List;
 
-public class RaceFixture {
+public interface RaceFixture {
 
-    public static Race get(final RaceName name) {
+    static Race get(final RaceName name) {
         if (name == null) {
             return null;
         }
@@ -25,7 +25,7 @@ public class RaceFixture {
         };
     }
 
-    public static Race elf() {
+    static Race elf() {
         return new Race(
                 RaceName.ELF,
                 "",
@@ -46,7 +46,7 @@ public class RaceFixture {
         );
     }
 
-    public static Race dwarf() {
+    static Race dwarf() {
         return new Race(
                 RaceName.DWARF,
                 "",
@@ -67,7 +67,7 @@ public class RaceFixture {
         );
     }
 
-    public static Race human() {
+    static Race human() {
         return new Race(
                 RaceName.HUMAN,
                 "",
@@ -88,7 +88,7 @@ public class RaceFixture {
         );
     }
 
-    public static Race halfElf() {
+    static Race halfElf() {
         return new Race(
                 RaceName.HALF_ELF,
                 "",
@@ -109,7 +109,7 @@ public class RaceFixture {
         );
     }
 
-    public static Race highElf() {
+    static Race highElf() {
         return new Race(
                 RaceName.HIGH_ELF,
                 "",
@@ -130,7 +130,7 @@ public class RaceFixture {
         );
     }
 
-    public static Race highHuman() {
+    static Race highHuman() {
         return new Race(
                 RaceName.HIGH_HUMAN,
                 "",

@@ -28,7 +28,8 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.fail;
 
-public class TestThatDefiningRaceShould {
+@DisplayName("Test that defining a race should")
+class TestThatDefiningRaceShould {
 
     private final ForStoringSnapshot forStoringSnapshot = Result::ok;
     private final ForLoadingRace forLoadingRace = name -> Option.option(RaceFixture.get(name));

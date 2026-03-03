@@ -10,9 +10,13 @@ import be.charleshornick.supra.shared.race.RaceName;
 import java.util.List;
 import java.util.Map;
 
-public class ProfessionFixture {
+public interface ProfessionFixture {
 
-    public static Profession get(final ProfessionName name) {
+    static Profession get(final ProfessionName name) {
+        if (name == null) {
+            return null;
+        }
+
         return switch (name) {
             case AVENTURIER -> adventurer();
             case AVENTURIER_ELFE -> elfAdventurer();
@@ -42,7 +46,7 @@ public class ProfessionFixture {
         );
     }
 
-    public static Profession adventurer() {
+    static Profession adventurer() {
         return new Profession(
                 ProfessionName.AVENTURIER,
                 ProfessionType.MINOR,

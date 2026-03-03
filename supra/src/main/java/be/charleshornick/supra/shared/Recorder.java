@@ -1,7 +1,7 @@
 package be.charleshornick.supra.shared;
 
-import be.charleshornick.supra.shared.character.snapshot.Character;
+import be.charleshornick.supra.shared.character.snapshot.Snapshot;
 
 public interface Recorder {
-    Character doSnapshot();
+    Snapshot doSnapshot();
 }

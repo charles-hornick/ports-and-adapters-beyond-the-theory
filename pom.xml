@@ -26,5 +26,7 @@
     <name>Behond the theory</name>
     <description>A practical exploration of Ports &amp; Adapters architecture using an RPG character creation system. Companion code for the "Ports &amp; Adapters: Beyond the Theory" article series.</description>
 
-
+    <properties>
+        <java.version>25</java.version>
+    </properties>
 </project>

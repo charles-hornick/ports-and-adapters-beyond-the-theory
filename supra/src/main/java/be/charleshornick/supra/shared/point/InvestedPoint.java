@@ -95,6 +95,10 @@ public class InvestedPoint {
                 ));
     }
 
+    public Map<PrimaryCharacteristicName, Integer> getInvestedPoints() {
+        return new HashMap<>(this.mapOfInvestedPoints);
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;

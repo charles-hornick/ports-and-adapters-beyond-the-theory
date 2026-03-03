@@ -1,5 +1,7 @@
 package be.charleshornick.supra.shared.race;
 
+import org.pragmatica.lang.Option;
+
 public enum RaceName {
     UNDEFINED,
 
@@ -14,5 +16,4 @@ public enum RaceName {
     GNOME,
     HOBBIT,
     HALF_ORK,
-
 }

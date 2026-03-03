@@ -1,21 +1,24 @@
 package be.charleshornick.supra.character.creation;
 
-import be.charleshornick.supra.shared.character.snapshot.SnapshotBuilder;
+import be.charleshornick.supra.character.port.ForStoringSnapshot;
+import be.charleshornick.supra.shared.character.snapshot.Snapshot;
 import org.pragmatica.lang.Result;
 
 public class CreateCharacter {
 
-    private final ToStoreCharacter toStoreCharacter;
+    private final ForCheckingNameUnicity forCheckingNameUnicity;
+    private final ForStoringSnapshot forStoringSnapshot;
 
-    public CreateCharacter(final ToStoreCharacter toStoreCharacter) {
-        this.toStoreCharacter = toStoreCharacter;
+    public CreateCharacter(final ForCheckingNameUnicity forCheckingNameUnicity, final ForStoringSnapshot forStoringSnapshot) {
+        this.forCheckingNameUnicity = forCheckingNameUnicity;
+        this.forStoringSnapshot = forStoringSnapshot;
     }
 
-    public Result<CharacterCreated> named(final String characterName) {
-        return CharacterNameValidator
+    public Result<Snapshot> named(final String characterName) {
+        return new CharacterNameValidator(this.forCheckingNameUnicity)
                 .validate(characterName)
-                .flatMap(this.toStoreCharacter::store)
-                .map(SnapshotBuilder::asFirstOne)
-                .map(CharacterCreated::new);
+                .map(Character::withName)
+                .map(Character::doSnapshot)
+                .flatMap(this.forStoringSnapshot::store);
     }
 }

@@ -1,15 +1,23 @@
 package be.charleshornick.supra.character.creation;
 
+import be.charleshornick.supra.shared.ErrorCause;
+import org.apache.commons.lang3.StringUtils;
 import org.pragmatica.lang.Result;
-import org.pragmatica.lang.utils.Causes;
 
 class CharacterNameValidator {
 
-    static Result<String> validate(final String characterName) {
-        if (characterName == null || characterName.isBlank()) {
-            return Result.failure(Causes.cause("Character name cannot be empty"));
-        }
+    private final ForCheckingNameUnicity nameUnicityChecker;
 
-        return Result.ok(characterName);
+    CharacterNameValidator(final ForCheckingNameUnicity nameUnicityChecker) {
+        this.nameUnicityChecker = nameUnicityChecker;
+    }
+
+    Result<String> validate(final String name) {
+        if (StringUtils.isNotBlank(name)) {
+            return (this.nameUnicityChecker.isAvailable(name))
+                    ? Result.success(name)
+                    : Result.failure(ErrorCause.NAME_ALREADY_TAKEN);
+        }
+        return Result.failure(ErrorCause.NAME_EMPTY_VALUE);
     }
 }

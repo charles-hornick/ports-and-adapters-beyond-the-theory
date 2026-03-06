@@ -1,12 +1,11 @@
 package be.charleshornick.supra.character.define.race;
 
 import be.charleshornick.supra.character.define.ToCharacter;
-import be.charleshornick.supra.character.port.ForLoadingRace;
-import be.charleshornick.supra.character.port.ForLoadingSnapshot;
-import be.charleshornick.supra.character.port.ForStoringSnapshot;
+import be.charleshornick.supra.character.ForLoadingSnapshot;
+import be.charleshornick.supra.character.ForStoringSnapshot;
 import be.charleshornick.supra.shared.race.RaceName;
 
-public class DefineRace {
+public final class DefineRace {
 
     private final ForLoadingSnapshot forLoadingSnapshot;
     private final ForStoringSnapshot forStoringSnapshot;

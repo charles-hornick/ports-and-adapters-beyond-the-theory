@@ -1,9 +1,8 @@
 package be.charleshornick.supra.character.define.race;
 
 import be.charleshornick.supra.character.define.ToCharacter;
-import be.charleshornick.supra.character.port.ForLoadingRace;
-import be.charleshornick.supra.character.port.ForLoadingSnapshot;
-import be.charleshornick.supra.character.port.ForStoringSnapshot;
+import be.charleshornick.supra.character.ForLoadingSnapshot;
+import be.charleshornick.supra.character.ForStoringSnapshot;
 import be.charleshornick.supra.shared.ErrorCause;
 import be.charleshornick.supra.shared.character.snapshot.Snapshot;
 import be.charleshornick.supra.shared.race.Race;
@@ -12,7 +11,7 @@ import org.pragmatica.lang.Option;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.Tuple;
 
-class DefineRaceStep implements ToCharacter {
+final class DefineRaceStep implements ToCharacter {
 
     private final ForLoadingSnapshot forLoadingSnapshot;
     private final ForStoringSnapshot forStoringSnapshot;

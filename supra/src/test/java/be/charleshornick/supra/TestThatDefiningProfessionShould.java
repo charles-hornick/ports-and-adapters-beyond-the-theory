@@ -1,9 +1,9 @@
 package be.charleshornick.supra;
 
 import be.charleshornick.supra.character.define.profession.DefineProfession;
-import be.charleshornick.supra.character.port.ForLoadingProfession;
-import be.charleshornick.supra.character.port.ForLoadingSnapshot;
-import be.charleshornick.supra.character.port.ForStoringSnapshot;
+import be.charleshornick.supra.character.define.profession.ForLoadingProfession;
+import be.charleshornick.supra.character.ForLoadingSnapshot;
+import be.charleshornick.supra.character.ForStoringSnapshot;
 import be.charleshornick.supra.fixture.DefaultCharacterData;
 import be.charleshornick.supra.fixture.ProfessionFixture;
 import be.charleshornick.supra.fixture.SnapshotFixture;
@@ -21,14 +21,14 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.fail;
 
-@DisplayName("Test that defining a profession should")
+@DisplayName("Defining a profession should")
 class TestThatDefiningProfessionShould {
 
     private final ForStoringSnapshot forStoringSnapshot = Result::ok;
     private final ForLoadingProfession forLoadingProfession = name -> Option.option(ProfessionFixture.get(name));
 
     @Test
-    @DisplayName("Failed when not enough creation points are left")
+    @DisplayName("Fail when not enough creation points are left")
     void failWhenNotEnoughCreationPointAreLeft() {
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getHighHuman());
 
@@ -36,6 +36,17 @@ class TestThatDefiningProfessionShould {
                 .named(ProfessionName.GUERRIER)
                 .toCharacterNamed(DefaultCharacterData.NAME)
                 .onSuccess(_ -> fail("Should fail defining a Warrior profession to an High Human (not enough creation points)"));
+    }
+
+    @Test
+    @DisplayName("Fail when the profession is an evolution type")
+    void failWhenTheProfessionIsAnEvolutionType() {
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getHighHuman());
+
+        new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
+                .named(ProfessionName.GUERRIER)
+                .toCharacterNamed(DefaultCharacterData.NAME)
+                .onSuccess(_ -> fail("Should fail defining a Knight profession (evolution profession cannot be define at creation)"));
     }
 
     @Test
@@ -93,7 +104,7 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Fail when no profession name is given")
     void failWhenNoProfessionNameIsGiven() {
-        ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(null)
@@ -104,7 +115,7 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Fail when no character name is given")
     void failWhenNoCharacterNameIsGiven() {
-        ForLoadingSnapshot forLoadingSnapshot = name -> (StringUtils.isBlank(name)) ? Option.empty() : Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = name -> (StringUtils.isBlank(name)) ? Option.empty() : Option.some(SnapshotFixture.getDefaultOne());
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(ProfessionName.AVENTURIER)

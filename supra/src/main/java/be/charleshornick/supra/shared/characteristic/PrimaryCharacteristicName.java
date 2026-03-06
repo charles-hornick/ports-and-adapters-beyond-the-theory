@@ -11,7 +11,8 @@ public enum PrimaryCharacteristicName {
     INTELLIGENCE,
     PERCEPTION,
     DEXTERITY,
-    STRENGTH;
+    STRENGTH,
+    ;
 
     PrimaryCharacteristicName() {}
 

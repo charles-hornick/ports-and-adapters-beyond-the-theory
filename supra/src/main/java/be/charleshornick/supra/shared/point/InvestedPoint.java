@@ -32,10 +32,6 @@ public class InvestedPoint {
         return new InvestedPoint(new HashMap<>(0), race);
     }
 
-    public static InvestedPoint copyOf(final InvestedPoint investedPoint) {
-        return new InvestedPoint(new HashMap<>(investedPoint.mapOfInvestedPoints), investedPoint.race);
-    }
-
     public static InvestedPoint with(final Map<PrimaryCharacteristicName, Integer> investedPoints, final Race race) {
         return new InvestedPoint(new HashMap<>(investedPoints), race);
     }
@@ -51,10 +47,6 @@ public class InvestedPoint {
                 .stream()
                 .map(n -> this.mapOfInvestedPoints.getOrDefault(n, 0))
                 .reduce(0, Integer::sum);
-    }
-
-    public int getInvestedPointFor(final PrimaryCharacteristicName name) {
-        return this.mapOfInvestedPoints.getOrDefault(name, 0);
     }
 
     private boolean canAddPointToCharacteristic(final PrimaryCharacteristicName name) {
@@ -101,6 +93,7 @@ public class InvestedPoint {
 
     @Override
     public boolean equals(final Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         final InvestedPoint that = (InvestedPoint) o;

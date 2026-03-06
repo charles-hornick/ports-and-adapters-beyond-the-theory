@@ -1,9 +1,8 @@
 package be.charleshornick.supra.character.define.profession;
 
 import be.charleshornick.supra.character.define.ToCharacter;
-import be.charleshornick.supra.character.port.ForLoadingProfession;
-import be.charleshornick.supra.character.port.ForLoadingSnapshot;
-import be.charleshornick.supra.character.port.ForStoringSnapshot;
+import be.charleshornick.supra.character.ForLoadingSnapshot;
+import be.charleshornick.supra.character.ForStoringSnapshot;
 import be.charleshornick.supra.shared.ErrorCause;
 import be.charleshornick.supra.shared.character.snapshot.Snapshot;
 import be.charleshornick.supra.shared.profession.Profession;
@@ -12,14 +11,14 @@ import org.pragmatica.lang.Option;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.Tuple;
 
-public class DefineProfessionStep implements ToCharacter {
+final class DefineProfessionStep implements ToCharacter {
 
     private final ForLoadingSnapshot forLoadingSnapshot;
     private final ForStoringSnapshot forStoringSnapshot;
     private final ForLoadingProfession forLoadingProfession;
     private final ProfessionName professionName;
 
-    public DefineProfessionStep(final ForLoadingSnapshot forLoadingSnapshot,
+    DefineProfessionStep(final ForLoadingSnapshot forLoadingSnapshot,
                                 final ForStoringSnapshot forStoringSnapshot,
                                 final ForLoadingProfession forLoadingProfession,
                                 final ProfessionName professionName) {

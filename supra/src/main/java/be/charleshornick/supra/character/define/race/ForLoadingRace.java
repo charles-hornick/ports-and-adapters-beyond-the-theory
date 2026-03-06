@@ -1,4 +1,4 @@
-package be.charleshornick.supra.character.port;
+package be.charleshornick.supra.character.define.race;
 
 import be.charleshornick.supra.shared.race.Race;
 import be.charleshornick.supra.shared.race.RaceName;

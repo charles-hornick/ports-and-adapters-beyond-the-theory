@@ -1,9 +1,9 @@
 package be.charleshornick.supra;
 
 import be.charleshornick.supra.character.define.race.DefineRace;
-import be.charleshornick.supra.character.port.ForLoadingRace;
-import be.charleshornick.supra.character.port.ForLoadingSnapshot;
-import be.charleshornick.supra.character.port.ForStoringSnapshot;
+import be.charleshornick.supra.character.define.race.ForLoadingRace;
+import be.charleshornick.supra.character.ForLoadingSnapshot;
+import be.charleshornick.supra.character.ForStoringSnapshot;
 import be.charleshornick.supra.fixture.DefaultCharacterData;
 import be.charleshornick.supra.fixture.RaceFixture;
 import be.charleshornick.supra.fixture.SnapshotFixture;
@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.fail;
 
-@DisplayName("Test that defining a race should")
+@DisplayName("Defining a race should")
 class TestThatDefiningRaceShould {
 
     private final ForStoringSnapshot forStoringSnapshot = Result::ok;
@@ -77,11 +77,11 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("Reset the already defined profession when race is forbidden")
     void resetAlreadyDefinedProfessionWhenRaceIsForbidden() {
-        final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.AVENTURIER);
+        final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.AVENTURIER_ELFE);
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(baseSnapshot);
 
         final var expected = SnapshotBuilder
-                .basedOnPreviousSnapshot(baseSnapshot)
+                .basedOnPreviousSnapshot(SnapshotFixture.getWithProfession(ProfessionName.UNDEFINED))
                 .updateRaceWith(RaceFixture.dwarf())
                 .getForAction(Action.DEFINE_RACE);
 

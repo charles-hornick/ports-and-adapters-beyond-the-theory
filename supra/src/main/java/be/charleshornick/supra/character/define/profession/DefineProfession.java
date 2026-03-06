@@ -1,12 +1,11 @@
 package be.charleshornick.supra.character.define.profession;
 
 import be.charleshornick.supra.character.define.ToCharacter;
-import be.charleshornick.supra.character.port.ForLoadingProfession;
-import be.charleshornick.supra.character.port.ForLoadingSnapshot;
-import be.charleshornick.supra.character.port.ForStoringSnapshot;
+import be.charleshornick.supra.character.ForLoadingSnapshot;
+import be.charleshornick.supra.character.ForStoringSnapshot;
 import be.charleshornick.supra.shared.profession.ProfessionName;
 
-public class DefineProfession {
+public final class DefineProfession {
 
     private final ForLoadingSnapshot forLoadingSnapshot;
     private final ForStoringSnapshot forStoringSnapshot;

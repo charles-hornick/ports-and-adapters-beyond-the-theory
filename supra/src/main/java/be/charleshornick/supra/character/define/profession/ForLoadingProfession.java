@@ -1,4 +1,4 @@
-package be.charleshornick.supra.character.port;
+package be.charleshornick.supra.character.define.profession;
 
 import be.charleshornick.supra.shared.profession.Profession;
 import be.charleshornick.supra.shared.profession.ProfessionName;

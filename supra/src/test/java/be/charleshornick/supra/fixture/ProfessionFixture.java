@@ -21,8 +21,32 @@ public interface ProfessionFixture {
             case AVENTURIER -> adventurer();
             case AVENTURIER_ELFE -> elfAdventurer();
             case GUERRIER -> warrior();
+            case CHEVALIER -> chevalier();
             default -> Profession.undefined();
         };
+    }
+
+    static Profession chevalier() {
+        return new Profession(
+                ProfessionName.CHEVALIER,
+                ProfessionType.MAJOR_EVOLUTION,
+                "",
+                0,
+                Prerequisite.with(
+                        Map.of(
+                                PrimaryCharacteristicName.COURAGE, 14,
+                                PrimaryCharacteristicName.WILLPOWER, 11,
+                                PrimaryCharacteristicName.CHARISMA, 11,
+                                PrimaryCharacteristicName.CONSTITUTION, 13,
+                                PrimaryCharacteristicName.INTELLIGENCE, 11,
+                                PrimaryCharacteristicName.DEXTERITY, 11,
+                                PrimaryCharacteristicName.STRENGTH, 15
+                        ),
+                        List.of(RaceName.ELF, RaceName.HIGH_ELF, RaceName.WOODEN_ELF, RaceName.GNOME, RaceName.DWARF, RaceName.HIGH_DWARF, RaceName.HOBBIT)
+                ),
+                null,
+                List.of()
+        );
     }
 
     private static Profession warrior() {

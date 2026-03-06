@@ -1,12 +1,12 @@
 package be.charleshornick.supra.fixture;
 
-import be.charleshornick.supra.shared.character.snapshot.Action;
-import be.charleshornick.supra.shared.character.snapshot.Snapshot;
-import be.charleshornick.supra.shared.character.snapshot.SnapshotBuilder;
-import be.charleshornick.supra.shared.characteristic.PrimaryCharacteristicName;
-import be.charleshornick.supra.shared.point.InvestedPoint;
-import be.charleshornick.supra.shared.profession.ProfessionName;
-import be.charleshornick.supra.shared.race.RaceName;
+import be.charleshornick.supra.snapshot.Action;
+import be.charleshornick.supra.snapshot.Snapshot;
+import be.charleshornick.supra.snapshot.SnapshotBuilder;
+import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.snapshot.InvestedPoint;
+import be.charleshornick.supra.profession.ProfessionName;
+import be.charleshornick.supra.race.RaceName;
 
 import java.util.Map;
 

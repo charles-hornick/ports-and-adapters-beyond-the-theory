@@ -1,17 +1,16 @@
 package be.charleshornick.supra;
 
-import be.charleshornick.supra.character.define.race.DefineRace;
-import be.charleshornick.supra.character.define.race.ForLoadingRace;
-import be.charleshornick.supra.character.ForLoadingSnapshot;
-import be.charleshornick.supra.character.ForStoringSnapshot;
+import be.charleshornick.supra.define.race.DefineRace;
+import be.charleshornick.supra.define.race.ForLoadingRace;
+import be.charleshornick.supra.define.ForLoadingSnapshot;
 import be.charleshornick.supra.fixture.DefaultCharacterData;
 import be.charleshornick.supra.fixture.RaceFixture;
 import be.charleshornick.supra.fixture.SnapshotFixture;
-import be.charleshornick.supra.shared.character.snapshot.Action;
-import be.charleshornick.supra.shared.character.snapshot.Snapshot;
-import be.charleshornick.supra.shared.character.snapshot.SnapshotBuilder;
-import be.charleshornick.supra.shared.profession.ProfessionName;
-import be.charleshornick.supra.shared.race.RaceName;
+import be.charleshornick.supra.snapshot.Action;
+import be.charleshornick.supra.snapshot.Snapshot;
+import be.charleshornick.supra.snapshot.SnapshotBuilder;
+import be.charleshornick.supra.profession.ProfessionName;
+import be.charleshornick.supra.race.RaceName;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

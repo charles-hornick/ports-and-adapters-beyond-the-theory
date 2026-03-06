@@ -1,9 +1,9 @@
 package be.charleshornick.supra.fixture;
 
-import be.charleshornick.supra.shared.characteristic.PrimaryCharacteristic;
-import be.charleshornick.supra.shared.characteristic.PrimaryCharacteristicName;
-import be.charleshornick.supra.shared.race.Race;
-import be.charleshornick.supra.shared.race.RaceName;
+import be.charleshornick.supra.characteristic.PrimaryCharacteristic;
+import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.race.Race;
+import be.charleshornick.supra.race.RaceName;
 
 import java.util.List;
 

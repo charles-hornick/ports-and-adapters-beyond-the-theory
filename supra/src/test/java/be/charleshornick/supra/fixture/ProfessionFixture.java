@@ -1,11 +1,11 @@
 package be.charleshornick.supra.fixture;
 
-import be.charleshornick.supra.shared.characteristic.PrimaryCharacteristicName;
-import be.charleshornick.supra.shared.profession.Prerequisite;
-import be.charleshornick.supra.shared.profession.Profession;
-import be.charleshornick.supra.shared.profession.ProfessionName;
-import be.charleshornick.supra.shared.profession.ProfessionType;
-import be.charleshornick.supra.shared.race.RaceName;
+import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.profession.Prerequisite;
+import be.charleshornick.supra.profession.Profession;
+import be.charleshornick.supra.profession.ProfessionName;
+import be.charleshornick.supra.profession.ProfessionType;
+import be.charleshornick.supra.race.RaceName;
 
 import java.util.List;
 import java.util.Map;

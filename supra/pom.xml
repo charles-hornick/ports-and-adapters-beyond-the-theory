@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>be.charleshornick</groupId>
-        <artifactId>behond-the-theory</artifactId>
+        <artifactId>beyond-the-theory</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 

@@ -7,6 +7,6 @@ public record PrimaryCharacteristic(PrimaryCharacteristicName name, int base) {
     }
 
     public static PrimaryCharacteristic with(final PrimaryCharacteristicName name, final int base) {
-        return new PrimaryCharacteristic(name, Math.max(base, 6));
+        return new PrimaryCharacteristic(name, base);
     }
 }

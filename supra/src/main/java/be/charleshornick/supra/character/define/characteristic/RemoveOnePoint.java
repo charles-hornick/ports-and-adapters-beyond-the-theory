@@ -3,7 +3,7 @@ package be.charleshornick.supra.character.define.characteristic;
 import be.charleshornick.supra.character.ForLoadingSnapshot;
 import be.charleshornick.supra.character.ForStoringSnapshot;
 import be.charleshornick.supra.character.define.ToCharacter;
-import be.charleshornick.supra.shared.ErrorCause;
+import be.charleshornick.supra.ErrorCause;
 import be.charleshornick.supra.shared.character.snapshot.Snapshot;
 import be.charleshornick.supra.shared.characteristic.PrimaryCharacteristicName;
 import org.pragmatica.lang.Result;
@@ -21,9 +21,9 @@ final class RemoveOnePoint implements DefineCharacteristic.ToCharacteristic, ToC
         this.primaryCharacteristicName = null;
     }
 
-    private RemoveOnePoint(final RemoveOnePoint addOnePoint, final PrimaryCharacteristicName primaryCharacteristicName) {
-        this.forLoadingSnapshot = addOnePoint.forLoadingSnapshot;
-        this.forStoringSnapshot = addOnePoint.forStoringSnapshot;
+    private RemoveOnePoint(final RemoveOnePoint removeOnePoint, final PrimaryCharacteristicName primaryCharacteristicName) {
+        this.forLoadingSnapshot = removeOnePoint.forLoadingSnapshot;
+        this.forStoringSnapshot = removeOnePoint.forStoringSnapshot;
         this.primaryCharacteristicName = primaryCharacteristicName;
     }
 

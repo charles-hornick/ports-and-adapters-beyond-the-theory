@@ -5,5 +5,5 @@ import be.charleshornick.supra.shared.profession.ProfessionName;
 import org.pragmatica.lang.Option;
 
 public interface ForLoadingProfession {
-    Option<Profession> getProfessionDetails(ProfessionName raceName);
+    Option<Profession> getProfessionDetails(ProfessionName professionName);
 }

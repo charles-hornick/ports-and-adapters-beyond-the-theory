@@ -3,7 +3,6 @@ package be.charleshornick.supra;
 import be.charleshornick.supra.character.creation.CreateCharacter;
 import be.charleshornick.supra.fixture.DefaultCharacterData;
 import be.charleshornick.supra.fixture.SnapshotFixture;
-import be.charleshornick.supra.shared.ErrorCause;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.pragmatica.lang.Result;

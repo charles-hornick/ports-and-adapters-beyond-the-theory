@@ -28,7 +28,7 @@ class TestThatRemovingOnePointToCharacteristicShould {
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
-                .byRemovingOnePoints()
+                .byRemovingOnePoint()
                 .toCharacteristicNamed(PrimaryCharacteristicName.COURAGE)
                 .toCharacterNamed(DefaultCharacterData.NAME)
                 .onSuccess(_ -> fail("Removing a point to Courage should not has succeed."));
@@ -40,7 +40,7 @@ class TestThatRemovingOnePointToCharacteristicShould {
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getHighHuman());
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
-                .byRemovingOnePoints()
+                .byRemovingOnePoint()
                 .toCharacteristicNamed(PrimaryCharacteristicName.COURAGE)
                 .toCharacterNamed(DefaultCharacterData.NAME)
                 .onSuccess(_ -> fail("Removing a point to Courage should not has succeed."));
@@ -57,7 +57,7 @@ class TestThatRemovingOnePointToCharacteristicShould {
         );
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
-                .byRemovingOnePoints()
+                .byRemovingOnePoint()
                 .toCharacteristicNamed(PrimaryCharacteristicName.COURAGE)
                 .toCharacterNamed(DefaultCharacterData.NAME)
                 .onFailure(cause -> fail("Fail to remove a point in Courage: "+ cause.message()))
@@ -76,7 +76,7 @@ class TestThatRemovingOnePointToCharacteristicShould {
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
-                .byRemovingOnePoints()
+                .byRemovingOnePoint()
                 .toCharacteristicNamed(null)
                 .toCharacterNamed(DefaultCharacterData.NAME)
                 .onSuccess(_ -> fail("Test should fail when no characteristic name is given."));
@@ -88,13 +88,13 @@ class TestThatRemovingOnePointToCharacteristicShould {
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
-                .byRemovingOnePoints()
+                .byRemovingOnePoint()
                 .toCharacteristicNamed(PrimaryCharacteristicName.COURAGE)
                 .toCharacterNamed(null)
                 .onSuccess(_ -> fail("Test should fail when no character name is given."));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
-                .byRemovingOnePoints()
+                .byRemovingOnePoint()
                 .toCharacteristicNamed(PrimaryCharacteristicName.COURAGE)
                 .toCharacterNamed("")
                 .onSuccess(_ -> fail("Test should fail when empty character name is given."));

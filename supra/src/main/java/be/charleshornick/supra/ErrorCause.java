@@ -1,4 +1,4 @@
-package be.charleshornick.supra.shared;
+package be.charleshornick.supra;
 
 import org.pragmatica.lang.Cause;
 import org.pragmatica.lang.utils.Causes;

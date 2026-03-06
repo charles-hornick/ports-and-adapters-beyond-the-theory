@@ -7,7 +7,6 @@ import be.charleshornick.supra.character.ForStoringSnapshot;
 import be.charleshornick.supra.fixture.DefaultCharacterData;
 import be.charleshornick.supra.fixture.RaceFixture;
 import be.charleshornick.supra.fixture.SnapshotFixture;
-import be.charleshornick.supra.shared.ErrorCause;
 import be.charleshornick.supra.shared.character.snapshot.Action;
 import be.charleshornick.supra.shared.character.snapshot.Snapshot;
 import be.charleshornick.supra.shared.character.snapshot.SnapshotBuilder;
@@ -123,7 +122,7 @@ class TestThatDefiningRaceShould {
                             .extracting(
                                     Snapshot::name,
                                     snap -> snap.race().name(),
-                                    snap -> snap.creationPoints().getPointsLeft())
+                                    Snapshot::getPointsLeft)
                             .doesNotContainNull()
                             .containsExactly(DefaultCharacterData.NAME, raceName, creationPointsLeft)
                 )

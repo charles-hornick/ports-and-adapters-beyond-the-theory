@@ -7,23 +7,21 @@ import be.charleshornick.supra.shared.race.RaceName;
 
 import java.util.*;
 
-public class Prerequisite {
-    private final Map<PrimaryCharacteristicName, Integer> characteristicsToMatch;
-    private final List<RaceName> forbiddenRace;
+public record Prerequisite(Map<PrimaryCharacteristicName, Integer> characteristicsToMatch, List<RaceName> forbiddenRace) {
 
-    private Prerequisite(final Map<PrimaryCharacteristicName, Integer> characteristics, final List<RaceName> races) {
-        this.characteristicsToMatch = characteristics;
-        this.forbiddenRace = races;
+    public Prerequisite {
+        characteristicsToMatch = (characteristicsToMatch != null) ? Map.copyOf(characteristicsToMatch) : Map.of();
+        forbiddenRace = (forbiddenRace != null) ? List.copyOf(forbiddenRace) : List.of();
     }
 
     public static Prerequisite emptyPrerequisite() {
-        return new Prerequisite(new HashMap<>(0), new ArrayList<>(0));
+        return new Prerequisite(Map.of(), List.of());
     }
 
     public static Prerequisite with(final Map<PrimaryCharacteristicName, Integer> characteristics, final List<RaceName> races) {
         return new Prerequisite(
-                (characteristics != null) ? characteristics : new HashMap<>(),
-                (races != null) ? races : new ArrayList<>()
+                (characteristics != null) ? characteristics : Map.of(),
+                (races != null) ? races : List.of()
         );
     }
 
@@ -44,17 +42,5 @@ public class Prerequisite {
 
     public boolean isRaceForbidden(final Race race) {
         return this.forbiddenRace.contains(race.name());
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (!(o instanceof Prerequisite that)) return false;
-        return Objects.equals(this.characteristicsToMatch, that.characteristicsToMatch) &&
-                Objects.equals(this.forbiddenRace, that.forbiddenRace);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.characteristicsToMatch, this.forbiddenRace);
     }
 }

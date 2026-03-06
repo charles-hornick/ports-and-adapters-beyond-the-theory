@@ -3,7 +3,6 @@ package be.charleshornick.supra.shared.point;
 import be.charleshornick.supra.shared.CreationPointConsumer;
 
 import java.util.Objects;
-import java.util.Optional;
 
 public class CreationPoint {
     private static final int base = 12;
@@ -18,11 +17,9 @@ public class CreationPoint {
     }
 
     public CreationPoint addNewConsumer(final CreationPointConsumer consumer) {
-        return Optional.ofNullable(consumer)
-                .map(CreationPointConsumer::getCostInCreationPoint)
-                .map(point -> this.consumed + point)
-                .map(CreationPoint::new)
-                .orElseGet(() -> new CreationPoint(this.consumed));
+        return (consumer != null)
+                ? new CreationPoint(this.consumed + consumer.getCostInCreationPoint())
+                : this;
     }
 
     public boolean hasEnoughCreationToAdd(final CreationPointConsumer consumerToAdd) {

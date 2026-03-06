@@ -40,8 +40,8 @@ public class Snapshot implements Comparable<Snapshot> {
         return this.name;
     }
 
-    public CreationPoint creationPoints() {
-        return this.creationPoints;
+    public int getPointsLeft() {
+        return this.creationPoints.getPointsLeft();
     }
 
     public Race race() {

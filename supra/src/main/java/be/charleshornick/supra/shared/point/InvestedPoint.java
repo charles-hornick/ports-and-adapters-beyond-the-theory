@@ -58,8 +58,9 @@ public class InvestedPoint {
     public Result<InvestedPoint> addPointToCharacteristic(final PrimaryCharacteristicName name) {
         if (this.canAddPointToCharacteristic(name)) {
             final int investedPoint = this.mapOfInvestedPoints.getOrDefault(name, 0);
-            this.mapOfInvestedPoints.put(name, investedPoint + 1);
-            return Result.ok(new InvestedPoint(this.mapOfInvestedPoints, this.race));
+            final var newMap = new HashMap<>(this.mapOfInvestedPoints);
+            newMap.put(name, investedPoint + 1);
+            return Result.ok(new InvestedPoint(newMap, this.race));
         }
         return Result.failure(Causes.cause("Cannot add any more points to "+ name));
     }
@@ -71,8 +72,9 @@ public class InvestedPoint {
     public Result<InvestedPoint> removePointToCharacteristic(final PrimaryCharacteristicName name) {
         if (this.canRemovePointToCharacteristic(name)) {
             final int investedPoint = this.mapOfInvestedPoints.getOrDefault(name, 0);
-            this.mapOfInvestedPoints.put(name, investedPoint - 1);
-            return Result.success(new InvestedPoint(this.mapOfInvestedPoints, this.race));
+            final var newMap = new HashMap<>(this.mapOfInvestedPoints);
+            newMap.put(name, investedPoint - 1);
+            return Result.success(new InvestedPoint(newMap, this.race));
         }
         return Result.failure(Causes.cause("Cannot remove any more points to "+ name));
     }
@@ -82,8 +84,8 @@ public class InvestedPoint {
                 .characteristics()
                 .stream()
                 .collect(Collectors.toMap(
-                        PrimaryCharacteristic::getName,
-                        c -> c.getBase() + this.mapOfInvestedPoints.getOrDefault(c.getName(), 0)
+                        PrimaryCharacteristic::name,
+                        c -> c.base() + this.mapOfInvestedPoints.getOrDefault(c.name(), 0)
                 ));
     }
 

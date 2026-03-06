@@ -1,6 +1,6 @@
 package be.charleshornick.supra.character.creation;
 
-import be.charleshornick.supra.shared.ErrorCause;
+import be.charleshornick.supra.ErrorCause;
 import org.apache.commons.lang3.StringUtils;
 import org.pragmatica.lang.Result;
 

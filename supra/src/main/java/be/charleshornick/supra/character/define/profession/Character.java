@@ -1,6 +1,6 @@
 package be.charleshornick.supra.character.define.profession;
 
-import be.charleshornick.supra.shared.ErrorCause;
+import be.charleshornick.supra.ErrorCause;
 import be.charleshornick.supra.shared.Recorder;
 import be.charleshornick.supra.shared.character.snapshot.Action;
 import be.charleshornick.supra.shared.character.snapshot.Snapshot;

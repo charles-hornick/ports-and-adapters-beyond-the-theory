@@ -3,7 +3,7 @@ package be.charleshornick.supra.character.define.characteristic;
 import be.charleshornick.supra.character.ForLoadingSnapshot;
 import be.charleshornick.supra.character.ForStoringSnapshot;
 import be.charleshornick.supra.character.define.ToCharacter;
-import be.charleshornick.supra.shared.ErrorCause;
+import be.charleshornick.supra.ErrorCause;
 import be.charleshornick.supra.shared.character.snapshot.Snapshot;
 import be.charleshornick.supra.shared.characteristic.PrimaryCharacteristicName;
 import org.pragmatica.lang.Result;

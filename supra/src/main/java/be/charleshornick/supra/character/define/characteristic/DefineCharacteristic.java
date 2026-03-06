@@ -23,7 +23,7 @@ public final class DefineCharacteristic {
         return new AddOnePoint(this.forLoadingSnapshot, this.forStoringSnapshot);
     }
 
-    public ToCharacteristic byRemovingOnePoints() {
+    public ToCharacteristic byRemovingOnePoint() {
         return new RemoveOnePoint(this.forLoadingSnapshot, this.forStoringSnapshot);
     }
 }

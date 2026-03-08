@@ -32,7 +32,7 @@ class TestThatDefiningProfessionShould {
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getHighHuman());
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
-                .named(ProfessionName.GUERRIER)
+                .named(ProfessionName.WARRIOR)
                 .toCharacterNamed(DefaultCharacterData.NAME)
                 .onSuccess(_ -> fail("Should fail defining a Warrior profession to an High Human (not enough creation points)"));
     }
@@ -43,7 +43,7 @@ class TestThatDefiningProfessionShould {
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getHighHuman());
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
-                .named(ProfessionName.GUERRIER)
+                .named(ProfessionName.WARRIOR)
                 .toCharacterNamed(DefaultCharacterData.NAME)
                 .onSuccess(_ -> fail("Should fail defining a Knight profession (evolution profession cannot be define at creation)"));
     }
@@ -65,7 +65,7 @@ class TestThatDefiningProfessionShould {
         );
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
-                .named(ProfessionName.GUERRIER)
+                .named(ProfessionName.WARRIOR)
                 .toCharacterNamed(DefaultCharacterData.NAME)
                 .onSuccess(_ -> fail("Should fail defining a Warrior profession to an elf (race forbidden)"));
     }
@@ -89,7 +89,7 @@ class TestThatDefiningProfessionShould {
         final var expected = SnapshotFixture.getHumanWarrior();
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
-                .named(ProfessionName.GUERRIER)
+                .named(ProfessionName.WARRIOR)
                 .toCharacterNamed(DefaultCharacterData.NAME)
                 .onFailure(cause -> fail("Failed to define Warrior to a human: "+ cause.message()))
                 .onSuccess(snapshot -> assertThat(snapshot)
@@ -117,12 +117,12 @@ class TestThatDefiningProfessionShould {
         final ForLoadingSnapshot forLoadingSnapshot = name -> (StringUtils.isBlank(name)) ? Option.empty() : Option.some(SnapshotFixture.getDefaultOne());
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
-                .named(ProfessionName.AVENTURIER)
+                .named(ProfessionName.ADVENTURER)
                 .toCharacterNamed(null)
                 .onSuccess(_ -> fail("Test should fail when no character name is given."));
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
-                .named(ProfessionName.AVENTURIER)
+                .named(ProfessionName.ADVENTURER)
                 .toCharacterNamed("")
                 .onSuccess(_ -> fail("Test should fail when empty character name is given."));
     }

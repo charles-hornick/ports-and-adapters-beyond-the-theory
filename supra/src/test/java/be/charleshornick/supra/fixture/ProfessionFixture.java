@@ -18,17 +18,17 @@ public interface ProfessionFixture {
         }
 
         return switch (name) {
-            case AVENTURIER -> adventurer();
-            case AVENTURIER_ELFE -> elfAdventurer();
-            case GUERRIER -> warrior();
-            case CHEVALIER -> chevalier();
+            case ADVENTURER -> adventurer();
+            case ELF_ADVENTURER -> elfAdventurer();
+            case WARRIOR -> warrior();
+            case KNIGHT -> chevalier();
             default -> Profession.undefined();
         };
     }
 
     static Profession chevalier() {
         return new Profession(
-                ProfessionName.CHEVALIER,
+                ProfessionName.KNIGHT,
                 ProfessionType.MAJOR_EVOLUTION,
                 "",
                 0,
@@ -51,7 +51,7 @@ public interface ProfessionFixture {
 
     private static Profession warrior() {
         return new Profession(
-                ProfessionName.GUERRIER,
+                ProfessionName.WARRIOR,
                 ProfessionType.MAJOR,
                 "",
                 6,
@@ -72,7 +72,7 @@ public interface ProfessionFixture {
 
     static Profession adventurer() {
         return new Profession(
-                ProfessionName.AVENTURIER,
+                ProfessionName.ADVENTURER,
                 ProfessionType.MINOR,
                 "",
                 0,
@@ -84,7 +84,7 @@ public interface ProfessionFixture {
 
     private static Profession elfAdventurer() {
         return new Profession(
-                ProfessionName.AVENTURIER_ELFE,
+                ProfessionName.ELF_ADVENTURER,
                 ProfessionType.MINOR,
                 "",
                 0,

@@ -1,17 +1,24 @@
 package be.charleshornick.supra.race;
 
 public enum RaceName {
-    UNDEFINED,
+    UNDEFINED(true),
 
-    ELF,
-    HALF_ELF,
-    HIGH_ELF,
-    WOODEN_ELF,
-    DWARF,
-    HIGH_DWARF,
-    HUMAN,
-    HIGH_HUMAN,
-    GNOME,
-    HOBBIT,
-    HALF_ORK,
+    ELF(false),
+    HALF_ELF(false),
+    HIGH_ELF(false),
+    WOODEN_ELF(false),
+    DWARF(false),
+    HIGH_DWARF(false),
+    HUMAN(false),
+    HIGH_HUMAN(false),
+    GNOME(false),
+    HOBBIT(false),
+    HALF_ORK(false),
+    ;
+
+    private final boolean technical;
+
+    RaceName(boolean technical) { this.technical = technical; }
+
+    public boolean isTechnical() { return this.technical; }
 }

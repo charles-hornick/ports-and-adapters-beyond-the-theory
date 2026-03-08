@@ -87,7 +87,7 @@ public interface SnapshotFixture {
 
         return SnapshotBuilder
                 .basedOnPreviousSnapshot(snapshotWithCharacteristics)
-                .updateProfessionWith(ProfessionFixture.get(ProfessionName.GUERRIER))
+                .updateProfessionWith(ProfessionFixture.get(ProfessionName.WARRIOR))
                 .getForAction(Action.DEFINE_PROFESSION);
     }
 }

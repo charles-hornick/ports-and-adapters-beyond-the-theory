@@ -57,7 +57,7 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("Keep the already defined profession when race is not forbidden")
     void keepAlreadyDefinedProfessionWhenRaceIsNotForbidden() {
-        final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.AVENTURIER);
+        final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.ADVENTURER);
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(baseSnapshot);
 
         final var expected = SnapshotBuilder
@@ -75,7 +75,7 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("Reset the already defined profession when race is forbidden")
     void resetAlreadyDefinedProfessionWhenRaceIsForbidden() {
-        final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.AVENTURIER_ELFE);
+        final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.ELF_ADVENTURER);
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(baseSnapshot);
 
         final var expected = SnapshotBuilder
@@ -93,7 +93,7 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("Reset the already defined profession when too many creation points are consumed")
     void resetAlreadyDefinedProfessionWhenTooManyCreationPointsAreConsumed() {
-        final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.AVENTURIER);
+        final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.ADVENTURER);
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(baseSnapshot);
 
         final var expected = SnapshotBuilder

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class GetAllProfessions {
+public final class GetAllProfessions {
 
     private final ForGettingProfession forGettingProfession;
 

@@ -56,6 +56,18 @@ be.charleshornick.supra
 │       ├── RemoveOnePoint.java              # package-private (step builder)
 │       └── Character.java                   # package-private
 │
+├── retrieve/                                # use cases: modify an existing character
+│   ├── race/
+│   │   ├── ForGettingRaces.java             # secondary port (specific)
+│   │   ├── GetAllRaces.java                 # primary port (public final)
+│   ├── profession/
+│   │   ├── ForGettingProfessions.java       # secondary port (specific)
+│   │   ├── GetAllProfessions.java           # primary port (public final)
+│   └── snapshot/
+│   │   ├── ForGettingSnapshot.java          # secondary port (specific)
+│   │   ├── GetAllSnapshots.java             # primary port (public final)
+│   │   ├── GetLatestSnapshot.java           # primary port (public final)
+│
 ├── race/                                    # vocabulary: what a race IS
 │   ├── Race.java
 │   └── RaceName.java
@@ -77,7 +89,7 @@ be.charleshornick.supra
     └── InvestedPoint.java
 ```
 
-Actions (`creation/`, `define/`) are separated from vocabulary (`race/`, `profession/`, `characteristic/`). The former describe what you *do*, the latter describe what things *are*.
+Actions (`creation/`, `define/`, `retrieve/`) are separated from vocabulary (`race/`, `profession/`, `characteristic/`). The former describe what you *do*, the latter describe what things *are*.
 
 ## How the ports read
 

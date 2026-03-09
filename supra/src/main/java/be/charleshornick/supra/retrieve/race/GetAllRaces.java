@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class GetAllRaces {
+public final class GetAllRaces {
 
     private final ForGettingRaces forGettingRace;
 

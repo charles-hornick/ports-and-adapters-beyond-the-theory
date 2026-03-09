@@ -3,7 +3,7 @@ package be.charleshornick.supra.retrieve.snapshot;
 import be.charleshornick.supra.snapshot.Snapshot;
 import org.pragmatica.lang.Option;
 
-public class GetLastestSnapshot {
+public final class GetLastestSnapshot {
 
     private final ForGettingSnapshot forGettingSnapshot;
 

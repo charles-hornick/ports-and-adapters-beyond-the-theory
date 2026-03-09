@@ -4,7 +4,7 @@ import be.charleshornick.supra.snapshot.Snapshot;
 
 import java.util.List;
 
-public class GetAllSnapshots {
+public final class GetAllSnapshots {
 
     private final ForGettingSnapshot forGettingSnapshot;
 

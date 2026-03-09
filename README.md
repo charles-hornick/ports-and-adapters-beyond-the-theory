@@ -12,12 +12,14 @@ Simple enough to understand in minutes. Complex enough to demonstrate real desig
 
 ## Article Series
 
-| # | Article | Code | Key Concept |
-|---|---------|------|-------------|
-| 1 | [Runtime Adapter Hot-Swapping with Ports & Adapters](https://dev.to/charleshornick) | [Separate repo](https://github.com/charles-hornick/TODO) | Automatic failover between adapters at runtime |
-| 2 | Organizing the Hexagon (coming soon) | `article/2-package-by-component` | Structuring the hexagon's internals using Simon Brown's package-by-component approach |
-| 3 | Isolating the Hexagon with JPMS (coming soon) | `article/3-jpms-isolation` | Using Java modules to enforce boundaries beyond package-private |
-| 4 | Adapter Switching Strategies (coming soon) | `article/4-switching-strategies` | Compile-time, config-time, and runtime switching — the full spectrum |
+| # | Article | Branch | Focus |
+|---|---------|--------|-------|
+| 1 | [Runtime Adapter Hot-Swapping](https://dev.to/charleshornick) | Separate repo | Automatic failover between adapters at runtime |
+| 2 | Organizing the Application** | `article/2-package-by-component` | Structuring the application's internals with Brown |
+| 3 | Isolating with JPMS (coming soon) | `article/3-jpms-isolation` | Enforcing boundaries beyond package-private |
+| 4 | Testing with Result (coming soon) | — | Shared test scenarios, fakes over mocks |
+| 5 | Adapter Switching Strategies (coming soon) | — | Compile-time, config-time, runtime switching |
+| 6 | Spring Modulith + P&A (coming soon) | — | Bounded contexts and hexagonal internals |
 
 > Article 1 uses a different domain and lives in its own repository. Articles 2+ use the RPG character creation system in this repo.
 
@@ -25,10 +27,10 @@ Simple enough to understand in minutes. Complex enough to demonstrate real desig
 
 ## Tech Stack
 
-- Java 21+
-- Spring Boot
+- Java 25+
+- Spring Boot 4
 - Maven (multi-module)
-- JUnit 5
+- JUnit 6
 
 ## About
 

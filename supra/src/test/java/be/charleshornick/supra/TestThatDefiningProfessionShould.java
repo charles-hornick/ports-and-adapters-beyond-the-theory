@@ -126,4 +126,35 @@ class TestThatDefiningProfessionShould {
                 .toCharacterNamed("")
                 .onSuccess(_ -> fail("Test should fail when empty character name is given."));
     }
+
+    @Test
+    @DisplayName("Succeed when no race is defined and profession has no prerequisite")
+    void succeedWhenNoRaceIsDefinedAndProfessionHasNoPrerequisite() {
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+
+        new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
+                .named(ProfessionName.ADVENTURER)
+                .toCharacterNamed(DefaultCharacterData.NAME)
+                .onFailure(cause -> fail("Should succeed defining Adventurer without race: " + cause.message()));
+    }
+
+    @Test
+    @DisplayName("Fail when characteristic prerequisites are not met")
+    void failWhenCharacteristicPrerequisitesAreNotMet() {
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+                SnapshotFixture.getWithRaceAndInvestedPointIn(
+                        RaceName.HUMAN,
+                        Map.of(
+                                PrimaryCharacteristicName.COURAGE, 2,
+                                PrimaryCharacteristicName.WILLPOWER, 1,
+                                PrimaryCharacteristicName.CHARISMA, 1
+                        )
+                )
+        );
+
+        new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
+                .named(ProfessionName.WARRIOR)
+                .toCharacterNamed(DefaultCharacterData.NAME)
+                .onSuccess(_ -> fail("Should fail defining Warrior — characteristic prerequisites not met"));
+    }
 }

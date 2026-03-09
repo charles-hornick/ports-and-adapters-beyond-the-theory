@@ -108,7 +108,24 @@ class TestThatDefiningRaceShould {
                 .onFailure(cause -> fail("Failed to define new race: " + cause.message()));
     }
 
-    @ParameterizedTest(name = "{index} > Defining {0} should left {1} creation points")
+    @Test
+    @DisplayName("Successfully change from one race to another")
+    void successfullyChangeFromOneRaceToAnother() {
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getWithRace(RaceName.DWARF));
+
+        final var expected = SnapshotBuilder
+                .basedOnPreviousSnapshot(SnapshotFixture.getWithRace(RaceName.DWARF))
+                .updateRaceWith(RaceFixture.elf())
+                .getForAction(Action.DEFINE_RACE);
+
+        new DefineRace(forLoadingSnapshot, this.forStoringSnapshot, this.forLoadingRace)
+                .named(RaceName.ELF)
+                .toCharacterNamed(DefaultCharacterData.NAME)
+                .onSuccess(snapshot -> assertEqualsAgainst(snapshot, expected))
+                .onFailure(cause -> fail("Failed to change race from DWARF to ELF: " + cause.message()));
+    }
+
+    @ParameterizedTest(name = "{index} > Defining {0} should leave {1} creation points")
     @MethodSource("getRacesAndExpectedCreationPointsLeft")
     @DisplayName("Consume the right amount of creation points")
     void consumeTheRightAmountOfCreationPoints(final RaceName raceName, final int creationPointsLeft) {

@@ -166,6 +166,33 @@ class TestThatAddingOnePointToCharacteristicShould {
     }
 
     @Test
+    @DisplayName("Fail when max of 27 points is exceeded for all characteristics (non-high race)")
+    void failWhenMaxOf27PointsIsReachedForAllCharacteristicsWithNonHighRace() {
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+                SnapshotFixture.getWithRaceAndInvestedPointIn(
+                        RaceName.HUMAN,
+                        Map.of(
+                                PrimaryCharacteristicName.COURAGE, 5,
+                                PrimaryCharacteristicName.WILLPOWER, 2,
+                                PrimaryCharacteristicName.CHARISMA, 2,
+                                PrimaryCharacteristicName.BEAUTY, 2,
+                                PrimaryCharacteristicName.CONSTITUTION, 4,
+                                PrimaryCharacteristicName.INTELLIGENCE, 2,
+                                PrimaryCharacteristicName.PERCEPTION, 2,
+                                PrimaryCharacteristicName.DEXTERITY, 4,
+                                PrimaryCharacteristicName.STRENGTH, 4
+                        )
+                )
+        );
+
+        new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
+                .byAddingOnePoint()
+                .toCharacteristicNamed(PrimaryCharacteristicName.BEAUTY)
+                .toCharacterNamed(DefaultCharacterData.NAME)
+                .onSuccess(_ -> fail("Adding a point should fail when max of 27 total points is reached for non high race."));
+    }
+
+    @Test
     @DisplayName("Fail when max of 30 points is exceed for all characteristics (high race)")
     void failWhenMaxOf30PointsIsReachedForAllCharacteristicsWithHighRace() {
         final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(

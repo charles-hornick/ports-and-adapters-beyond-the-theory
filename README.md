@@ -64,9 +64,9 @@ be.charleshornick.supra
 │   │   ├── ForGettingProfessions.java       # secondary port (specific)
 │   │   ├── GetAllProfessions.java           # primary port (public final)
 │   └── snapshot/
-│   │   ├── ForGettingSnapshot.java          # secondary port (specific)
-│   │   ├── GetAllSnapshots.java             # primary port (public final)
-│   │   ├── GetLatestSnapshot.java           # primary port (public final)
+│       ├── ForGettingSnapshot.java          # secondary port (specific)
+│       ├── GetAllSnapshots.java             # primary port (public final)
+│       └── GetLatestSnapshot.java           # primary port (public final)
 │
 ├── race/                                    # vocabulary: what a race IS
 │   ├── Race.java

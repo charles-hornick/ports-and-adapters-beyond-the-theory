@@ -1,4 +1,4 @@
-package be.charleshornick.supra.creation;
+package be.charleshornick.supra.create;
 
 public interface ForCheckingNameUnicity {
     boolean isAvailable(String name);

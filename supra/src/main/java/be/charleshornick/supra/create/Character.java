@@ -1,4 +1,4 @@
-package be.charleshornick.supra.creation;
+package be.charleshornick.supra.create;
 
 import be.charleshornick.supra.snapshot.Recorder;
 import be.charleshornick.supra.snapshot.Snapshot;

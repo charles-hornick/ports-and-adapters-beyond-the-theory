@@ -31,7 +31,7 @@ be.charleshornick.supra
 ├── ErrorCause.java                         # cross-cutting error constants
 ├── ForStoringSnapshot.java                 # secondary port, shared across use cases
 │
-├── creation/                               # use case: create a character
+├── create/                               # use case: create a character
 │   ├── CreateCharacter.java                # primary port (public final)
 │   ├── ForCheckingNameUnicity.java         # secondary port (specific)
 │   ├── Character.java                      # package-private

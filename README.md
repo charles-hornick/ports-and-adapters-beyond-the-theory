@@ -12,14 +12,14 @@ Simple enough to understand in minutes. Complex enough to demonstrate real desig
 
 ## Article Series
 
-| # | Article | Branch | Focus |
-|---|---------|--------|-------|
-| 1 | [Runtime Adapter Hot-Swapping](https://dev.to/charleshornick) | Separate repo | Automatic failover between adapters at runtime |
-| 2 | Organizing the Application** | `article/2-package-by-component` | Structuring the application's internals with Brown |
-| 3 | Isolating with JPMS (coming soon) | `article/3-jpms-isolation` | Enforcing boundaries beyond package-private |
-| 4 | Testing with Result (coming soon) | — | Shared test scenarios, fakes over mocks |
-| 5 | Adapter Switching Strategies (coming soon) | — | Compile-time, config-time, runtime switching |
-| 6 | Spring Modulith + P&A (coming soon) | — | Bounded contexts and hexagonal internals |
+| # | Article                                                                                                                                              | Branch | Focus |
+|---|------------------------------------------------------------------------------------------------------------------------------------------------------|--------|-------|
+| 1 | [Runtime Adapter Hot-Swapping](https://dev.to/charleshornick)                                                                                        | Separate repo | Automatic failover between adapters at runtime |
+| 2 | [Organizing the Application](https://dev.to/charleshornick/ports-adapters-beyond-the-theory-organizing-the-application-with-package-by-component-49m3) | `article/2-package-by-component` | Structuring the application's internals with Brown |
+| 3 | Isolating with JPMS (coming soon)                                                                                                                    | `article/3-jpms-isolation` | Enforcing boundaries beyond package-private |
+| 4 | Testing with Result (coming soon)                                                                                                                    | — | Shared test scenarios, fakes over mocks |
+| 5 | Adapter Switching Strategies (coming soon)                                                                                                           | — | Compile-time, config-time, runtime switching |
+| 6 | Spring Modulith + P&A (coming soon)                                                                                                                  | — | Bounded contexts and hexagonal internals |
 
 > Article 1 uses a different domain and lives in its own repository. Articles 2+ use the RPG character creation system in this repo.
 

@@ -1,8 +1,9 @@
-package be.charleshornick.supra.snapshot;
+package be.charleshornick.supra.state.snapshot;
 
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
 import be.charleshornick.supra.profession.Profession;
 import be.charleshornick.supra.race.Race;
+import be.charleshornick.supra.state.CreationPoint;
 
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class Snapshot implements Comparable<Snapshot> {
     private final Profession profession;
     private final Map<PrimaryCharacteristicName, Integer> investedPoints;
 
-    Snapshot(final int version, final String name, final Action action, final Race race, final Profession profession, final Map<PrimaryCharacteristicName, Integer> investedPoints) {
+    public Snapshot(final int version, final String name, final Action action, final Race race, final Profession profession, final Map<PrimaryCharacteristicName, Integer> investedPoints) {
         this.version = version;
         this.name = name;
         this.action = action;

@@ -1,7 +1,7 @@
 package be.charleshornick.supra.profession;
 
-import be.charleshornick.supra.snapshot.CreationPointConsumer;
-import be.charleshornick.supra.snapshot.InvestedPoint;
+import be.charleshornick.supra.state.CreationPointConsumer;
+import be.charleshornick.supra.state.InvestedPoint;
 import be.charleshornick.supra.race.Race;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.utils.Causes;

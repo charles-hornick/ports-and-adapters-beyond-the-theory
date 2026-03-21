@@ -1,10 +1,10 @@
 package be.charleshornick.supra.fixture;
 
-import be.charleshornick.supra.snapshot.Action;
-import be.charleshornick.supra.snapshot.Snapshot;
-import be.charleshornick.supra.snapshot.SnapshotBuilder;
+import be.charleshornick.supra.state.snapshot.Action;
+import be.charleshornick.supra.state.snapshot.Snapshot;
+import be.charleshornick.supra.state.SnapshotBuilder;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
-import be.charleshornick.supra.snapshot.InvestedPoint;
+import be.charleshornick.supra.state.InvestedPoint;
 import be.charleshornick.supra.profession.ProfessionName;
 import be.charleshornick.supra.race.RaceName;
 

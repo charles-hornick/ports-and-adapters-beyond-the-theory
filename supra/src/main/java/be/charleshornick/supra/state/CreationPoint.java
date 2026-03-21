@@ -1,4 +1,4 @@
-package be.charleshornick.supra.snapshot;
+package be.charleshornick.supra.state;
 
 import java.util.Objects;
 

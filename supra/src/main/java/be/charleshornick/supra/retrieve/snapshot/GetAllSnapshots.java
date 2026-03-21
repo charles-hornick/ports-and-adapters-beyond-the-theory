@@ -1,6 +1,6 @@
 package be.charleshornick.supra.retrieve.snapshot;
 
-import be.charleshornick.supra.snapshot.Snapshot;
+import be.charleshornick.supra.state.snapshot.Snapshot;
 
 import java.util.List;
 

@@ -4,7 +4,7 @@ import be.charleshornick.supra.define.ToCharacter;
 import be.charleshornick.supra.define.ForLoadingSnapshot;
 import be.charleshornick.supra.ForStoringSnapshot;
 import be.charleshornick.supra.ErrorCause;
-import be.charleshornick.supra.snapshot.Snapshot;
+import be.charleshornick.supra.state.snapshot.Snapshot;
 import be.charleshornick.supra.profession.Profession;
 import be.charleshornick.supra.profession.ProfessionName;
 import org.pragmatica.lang.Option;

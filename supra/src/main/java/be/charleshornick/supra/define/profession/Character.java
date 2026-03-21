@@ -1,12 +1,12 @@
 package be.charleshornick.supra.define.profession;
 
 import be.charleshornick.supra.ErrorCause;
-import be.charleshornick.supra.snapshot.Recorder;
-import be.charleshornick.supra.snapshot.Action;
-import be.charleshornick.supra.snapshot.Snapshot;
-import be.charleshornick.supra.snapshot.SnapshotBuilder;
-import be.charleshornick.supra.snapshot.CreationPoint;
-import be.charleshornick.supra.snapshot.InvestedPoint;
+import be.charleshornick.supra.state.Recorder;
+import be.charleshornick.supra.state.snapshot.Action;
+import be.charleshornick.supra.state.snapshot.Snapshot;
+import be.charleshornick.supra.state.SnapshotBuilder;
+import be.charleshornick.supra.state.CreationPoint;
+import be.charleshornick.supra.state.InvestedPoint;
 import be.charleshornick.supra.profession.Profession;
 import be.charleshornick.supra.race.Race;
 import org.pragmatica.lang.Result;

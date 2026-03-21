@@ -1,8 +1,8 @@
 package be.charleshornick.supra.create;
 
-import be.charleshornick.supra.snapshot.Recorder;
-import be.charleshornick.supra.snapshot.Snapshot;
-import be.charleshornick.supra.snapshot.SnapshotBuilder;
+import be.charleshornick.supra.state.Recorder;
+import be.charleshornick.supra.state.snapshot.Snapshot;
+import be.charleshornick.supra.state.SnapshotBuilder;
 
 class Character implements Recorder {
 

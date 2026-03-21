@@ -1,7 +1,7 @@
 package be.charleshornick.supra.profession;
 
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
-import be.charleshornick.supra.snapshot.InvestedPoint;
+import be.charleshornick.supra.state.InvestedPoint;
 import be.charleshornick.supra.race.Race;
 import be.charleshornick.supra.race.RaceName;
 

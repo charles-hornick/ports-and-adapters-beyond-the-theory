@@ -1,6 +1,6 @@
 package be.charleshornick.supra.race;
 
-import be.charleshornick.supra.snapshot.CreationPointConsumer;
+import be.charleshornick.supra.state.CreationPointConsumer;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristic;
 
 import java.util.List;

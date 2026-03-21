@@ -1,4 +1,4 @@
-package be.charleshornick.supra.snapshot;
+package be.charleshornick.supra.state;
 
 public interface CreationPointConsumer {
     int getCostInCreationPoint();

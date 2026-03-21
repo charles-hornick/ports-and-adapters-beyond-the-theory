@@ -1,8 +1,10 @@
-package be.charleshornick.supra.snapshot;
+package be.charleshornick.supra.state;
 
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
 import be.charleshornick.supra.profession.Profession;
 import be.charleshornick.supra.race.Race;
+import be.charleshornick.supra.state.snapshot.Action;
+import be.charleshornick.supra.state.snapshot.Snapshot;
 
 import java.util.HashMap;
 import java.util.Map;

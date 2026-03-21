@@ -1,4 +1,4 @@
-package be.charleshornick.supra.snapshot;
+package be.charleshornick.supra.state;
 
 import be.charleshornick.supra.characteristic.PrimaryCharacteristic;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;

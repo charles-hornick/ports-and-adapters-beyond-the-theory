@@ -1,11 +1,11 @@
 package be.charleshornick.supra.define.characteristic;
 
-import be.charleshornick.supra.snapshot.Recorder;
-import be.charleshornick.supra.snapshot.Action;
-import be.charleshornick.supra.snapshot.Snapshot;
-import be.charleshornick.supra.snapshot.SnapshotBuilder;
+import be.charleshornick.supra.state.Recorder;
+import be.charleshornick.supra.state.snapshot.Action;
+import be.charleshornick.supra.state.snapshot.Snapshot;
+import be.charleshornick.supra.state.SnapshotBuilder;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
-import be.charleshornick.supra.snapshot.InvestedPoint;
+import be.charleshornick.supra.state.InvestedPoint;
 import be.charleshornick.supra.race.Race;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.utils.Causes;

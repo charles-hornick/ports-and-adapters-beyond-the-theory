@@ -1,7 +1,7 @@
 package be.charleshornick.supra.create;
 
 import be.charleshornick.supra.ForStoringSnapshot;
-import be.charleshornick.supra.snapshot.Snapshot;
+import be.charleshornick.supra.state.snapshot.Snapshot;
 import org.pragmatica.lang.Result;
 
 public final class CreateCharacter {

@@ -1,125 +1,122 @@
-# Article 2 — Organizing the Application with Package-by-Component
+# Article 3 — Isolating the Application with JPMS
 
 > Part of the **"Ports & Adapters: Beyond the Theory"** series.
-> Previous: [Article 1 — Runtime Adapter Hot-Swapping](https://dev.to/charleshornick)
+> Previous: [Article 2 — Organizing the Application with Package-by-Component](https://dev.to/charleshornick/runtime-adapter-hot-swapping-with-ports-adapters-the-pattern-alistair-cockburn-didnt-document-56cg)
 
 ## What this article explores
 
-Cockburn's Ports & Adapters pattern protects the application from the outside world, but says nothing about how to organize its internals. This article fills that gap using Simon Brown's package-by-component approach, where Java's `package-private` becomes the primary isolation mechanism.
+Article 2 combined Ports & Adapters with Simon Brown's package-by-component to organize the application's internals. `package-private` covered 80% of the isolation, but `public` constructors and shared utility classes remained exposed.
 
-Three key positions are taken and defended:
+This article closes that gap with JPMS. The Java Platform Module System adds a level of isolation above packages: **a module is closed by default**. If a package is not explicitly exported, it is invisible from outside the module, even if its classes are `public`.
 
-1. **The port is not a Java `interface`** - Cockburn defines it as a protocol taking the form of an API, not a language keyword. The primary ports in this codebase are concrete `final` classes.
-2. **"Domain" is DDD vocabulary, not Cockburn's** - the interior of the hexagon is the *application*. There is no `domain/` package.
-3. **The Step Builder enforces Cockburn's protocol at compile time** - multi-step ports use inner interfaces to guarantee the interaction order. Single-step ports don't need it.
+Three key additions in this article:
 
-## The application
+1. **JPMS module definitions** enforce boundaries at compile time. Non-exported packages are invisible to adapters.
+2. **A test console adapter** drives the application through its ports, following the approach Cockburn uses in *Hexagonal Architecture Explained*.
+3. **A composition root** wires primary ports with fake secondary adapters. No Spring, no annotations, explicit wiring.
 
-An RPG character creation system with real business rules:
+## Modules
 
-- Create a character by name (unique)
-- Define a race - carries a creation point cost and base characteristics
-- Define a profession - constrained by race, invested points, and creation points
-- Invest points in primary characteristics - bounded by race-dependent limits per characteristic, per category, and globally
+```
+ports-and-adapters-beyond-the-theory/
+├── supra/                  # The application — JPMS module, exports only what adapters need
+├── facade-test/            # Primary adapter — console test adapter driving the application
+├── storage-test/           # Secondary adapter — in-memory fakes for persistence
+└── bootstrap/              # Composition root — wires everything together, has the main()
+```
 
-Every action produces an immutable `Snapshot` of the character's state. The `Result<T>` type from [Pragmatica](https://github.com/pragmaticalabs/pragmatica) replaces exceptions everywhere (a dedicated article on this choice is coming.)
+### `supra` — The application
 
-## Package structure
+The application from article 2, now with a `module-info.java` that explicitly controls visibility. Internal packages (`state/`) are not exported. Vocabulary (`race/`, `profession/`, `characteristic/`) and ports (`create/`, `define/`, `retrieve/`) are exported.
+
+The application has **zero** dependencies on any adapter module.
+
+### `facade-test` — Test console adapter
+
+A primary adapter that calls the ports and prints results to the console. It proves that:
+- The JPMS boundaries work (non-exported packages are inaccessible)
+- The ports are correctly wired through the composition root
+- The protocol (Step Builder) works end-to-end
+
+This adapter can only see what the application exports. If it tries to access `SnapshotBuilder` or `CreationPoint`, the compiler refuses.
+
+### `storage-test` — In-memory fake adapter
+
+A secondary adapter that implements the application's secondary ports with in-memory storage. Following Cockburn's approach in the book: a fake that allows testing the full flow without infrastructure.
+
+### `bootstrap` — Composition root
+
+The only module that knows about all others. It instantiates the fake adapters, creates the primary ports by injecting the secondary port implementations, and passes them to the test adapter.
+
+```java
+public class Application {
+    void main(String[] args) {
+        // Wire secondary adapters (fakes)
+        // Wire primary ports with secondary implementations
+        // Pass to primary adapter and run
+    }
+}
+```
+
+No Spring. No annotations. No framework. Explicit wiring, verified at compile time.
+
+## Package structure — `supra` module
 
 ```
 be.charleshornick.supra
-├── ErrorCause.java                         # cross-cutting error constants
-├── ForStoringSnapshot.java                 # secondary port, shared across use cases
+├── ErrorCause.java                              # exported
+├── ForStoringSnapshot.java                      # exported
 │
-├── create/                               # use case: create a character
-│   ├── CreateCharacter.java                # primary port (public final)
-│   ├── ForCheckingNameUnicity.java         # secondary port (specific)
-│   ├── Character.java                      # package-private
-│   └── CharacterNameValidator.java         # package-private
+├── create/                                      # exported
+│   ├── CreateCharacter.java
+│   ├── ForCheckingNameUnicity.java
+│   ├── Character.java                           # package-private
+│   └── CharacterNameValidator.java              # package-private
 │
-├── define/                                 # use cases: modify an existing character
-│   ├── ForLoadingSnapshot.java             # secondary port, shared within define/
-│   ├── ToCharacter.java                    # step interface, shared within define/
+├── define/                                      # exported
+│   ├── ForLoadingSnapshot.java
+│   ├── ToCharacter.java
+│   ├── race/                                    # exported
+│   ├── profession/                              # exported
+│   └── characteristic/                          # exported
+│
+├── retrieve/                                    # exported
 │   ├── race/
-│   │   ├── DefineRace.java                 # primary port (public final)
-│   │   ├── ForLoadingRace.java             # secondary port (specific)
-│   │   ├── DefineRaceStep.java             # package-private
-│   │   └── Character.java                  # package-private
 │   ├── profession/
-│   │   ├── DefineProfession.java           # primary port (public final)
-│   │   ├── ForLoadingProfession.java       # secondary port (specific)
-│   │   ├── DefineProfessionStep.java       # package-private
-│   │   └── Character.java                  # package-private
-│   └── characteristic/
-│       ├── DefineCharacteristic.java        # primary port (public final)
-│       ├── AddOnePoint.java                 # package-private (step builder)
-│       ├── RemoveOnePoint.java              # package-private (step builder)
-│       └── Character.java                   # package-private
-│
-├── retrieve/                                # use cases: modify an existing character
-│   ├── race/
-│   │   ├── ForGettingRaces.java             # secondary port (specific)
-│   │   ├── GetAllRaces.java                 # primary port (public final)
-│   ├── profession/
-│   │   ├── ForGettingProfessions.java       # secondary port (specific)
-│   │   ├── GetAllProfessions.java           # primary port (public final)
 │   └── snapshot/
-│       ├── ForGettingSnapshot.java          # secondary port (specific)
-│       ├── GetAllSnapshots.java             # primary port (public final)
-│       └── GetLatestSnapshot.java           # primary port (public final)
 │
-├── race/                                    # vocabulary: what a race IS
-│   ├── Race.java
-│   └── RaceName.java
-├── profession/                              # vocabulary: what a profession IS
-│   ├── Profession.java
-│   ├── ProfessionName.java
-│   ├── ProfessionType.java
-│   └── Prerequisite.java
-├── characteristic/                          # vocabulary: what a characteristic IS
-│   ├── PrimaryCharacteristic.java
-│   └── PrimaryCharacteristicName.java
-└── snapshot/                                # state management internals
-    ├── Snapshot.java
-    ├── SnapshotBuilder.java
-    ├── Action.java
-    ├── Recorder.java
+├── race/                                        # exported — vocabulary
+├── profession/                                  # exported — vocabulary
+├── characteristic/                              # exported — vocabulary
+│
+└── state/                                       # NOT exported — internal
     ├── CreationPoint.java
     ├── CreationPointConsumer.java
-    └── InvestedPoint.java
+    ├── InvestedPoint.java
+    ├── Recorder.java
+    ├── SnapshotBuilder.java
+    └── snapshot/                                # exported — Snapshot, Action
+        ├── Snapshot.java
+        └── Action.java
 ```
 
-Actions (`creation/`, `define/`, `retrieve/`) are separated from vocabulary (`race/`, `profession/`, `characteristic/`). The former describe what you *do*, the latter describe what things *are*.
+Two levels of isolation working together:
+- **JPMS** controls what leaves the module. Non-exported packages are invisible even if classes are `public`.
+- **`package-private`** controls what leaves the package. Internal classes stay invisible within the module itself.
 
-## How the ports read
+## Key decisions
 
-Single-step - no protocol to enforce:
+### Exports are not qualified
 
-```java
-createCharacter.named("Borgrim");
-```
+No `exports ... to` clauses. The application does not know which modules consume its ports. This preserves Cockburn's application ignorance.
 
-Multi-step - the Step Builder enforces the protocol at compile time:
+### `opens ... to` is not used
 
-```java
-defineRace.named(RaceName.DWARF).toCharacterNamed("Borgrim");
+The application does not declare `opens` for reflection. Deserialization (Jackson, Gson, etc.) is the adapter's responsibility, not the application's. The application cannot know about external technologies.
 
-defineProfession.named(ProfessionName.GUERRIER).toCharacterNamed("Borgrim");
+### `@Transactional` stays out of the application
 
-defineCharacteristic.byAddingOnePoint()
-    .toCharacteristicNamed(PrimaryCharacteristicName.COURAGE)
-    .toCharacterNamed("Borgrim");
-```
-
-No other call sequence compiles.
-
-## The honest trade-off
-
-The constructors of primary ports are `public`, a composition root (not in this branch) will need them. But this means any adapter could also call `new CreateCharacter(portA, portB)` and bypass the intended wiring.
-
-`package-private` covers ~80% of the isolation. Java has no mechanism to say "this constructor is visible only to that module." This is a language limitation, not a pattern limitation.
-
-**→ This is the subject of Article 3: JPMS.**
+Transaction management belongs to the adapter or the composition root, not to the application. The same port can be wired with a JDBC adapter (needs transactions) or an in-memory adapter (doesn't). The application cannot know.
 
 ## Tech stack
 
@@ -127,33 +124,33 @@ The constructors of primary ports are `public`, a composition root (not in this 
 - [Pragmatica](https://github.com/pragmaticalabs/pragmatica) (`Result<T>`, `Option<T>`)
 - JUnit 6
 - AssertJ
-- Maven
+- Maven (multi-module with JPMS)
 
-No Spring, no framework, no annotations in the application. This branch contains only the `supra` module (adapters and composition root are introduced in Article 3.)
+No Spring. No framework. No annotations in the application.
 
-## Run the tests
+## Run
 
 ```bash
-cd supra
-mvn test
+cd bootstrap
+mvn compile exec:java -Dexec.mainClass="be.charleshornick.supra.bootstrap.Application"
 ```
 
 ## Series overview
 
 | # | Article | Branch | Focus |
 |---|---------|--------|-------|
-| 1 | [Runtime Adapter Hot-Swapping](https://dev.to/charleshornick) | Separate repo | Automatic failover between adapters at runtime |
-| 2 | **Organizing the Application** | `article/2-package-by-component` | Structuring the application's internals with Brown |
-| 3 | Isolating with JPMS (coming soon) | `article/3-jpms-isolation` | Enforcing boundaries beyond package-private |
+| 1 | [Runtime Adapter Hot-Swapping](https://dev.to/charleshornick/runtime-adapter-hot-swapping-with-ports-adapters-the-pattern-alistair-cockburn-didnt-document-56cg) | Separate repo | Automatic failover between adapters at runtime |
+| 2 | [Organizing the Application](https://dev.to/charleshornick/ports-adapters-beyond-the-theory-organizing-the-application-with-package-by-component-49m3) | `article/2-package-by-component` | Structuring the application's internals with Brown |
+| 3 | **Isolating with JPMS** | `article/3-jpms-isolation` | Enforcing boundaries beyond package-private |
 | 4 | Testing with Result (coming soon) | — | Shared test scenarios, fakes over mocks |
 | 5 | Adapter Switching Strategies (coming soon) | — | Compile-time, config-time, runtime switching |
 | 6 | Spring Modulith + P&A (coming soon) | — | Bounded contexts and hexagonal internals |
 
 ## Acknowledgements
 
-This series exists because [Alistair Cockburn](https://en.wikipedia.org/wiki/Alistair_Cockburn) shared Article 1 and described the approach as *"an amazing use of Hexagonal Architecture."* The architectural decisions in this codebase are grounded in [his original text](https://alistair.cockburn.us/hexagonal-architecture).
+This series exists because [Alistair Cockburn](https://en.wikipedia.org/wiki/Alistair_Cockburn) shared Article 1 and described the approach as *"an amazing use of Hexagonal Architecture."* The architectural decisions in this codebase are grounded in [his original text](https://alistair.cockburn.us/hexagonal-architecture) and in [Hexagonal Architecture Explained](https://www.amazon.com/Hexagonal-Architecture-Explained-architecture-simplifies/dp/B0F5QSH28F) (Cockburn & Garrido de Paz, updated 1st edition, 2025).
 
-Package-by-component is Simon Brown's concept, detailed in his work on the [C4 model](https://c4model.com/) and software architecture.
+Every line of code in this repository was written and tested by hand. No AI-generated code.
 
 ## License
 

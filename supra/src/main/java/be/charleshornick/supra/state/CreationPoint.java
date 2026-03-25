@@ -40,4 +40,11 @@ public class CreationPoint {
     public int hashCode() {
         return Objects.hash(this.consumed);
     }
+
+    @Override
+    public String toString() {
+        return "CreationPoint{" +
+                "consumed=" + consumed +
+                '}';
+    }
 }

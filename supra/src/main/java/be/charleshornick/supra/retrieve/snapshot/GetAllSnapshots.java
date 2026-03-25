@@ -12,7 +12,7 @@ public final class GetAllSnapshots {
         this.forGettingSnapshot = forGettingSnapshot;
     }
 
-    List<Snapshot> forCharacterNamed(final String name) {
+    public List<Snapshot> forCharacterNamed(final String name) {
         return this.forGettingSnapshot.allOrdered(name);
     }
 }

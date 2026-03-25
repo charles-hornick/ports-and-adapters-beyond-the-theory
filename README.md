@@ -21,7 +21,6 @@ Three key additions in this article:
 ports-and-adapters-beyond-the-theory/
 ├── supra/                  # The application — JPMS module, exports only what adapters need
 ├── facade-test/            # Primary adapter — console test adapter driving the application
-├── storage-test/           # Secondary adapter — in-memory fakes for persistence
 └── bootstrap/              # Composition root — wires everything together, has the main()
 ```
 
@@ -50,8 +49,8 @@ The only module that knows about all others. It instantiates the fake adapters, 
 
 ```java
 public class Application {
-    void main(String[] args) {
-        // Wire secondary adapters (fakes)
+    void main() {
+        // Wire secondary ports with fakes
         // Wire primary ports with secondary implementations
         // Pass to primary adapter and run
     }

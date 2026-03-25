@@ -12,6 +12,8 @@
 
     <modules>
         <module>supra</module>
+        <module>facade-test</module>
+        <module>bootstrap</module>
     </modules>
 
     <name>Behond the theory</name>

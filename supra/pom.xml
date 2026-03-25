@@ -9,7 +9,7 @@
 
     <artifactId>supra</artifactId>
 
-    <name>supra</name>
+    <name>Application</name>
     <description>Application module dedicated to the business rules of the RPG.</description>
 
     <dependencies>

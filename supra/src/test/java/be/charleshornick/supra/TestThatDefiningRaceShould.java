@@ -11,7 +11,6 @@ import be.charleshornick.supra.snapshot.Snapshot;
 import be.charleshornick.supra.snapshot.SnapshotBuilder;
 import be.charleshornick.supra.profession.ProfessionName;
 import be.charleshornick.supra.race.RaceName;
-import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -181,7 +180,10 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("fail when no character's name is specified")
     void failWhenNoCharacterNameIsSpecified() {
-        final ForLoadingSnapshot forLoadingSnapshot = name -> (StringUtils.isBlank(name)) ? Option.empty() : Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = name -> Option
+                .option(name)
+                .filter(n -> !n.isBlank())
+                .map(_ -> SnapshotFixture.getDefaultOne());
 
         new DefineRace(forLoadingSnapshot, this.forStoringSnapshot, this.forLoadingRace)
                 .named(RaceName.ELF)

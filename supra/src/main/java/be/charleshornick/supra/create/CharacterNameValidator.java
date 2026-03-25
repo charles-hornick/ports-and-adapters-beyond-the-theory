@@ -1,8 +1,8 @@
 package be.charleshornick.supra.create;
 
 import be.charleshornick.supra.ErrorCause;
-import org.apache.commons.lang3.StringUtils;
 import org.pragmatica.lang.Result;
+import org.pragmatica.lang.Verify;
 
 class CharacterNameValidator {
 
@@ -13,11 +13,8 @@ class CharacterNameValidator {
     }
 
     Result<String> validate(final String name) {
-        if (StringUtils.isNotBlank(name)) {
-            return (this.nameUnicityChecker.isAvailable(name))
-                    ? Result.success(name)
-                    : Result.failure(ErrorCause.NAME_ALREADY_TAKEN);
-        }
-        return Result.failure(ErrorCause.NAME_EMPTY_VALUE);
+        return Verify.ensure(name, Verify.Is::notNull, ErrorCause.NAME_EMPTY_VALUE)
+                .filter(ErrorCause.NAME_EMPTY_VALUE, Verify.Is::notBlank)
+                .filter(ErrorCause.NAME_ALREADY_TAKEN, this.nameUnicityChecker::isAvailable);
     }
 }

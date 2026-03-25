@@ -1,6 +1,7 @@
 package be.charleshornick.supra;
 
 import org.pragmatica.lang.Cause;
+import org.pragmatica.lang.Functions;
 import org.pragmatica.lang.utils.Causes;
 
 public interface ErrorCause {
@@ -12,4 +13,5 @@ public interface ErrorCause {
     Cause PROFESSION_DOES_NOT_EXIST = Causes.cause("Profession does not exist.");
     Cause NOT_ENOUGH_CREATION_POINT = Causes.cause("Not enough creation points.");
     Cause UNDEFINED_PRIMARY_CHARACTERISTIC = Causes.cause("Undefined primary characteristic");
+    Functions.Fn1<Cause, String> CANNOT_ADD_POINT = Causes.forOneValue("Cannot add any more points to %s");
 }

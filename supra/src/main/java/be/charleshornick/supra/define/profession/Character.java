@@ -36,7 +36,7 @@ class Character implements Recorder {
     public Result<Character> defineProfession(final Profession profession) {
         if (this.creationPoint.hasEnoughCreationToAdd(profession)) {
             return profession
-                    .validatePrerequisite(this.race, this.investedPoint)
+                    .validatePrerequisite(this.race, this.investedPoint.computeWithRace())
                     .onSuccess(prof -> {
                         this.profession = prof;
                         this.creationPoint = CreationPoint.beginning()

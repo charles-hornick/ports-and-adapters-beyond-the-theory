@@ -1,7 +1,6 @@
 package be.charleshornick.supra.profession;
 
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
-import be.charleshornick.supra.state.InvestedPoint;
 import be.charleshornick.supra.race.Race;
 import be.charleshornick.supra.race.RaceName;
 
@@ -25,9 +24,9 @@ public record Prerequisite(Map<PrimaryCharacteristicName, Integer> characteristi
         );
     }
 
-    public boolean arePrerequisiteFulfilled(final Race race, final InvestedPoint investedPoint) {
+    public boolean arePrerequisiteFulfilled(final Race race, final Map<PrimaryCharacteristicName, Integer> investedPoint) {
         return this.isRaceAllowed(race.name()) &&
-                this.areCharacteristicsMatched(investedPoint.computeWithRace());
+                this.areCharacteristicsMatched(investedPoint);
     }
 
     private boolean isRaceAllowed(final RaceName name) {

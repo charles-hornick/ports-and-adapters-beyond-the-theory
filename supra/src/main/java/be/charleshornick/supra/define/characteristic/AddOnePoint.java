@@ -8,6 +8,7 @@ import be.charleshornick.supra.state.snapshot.Snapshot;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.Tuple;
+import org.pragmatica.lang.Verify;
 
 final class AddOnePoint implements DefineCharacteristic.ToCharacteristic, ToCharacter {
 
@@ -51,9 +52,11 @@ final class AddOnePoint implements DefineCharacteristic.ToCharacteristic, ToChar
     }
 
     private Result<PrimaryCharacteristicName> getCharacteristic() {
-        return (this.primaryCharacteristicName != null)
-                ? Result.ok(this.primaryCharacteristicName)
-                : Result.failure(ErrorCause.UNDEFINED_PRIMARY_CHARACTERISTIC);
+        return Verify.ensure(
+                this.primaryCharacteristicName,
+                Verify.Is::notNull,
+                ErrorCause.UNDEFINED_PRIMARY_CHARACTERISTIC
+        );
     }
 
     private Result<Character> apply(final Tuple.Tuple2<Snapshot, PrimaryCharacteristicName> data) {

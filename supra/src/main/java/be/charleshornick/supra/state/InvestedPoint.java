@@ -1,5 +1,6 @@
 package be.charleshornick.supra.state;
 
+import be.charleshornick.supra.ErrorCause;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristic;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
 import be.charleshornick.supra.race.Race;
@@ -58,7 +59,7 @@ public class InvestedPoint {
             newMap.put(name, investedPoint + 1);
             return Result.ok(new InvestedPoint(newMap, this.race));
         }
-        return Result.failure(Causes.cause("Cannot add any more points to "+ name));
+        return Result.failure(ErrorCause.CANNOT_ADD_POINT.apply(name.toString()));
     }
 
     private boolean canRemovePointToCharacteristic(final PrimaryCharacteristicName name) {

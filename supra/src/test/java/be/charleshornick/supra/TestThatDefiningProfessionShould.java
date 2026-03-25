@@ -9,7 +9,6 @@ import be.charleshornick.supra.fixture.SnapshotFixture;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
 import be.charleshornick.supra.profession.ProfessionName;
 import be.charleshornick.supra.race.RaceName;
-import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.pragmatica.lang.Option;
@@ -114,7 +113,10 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Fail when no character name is given")
     void failWhenNoCharacterNameIsGiven() {
-        final ForLoadingSnapshot forLoadingSnapshot = name -> (StringUtils.isBlank(name)) ? Option.empty() : Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = name -> Option
+                .option(name)
+                .filter(n -> !n.isBlank())
+                .map(_ -> SnapshotFixture.getDefaultOne());
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(ProfessionName.ADVENTURER)

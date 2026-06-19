@@ -3,7 +3,7 @@ package be.charleshornick.supra.define.profession;
 import be.charleshornick.supra.define.ToCharacter;
 import be.charleshornick.supra.define.ForLoadingSnapshot;
 import be.charleshornick.supra.ForStoringSnapshot;
-import be.charleshornick.supra.ErrorCause;
+import be.charleshornick.supra.fault.ErrorCause;
 import be.charleshornick.supra.state.snapshot.Snapshot;
 import be.charleshornick.supra.profession.Profession;
 import be.charleshornick.supra.profession.ProfessionName;
@@ -43,7 +43,7 @@ final class DefineProfessionStep implements ToCharacter {
     private Result<Snapshot> getSnapshot(final String characterName) {
         return this.forLoadingSnapshot
                 .getLastSnapshot(characterName)
-                .toResult(ErrorCause.CHARACTER_DOES_NOT_EXIST);
+                .flatMap(opt -> opt.toResult(ErrorCause.CHARACTER_DOES_NOT_EXIST));
     }
 
     private Result<Profession> getProfession(final ProfessionName professionName) {

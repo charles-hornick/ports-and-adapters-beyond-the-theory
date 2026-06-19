@@ -1,6 +1,6 @@
 package be.charleshornick.supra.define.profession;
 
-import be.charleshornick.supra.ErrorCause;
+import be.charleshornick.supra.fault.ErrorCause;
 import be.charleshornick.supra.state.Recorder;
 import be.charleshornick.supra.state.snapshot.Action;
 import be.charleshornick.supra.state.snapshot.Snapshot;

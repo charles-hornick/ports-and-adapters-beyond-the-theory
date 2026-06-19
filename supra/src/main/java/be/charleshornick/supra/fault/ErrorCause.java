@@ -1,4 +1,4 @@
-package be.charleshornick.supra;
+package be.charleshornick.supra.fault;
 
 import org.pragmatica.lang.Cause;
 import org.pragmatica.lang.Functions;

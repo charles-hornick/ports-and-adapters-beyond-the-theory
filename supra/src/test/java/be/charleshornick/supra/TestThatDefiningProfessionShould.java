@@ -28,7 +28,7 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Fail when not enough creation points are left")
     void failWhenNotEnoughCreationPointAreLeft() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getHighHuman());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getHighHuman()));
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(ProfessionName.WARRIOR)
@@ -39,7 +39,7 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Fail when the profession is an evolution type")
     void failWhenTheProfessionIsAnEvolutionType() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getHighHuman());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getHighHuman()));
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(ProfessionName.WARRIOR)
@@ -50,7 +50,7 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Fail when race is forbidden")
     void failWhenRaceIsForbidden() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.DWARF,
                         Map.of(
@@ -61,7 +61,7 @@ class TestThatDefiningProfessionShould {
                                 PrimaryCharacteristicName.STRENGTH, 3
                         )
                 )
-        );
+        ));
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(ProfessionName.WARRIOR)
@@ -72,7 +72,7 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Succeed when all prerequisites are fulfilled")
     void succeedWhenAllPrerequisitesAreFulfilled() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HUMAN,
                         Map.of(
@@ -83,7 +83,7 @@ class TestThatDefiningProfessionShould {
                                 PrimaryCharacteristicName.STRENGTH, 5
                         )
                 )
-        );
+        ));
 
         final var expected = SnapshotFixture.getHumanWarrior();
 
@@ -102,7 +102,7 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Fail when no profession name is given")
     void failWhenNoProfessionNameIsGiven() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(null)
@@ -113,10 +113,10 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Fail when no character name is given")
     void failWhenNoCharacterNameIsGiven() {
-        final ForLoadingSnapshot forLoadingSnapshot = name -> Option
+        final ForLoadingSnapshot forLoadingSnapshot = name -> Result.ok(Option
                 .option(name)
                 .filter(n -> !n.isBlank())
-                .map(_ -> SnapshotFixture.getDefaultOne());
+                .map(_ -> SnapshotFixture.getDefaultOne()));
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(ProfessionName.ADVENTURER)
@@ -132,7 +132,7 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Succeed when no race is defined and profession has no prerequisite")
     void succeedWhenNoRaceIsDefinedAndProfessionHasNoPrerequisite() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(ProfessionName.ADVENTURER)
@@ -143,7 +143,7 @@ class TestThatDefiningProfessionShould {
     @Test
     @DisplayName("Fail when characteristic prerequisites are not met")
     void failWhenCharacteristicPrerequisitesAreNotMet() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HUMAN,
                         Map.of(
@@ -152,7 +152,7 @@ class TestThatDefiningProfessionShould {
                                 PrimaryCharacteristicName.CHARISMA, 1
                         )
                 )
-        );
+        ));
 
         new DefineProfession(forLoadingSnapshot, forStoringSnapshot, forLoadingProfession)
                 .named(ProfessionName.WARRIOR)

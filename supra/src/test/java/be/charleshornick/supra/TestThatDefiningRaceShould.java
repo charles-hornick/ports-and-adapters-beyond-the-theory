@@ -3,6 +3,7 @@ package be.charleshornick.supra;
 import be.charleshornick.supra.define.race.DefineRace;
 import be.charleshornick.supra.define.race.ForLoadingRace;
 import be.charleshornick.supra.define.ForLoadingSnapshot;
+import be.charleshornick.supra.fault.ErrorCause;
 import be.charleshornick.supra.fixture.DefaultCharacterData;
 import be.charleshornick.supra.fixture.RaceFixture;
 import be.charleshornick.supra.fixture.SnapshotFixture;
@@ -42,7 +43,7 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("Succeed when no profession is defined")
     void succeedWhenNoProfessionIsDefined() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         final var expected = SnapshotFixture.getWithRace(RaceName.ELF);
 
@@ -57,7 +58,7 @@ class TestThatDefiningRaceShould {
     @DisplayName("Keep the already defined profession when race is not forbidden")
     void keepAlreadyDefinedProfessionWhenRaceIsNotForbidden() {
         final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.ADVENTURER);
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(baseSnapshot);
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(baseSnapshot));
 
         final var expected = SnapshotBuilder
                 .basedOnPreviousSnapshot(baseSnapshot)
@@ -75,7 +76,7 @@ class TestThatDefiningRaceShould {
     @DisplayName("Reset the already defined profession when race is forbidden")
     void resetAlreadyDefinedProfessionWhenRaceIsForbidden() {
         final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.ELF_ADVENTURER);
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(baseSnapshot);
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(baseSnapshot));
 
         final var expected = SnapshotBuilder
                 .basedOnPreviousSnapshot(SnapshotFixture.getWithProfession(ProfessionName.UNDEFINED))
@@ -93,7 +94,7 @@ class TestThatDefiningRaceShould {
     @DisplayName("Reset the already defined profession when too many creation points are consumed")
     void resetAlreadyDefinedProfessionWhenTooManyCreationPointsAreConsumed() {
         final var baseSnapshot = SnapshotFixture.getWithProfession(ProfessionName.ADVENTURER);
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(baseSnapshot);
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(baseSnapshot));
 
         final var expected = SnapshotBuilder
                 .basedOnPreviousSnapshot(baseSnapshot)
@@ -110,7 +111,7 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("Successfully change from one race to another")
     void successfullyChangeFromOneRaceToAnother() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getWithRace(RaceName.DWARF));
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getWithRace(RaceName.DWARF)));
 
         final var expected = SnapshotBuilder
                 .basedOnPreviousSnapshot(SnapshotFixture.getWithRace(RaceName.DWARF))
@@ -128,7 +129,7 @@ class TestThatDefiningRaceShould {
     @MethodSource("getRacesAndExpectedCreationPointsLeft")
     @DisplayName("Consume the right amount of creation points")
     void consumeTheRightAmountOfCreationPoints(final RaceName raceName, final int creationPointsLeft) {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineRace(forLoadingSnapshot, this.forStoringSnapshot, this.forLoadingRace)
                 .named(raceName)
@@ -156,7 +157,7 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("Set race as undefined when given race is undefined")
     void setRaceAsUndefinedWhenGivenRaceIsUndefined() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getWithRace(RaceName.DWARF));
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getWithRace(RaceName.DWARF)));
 
         new DefineRace(forLoadingSnapshot, this.forStoringSnapshot, this.forLoadingRace)
                 .named(RaceName.UNDEFINED)
@@ -168,7 +169,7 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("Fail when race is null")
     void failWhenRaceIsNull() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineRace(forLoadingSnapshot, this.forStoringSnapshot, this.forLoadingRace)
                 .named(null)
@@ -180,10 +181,10 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("fail when no character's name is specified")
     void failWhenNoCharacterNameIsSpecified() {
-        final ForLoadingSnapshot forLoadingSnapshot = name -> Option
+        final ForLoadingSnapshot forLoadingSnapshot = name -> Result.ok(Option
                 .option(name)
                 .filter(n -> !n.isBlank())
-                .map(_ -> SnapshotFixture.getDefaultOne());
+                .map(_ -> SnapshotFixture.getDefaultOne()));
 
         new DefineRace(forLoadingSnapshot, this.forStoringSnapshot, this.forLoadingRace)
                 .named(RaceName.ELF)
@@ -201,7 +202,7 @@ class TestThatDefiningRaceShould {
     @Test
     @DisplayName("Fail when no character's name is specified")
     void failWhenCharacterNameDoesNotExist() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.none();
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.none());
 
         new DefineRace(forLoadingSnapshot, this.forStoringSnapshot, this.forLoadingRace)
                 .named(RaceName.ELF)

@@ -1,6 +1,6 @@
 package be.charleshornick.supra.create;
 
-import be.charleshornick.supra.ErrorCause;
+import be.charleshornick.supra.fault.ErrorCause;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.Verify;
 

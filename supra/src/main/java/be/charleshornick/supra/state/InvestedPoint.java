@@ -1,6 +1,6 @@
 package be.charleshornick.supra.state;
 
-import be.charleshornick.supra.ErrorCause;
+import be.charleshornick.supra.fault.ErrorCause;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristic;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
 import be.charleshornick.supra.race.Race;

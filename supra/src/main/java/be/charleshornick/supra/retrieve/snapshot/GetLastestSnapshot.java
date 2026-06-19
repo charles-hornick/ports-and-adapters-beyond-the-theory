@@ -2,6 +2,7 @@ package be.charleshornick.supra.retrieve.snapshot;
 
 import be.charleshornick.supra.state.snapshot.Snapshot;
 import org.pragmatica.lang.Option;
+import org.pragmatica.lang.Result;
 
 public final class GetLastestSnapshot {
 
@@ -11,7 +12,7 @@ public final class GetLastestSnapshot {
         this.forGettingSnapshot = forGettingSnapshot;
     }
 
-    public Option<Snapshot> forCharacterNamed(final String name) {
+    public Result<Option<Snapshot>> forCharacterNamed(final String name) {
         return this.forGettingSnapshot.theLastest(name);
     }
 }

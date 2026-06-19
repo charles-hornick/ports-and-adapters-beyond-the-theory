@@ -1,6 +1,7 @@
 package be.charleshornick.supra;
 
 import be.charleshornick.supra.create.CreateCharacter;
+import be.charleshornick.supra.fault.ErrorCause;
 import be.charleshornick.supra.fixture.DefaultCharacterData;
 import be.charleshornick.supra.fixture.SnapshotFixture;
 import org.junit.jupiter.api.DisplayName;

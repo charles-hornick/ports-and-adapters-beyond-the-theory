@@ -13,5 +13,6 @@ module be.charleshornick.supra {
     exports be.charleshornick.supra.race; // Vocabulary
     exports be.charleshornick.supra.profession; // Vocabulary
     exports be.charleshornick.supra.characteristic; // Vocabulary
-    exports be.charleshornick.supra.state.snapshot; // Exposed state
+    exports be.charleshornick.supra.state.snapshot;
+    exports be.charleshornick.supra.fault; // Exposed state
 }

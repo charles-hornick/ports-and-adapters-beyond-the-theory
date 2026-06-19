@@ -24,7 +24,7 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when no race is defined")
     void failWhenNoRaceIsDefined() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -36,7 +36,7 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Succeed when no maximum is exceeded (non high race)")
     void succeedWhenNoMaximumIsExceeded() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HUMAN,
                         Map.of(
@@ -45,7 +45,7 @@ class TestThatAddingOnePointToCharacteristicShould {
                                 PrimaryCharacteristicName.CHARISMA, 2
                         )
                 )
-        );
+        ));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -64,7 +64,7 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Succeed when no maximum is exceeded (high race)")
     void succeedWhenNoMaximumIsExceededWithHighRace() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HIGH_HUMAN,
                         Map.of(
@@ -73,7 +73,7 @@ class TestThatAddingOnePointToCharacteristicShould {
                                 PrimaryCharacteristicName.STRENGTH, 2
                         )
                 )
-        );
+        ));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -92,12 +92,12 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when max of 5 points is exceeded for specific characteristic (non high race)")
     void failWhenMaxOf5PointsIsReachedForSpecificCharacteristicWithNonHighRace() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HUMAN,
                         Map.of(PrimaryCharacteristicName.COURAGE, 5)
                 )
-        );
+        ));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -109,7 +109,7 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when max of 9 points is exceeded for specific group of characteristics (non high race)")
     void failWhenMaxOf9PointsIsReachedForSpecificGroupOfCharacteristics() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HUMAN,
                         Map.of(
@@ -118,7 +118,7 @@ class TestThatAddingOnePointToCharacteristicShould {
                                 PrimaryCharacteristicName.CHARISMA, 2
                         )
                 )
-        );
+        ));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -130,12 +130,12 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when max of 7 points is exceed for specific characteristic (high race)")
     void failWhenMaxOf7PointsIsReachedForSpecificCharacteristicWithHighRace() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HIGH_HUMAN,
                         Map.of(PrimaryCharacteristicName.COURAGE, 7)
                 )
-        );
+        ));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -147,7 +147,7 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when max of 12 points is exceed for specific group of characteristics (high race)")
     void failWhenMaxOf12PointsIsReachedForSpecificGroupOfCharacteristicsWithHighRace() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HIGH_HUMAN,
                         Map.of(
@@ -156,7 +156,7 @@ class TestThatAddingOnePointToCharacteristicShould {
                                 PrimaryCharacteristicName.CHARISMA, 2
                         )
                 )
-        );
+        ));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -168,7 +168,7 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when max of 27 points is exceeded for all characteristics (non-high race)")
     void failWhenMaxOf27PointsIsReachedForAllCharacteristicsWithNonHighRace() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HUMAN,
                         Map.of(
@@ -183,7 +183,7 @@ class TestThatAddingOnePointToCharacteristicShould {
                                 PrimaryCharacteristicName.STRENGTH, 4
                         )
                 )
-        );
+        ));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -195,7 +195,7 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when max of 30 points is exceed for all characteristics (high race)")
     void failWhenMaxOf30PointsIsReachedForAllCharacteristicsWithHighRace() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HIGH_HUMAN,
                         Map.of(
@@ -210,7 +210,7 @@ class TestThatAddingOnePointToCharacteristicShould {
                                 PrimaryCharacteristicName.STRENGTH, 6
                         )
                 )
-        );
+        ));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -222,7 +222,7 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when no characteristic name is given")
     void failWhenNoCharacteristicNameIsGiven() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()
@@ -234,7 +234,7 @@ class TestThatAddingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when no character name is given")
     void failWhenNoCharacterNameIsGiven() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byAddingOnePoint()

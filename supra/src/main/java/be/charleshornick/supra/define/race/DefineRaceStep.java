@@ -3,7 +3,7 @@ package be.charleshornick.supra.define.race;
 import be.charleshornick.supra.define.ToCharacter;
 import be.charleshornick.supra.define.ForLoadingSnapshot;
 import be.charleshornick.supra.ForStoringSnapshot;
-import be.charleshornick.supra.ErrorCause;
+import be.charleshornick.supra.fault.ErrorCause;
 import be.charleshornick.supra.state.snapshot.Snapshot;
 import be.charleshornick.supra.race.Race;
 import be.charleshornick.supra.race.RaceName;
@@ -40,7 +40,7 @@ final class DefineRaceStep implements ToCharacter {
     private Result<Snapshot> getSnapshot(final String characterName) {
         return this.forLoadingSnapshot
                 .getLastSnapshot(characterName)
-                .toResult(ErrorCause.CHARACTER_DOES_NOT_EXIST);
+                .flatMap(opt -> opt.toResult(ErrorCause.CHARACTER_DOES_NOT_EXIST));
     }
 
     private Result<Race> getRace(final RaceName raceName) {

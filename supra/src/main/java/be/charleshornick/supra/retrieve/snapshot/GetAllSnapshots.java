@@ -1,6 +1,7 @@
 package be.charleshornick.supra.retrieve.snapshot;
 
 import be.charleshornick.supra.state.snapshot.Snapshot;
+import org.pragmatica.lang.Result;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public final class GetAllSnapshots {
         this.forGettingSnapshot = forGettingSnapshot;
     }
 
-    public List<Snapshot> forCharacterNamed(final String name) {
+    public Result<List<Snapshot>> forCharacterNamed(final String name) {
         return this.forGettingSnapshot.allOrdered(name);
     }
 }

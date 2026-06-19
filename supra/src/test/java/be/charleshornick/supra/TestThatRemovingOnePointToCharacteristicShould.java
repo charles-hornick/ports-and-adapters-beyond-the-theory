@@ -24,7 +24,7 @@ class TestThatRemovingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when no race is defined")
     void failWhenNoRaceIsDefined() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byRemovingOnePoint()
@@ -36,7 +36,7 @@ class TestThatRemovingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when the number of invested points in characteristic is 0")
     void failWhenNumberOfInvestedPointsOnCharacteristicIsZero() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getHighHuman());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getHighHuman()));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byRemovingOnePoint()
@@ -48,12 +48,12 @@ class TestThatRemovingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Succeed when the number of invested points in characteristic is higher than 0")
     void succeedWhenNumberOfInvestedPointsInCharacteristicIsHigherThanZero() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(
                 SnapshotFixture.getWithRaceAndInvestedPointIn(
                         RaceName.HUMAN,
                         Map.of(PrimaryCharacteristicName.COURAGE, 1)
                 )
-        );
+        ));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byRemovingOnePoint()
@@ -72,7 +72,7 @@ class TestThatRemovingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when no characteristic name is given")
     void failWhenNoCharacteristicNameIsGiven() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byRemovingOnePoint()
@@ -84,7 +84,7 @@ class TestThatRemovingOnePointToCharacteristicShould {
     @Test
     @DisplayName("Fail when no character name is given")
     void failWhenNoCharacterNameIsGiven() {
-        final ForLoadingSnapshot forLoadingSnapshot = _ -> Option.some(SnapshotFixture.getDefaultOne());
+        final ForLoadingSnapshot forLoadingSnapshot = _ -> Result.ok(Option.some(SnapshotFixture.getDefaultOne()));
 
         new DefineCharacteristic(forLoadingSnapshot, forStoringSnapshot)
                 .byRemovingOnePoint()

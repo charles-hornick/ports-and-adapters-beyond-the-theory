@@ -6,6 +6,7 @@ import be.charleshornick.supra.race.Race;
 import be.charleshornick.supra.state.snapshot.Action;
 import be.charleshornick.supra.state.snapshot.Snapshot;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,10 +28,11 @@ public class SnapshotBuilder {
 
     public static Snapshot asFirstOne(final String name) {
         final var race = Race.undefined();
-        return new Snapshot(
+        return Snapshot.create(
                 1,
                 name,
                 Action.CREATE_CHARACTER,
+                LocalDateTime.now(),
                 race,
                 Profession.undefined(),
                 new HashMap<>()
@@ -57,10 +59,11 @@ public class SnapshotBuilder {
     }
 
     public Snapshot getForAction(final Action action) {
-        return new Snapshot(
+        return Snapshot.create(
                 this.version,
                 this.name,
                 action,
+                LocalDateTime.now(),
                 this.race,
                 this.profession,
                 this.investedPoints

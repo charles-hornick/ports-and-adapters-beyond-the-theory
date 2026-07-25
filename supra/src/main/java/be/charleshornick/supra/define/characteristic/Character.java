@@ -1,5 +1,6 @@
 package be.charleshornick.supra.define.characteristic;
 
+import be.charleshornick.supra.fault.SupraCause;
 import be.charleshornick.supra.state.Recorder;
 import be.charleshornick.supra.state.snapshot.Action;
 import be.charleshornick.supra.state.snapshot.Snapshot;
@@ -37,7 +38,7 @@ class Character implements Recorder {
                     })
                     .map(_ -> this);
         }
-        return Result.failure(Causes.cause("A race has to be defined before adding points to primary characteristic."));
+        return Result.failure(new SupraCause.RuleViolation("race.mandatory", "cannot.add.without.race"));
     }
 
     public Result<Character> removePointTo(final PrimaryCharacteristicName name) {
@@ -50,7 +51,7 @@ class Character implements Recorder {
                     })
                     .map(_ -> this);
         }
-        return Result.failure(Causes.cause("A race has to be defined before removing points to primary characteristic."));
+        return Result.failure(new SupraCause.RuleViolation("race.mandatory", "cannot.remove.without.race"));
     }
 
     @Override

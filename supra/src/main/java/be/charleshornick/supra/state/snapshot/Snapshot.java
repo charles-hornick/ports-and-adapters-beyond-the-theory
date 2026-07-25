@@ -7,82 +7,41 @@ import be.charleshornick.supra.state.CreationPoint;
 
 import java.time.LocalDateTime;
 import java.util.Map;
-import java.util.Objects;
 
-public class Snapshot implements Comparable<Snapshot> {
+public record Snapshot(
+        int version,
+        String name,
+        Action action,
+        LocalDateTime shotAt,
+        Race race,
+        Profession profession,
+        Map<PrimaryCharacteristicName, Integer> investedPoints,
+        CreationPoint creationPoints) implements Comparable<Snapshot> {
 
-    private final int version;
-    private final LocalDateTime shotAt = LocalDateTime.now();
-    private final Action action;
-    private final String name;
-    private final CreationPoint creationPoints;
-    private final Race race;
-    private final Profession profession;
-    private final Map<PrimaryCharacteristicName, Integer> investedPoints;
-
-    public Snapshot(final int version, final String name, final Action action, final Race race, final Profession profession, final Map<PrimaryCharacteristicName, Integer> investedPoints) {
-        this.version = version;
-        this.name = name;
-        this.action = action;
-        this.race = race;
-        this.profession = profession;
-        this.investedPoints = Map.copyOf(investedPoints);
-        this.creationPoints = CreationPoint.beginning()
-                .addNewConsumer(this.race)
-                .addNewConsumer(this.profession);
+    public Snapshot {
+        investedPoints = Map.copyOf(investedPoints);
     }
 
-    public int version() {
-        return this.version;
+    public static Snapshot create(final int version,
+                                  final String name,
+                                  final Action action,
+                                  final LocalDateTime shotAt,
+                                  final Race race,
+                                  final Profession profession,
+                                  final Map<PrimaryCharacteristicName, Integer> investedPoints) {
+        final var points = CreationPoint.beginning()
+                .addNewConsumer(race)
+                .addNewConsumer(profession);
+
+        return new Snapshot(version, name, action, shotAt, race, profession, investedPoints, points);
     }
 
-    public String name() {
-        return this.name;
-    }
-
-    public int getPointsLeft() {
+    public int pointsLeft() {
         return this.creationPoints.getPointsLeft();
     }
 
-    public Race race() {
-        return this.race;
-    }
-
-    public Profession profession() {
-        return this.profession;
-    }
-
-    public Map<PrimaryCharacteristicName, Integer> investedPoints() {
-        return this.investedPoints;
-    }
-
     @Override
-    public int compareTo(final Snapshot snapshot) {
-        return Integer.compare(this.version, snapshot.version);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (!(o instanceof Snapshot snapshot)) return false;
-        return this.version == snapshot.version;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(this.version);
-    }
-
-    @Override
-    public String toString() {
-        return "Snapshot{" +
-                "version=" + version +
-                ", shotAt=" + shotAt +
-                ", action=" + action +
-                ", name='" + name + '\'' +
-                ", creationPoints=" + creationPoints +
-                ", race=" + race +
-                ", profession=" + profession +
-                ", investedPoints=" + investedPoints +
-                '}';
+    public int compareTo(final Snapshot o) {
+        return Integer.compare(this.version, o.version);
     }
 }

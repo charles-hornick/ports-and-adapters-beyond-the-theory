@@ -4,17 +4,18 @@ import be.charleshornick.supra.fault.ErrorCause;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.Verify;
 
-class CharacterNameValidator {
+class CharacterNameRegister {
 
-    private final ForCheckingNameUnicity nameUnicityChecker;
+    private final ForRegisteringName nameUnicityChecker;
 
-    CharacterNameValidator(final ForCheckingNameUnicity nameUnicityChecker) {
+    CharacterNameRegister(final ForRegisteringName nameUnicityChecker) {
         this.nameUnicityChecker = nameUnicityChecker;
     }
 
-    Result<String> validate(final String name) {
+    Result<String> registering(final String name) {
         return Verify.ensure(name, Verify.Is::notNull, ErrorCause.NAME_EMPTY_VALUE)
                 .filter(ErrorCause.NAME_EMPTY_VALUE, Verify.Is::notBlank)
-                .filter(ErrorCause.NAME_ALREADY_TAKEN, this.nameUnicityChecker::isAvailable);
+                .flatMap(this.nameUnicityChecker::register)
+                .map(_ -> name);
     }
 }

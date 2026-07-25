@@ -1,6 +1,7 @@
 package be.charleshornick.supra.profession;
 
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.fault.SupraCause;
 import be.charleshornick.supra.state.CreationPointConsumer;
 import be.charleshornick.supra.race.Race;
 import org.pragmatica.lang.Result;
@@ -14,7 +15,7 @@ public record Profession(ProfessionName name,
                          String description,
                          int costInCreationPoint,
                          Prerequisite prerequisite,
-                         ProfessionName previousProfession,
+                         List<ProfessionName> previousProfession,
                          List<ProfessionName> archetypes) implements CreationPointConsumer {
 
     public static Profession undefined() {
@@ -31,7 +32,7 @@ public record Profession(ProfessionName name,
 
     public Result<Profession> validatePrerequisite(final Race name, final Map<PrimaryCharacteristicName, Integer> characteristics) {
         if (this.type.isEvolutionType() || !this.prerequisite.arePrerequisiteFulfilled(name, characteristics)) {
-            return Result.failure(Causes.cause("Prerequisite not fulfilled to become a " + this.name));
+            return Result.failure(new SupraCause.RuleViolation("prerequisite.unfulfilled", "impossible.to.become." + this.name));
         }
         return Result.success(this);
     }

@@ -138,7 +138,7 @@ class TestThatDefiningRaceShould {
                             .extracting(
                                     Snapshot::name,
                                     snap -> snap.race().name(),
-                                    Snapshot::getPointsLeft)
+                                    Snapshot::pointsLeft)
                             .doesNotContainNull()
                             .containsExactly(DefaultCharacterData.NAME, raceName, creationPointsLeft)
                 )

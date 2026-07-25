@@ -1,11 +1,10 @@
 package be.charleshornick.supra.state;
 
-import be.charleshornick.supra.fault.ErrorCause;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristic;
 import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.fault.SupraCause;
 import be.charleshornick.supra.race.Race;
 import org.pragmatica.lang.Result;
-import org.pragmatica.lang.utils.Causes;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -59,7 +58,7 @@ public class InvestedPoint {
             newMap.put(name, investedPoint + 1);
             return Result.ok(new InvestedPoint(newMap, this.race));
         }
-        return Result.failure(ErrorCause.CANNOT_ADD_POINT.apply(name.toString()));
+        return Result.failure(new SupraCause.RuleViolation("characteristic.points.maxed", name.toString()));
     }
 
     private boolean canRemovePointToCharacteristic(final PrimaryCharacteristicName name) {
@@ -73,7 +72,7 @@ public class InvestedPoint {
             newMap.put(name, investedPoint - 1);
             return Result.success(new InvestedPoint(newMap, this.race));
         }
-        return Result.failure(Causes.cause("Cannot remove any more points to "+ name));
+        return Result.failure(new SupraCause.RuleViolation("characteristic.points.floored", name.toString()));
     }
 
     public Map<PrimaryCharacteristicName, Integer> computeWithRace() {

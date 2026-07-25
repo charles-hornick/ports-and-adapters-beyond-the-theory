@@ -1,5 +1,6 @@
 module be.charleshornick.supra {
-    requires core; // Pragmatica-core
+    requires core;
+    requires org.jspecify; // Pragmatica-core
 
     exports be.charleshornick.supra; // ErrorCause, ForStoringSnapshot
     exports be.charleshornick.supra.create; // Primary port

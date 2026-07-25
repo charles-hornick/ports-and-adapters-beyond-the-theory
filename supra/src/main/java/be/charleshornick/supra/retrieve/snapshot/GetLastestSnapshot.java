@@ -13,6 +13,6 @@ public final class GetLastestSnapshot {
     }
 
     public Result<Option<Snapshot>> forCharacterNamed(final String name) {
-        return this.forGettingSnapshot.theLastest(name);
+        return this.forGettingSnapshot.theLatest(name);
     }
 }

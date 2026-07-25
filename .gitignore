@@ -192,6 +192,7 @@ fabric.properties
 # that are supposed to be shared within teams.
 
 .idea/*
+*.iml
 
 !.idea/codeStyles
 !.idea/runConfigurations
@@ -319,3 +320,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/java,git,maven,jetbrains+all,eclipse,netbeans,visualstudiocode,windows,macos,linux
+
+### Application
+supra.db

@@ -1,0 +1,64 @@
+### Create the character Borgrim
+POST http://localhost:8080/characters
+Content-Type: application/json
+
+{
+  "characterName": "Borgrim"
+}
+
+### Name already exist (case insensitive) -> 409 conflict (Result-based validation)
+POST http://localhost:8080/characters
+Content-Type: application/json
+
+{
+  "characterName": "borgrim"
+}
+
+### Define race to Borgrim: Dwarf
+PUT http://localhost:8080/characters/Borgrim/race
+Content-Type: application/json
+
+{
+  "raceName": "DWARF"
+}
+
+### Define profession to Borgrim: Miner
+PUT http://localhost:8080/characters/Borgrim/profession
+Content-Type: application/json
+
+{
+  "professionName": "MINER"
+}
+
+### Get latest snapshot of Borgrim
+GET http://localhost:8080/characters/borgrim/snapshots/latest
+
+### Get all Borgrim snapshots
+GET http://localhost:8080/characters/Borgrim/snapshots
+
+### Get all races
+GET http://localhost:8080/races
+
+### Get all professions
+GET http://localhost:8080/professions
+
+
+### Name blank → 400 InvalidInput (Result-based validation)
+POST http://localhost:8080/characters
+Content-Type: application/json
+
+{
+  "characterName": "     "
+}
+
+### No body → 400 (Result-based validation)
+POST http://localhost:8080/characters
+Content-Type: application/json
+
+### [to execute 6 times] Cannot add any more point → 422 RuleViolation (Result-based validation)
+POST http://localhost:8080/characters/Borgrim/characteristics/strength/points
+Content-Type: application/json
+
+{
+  "operation": "ADD"
+}

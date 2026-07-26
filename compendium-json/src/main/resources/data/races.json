@@ -1,0 +1,190 @@
+[
+  {
+    "name" : "HUMAN",
+    "description" : "Quand ils arrivèrent sur Kalidhia lors de la seconde glaciation, les humains furent surnommés les mille-peuples, tant ils étaient différents entre eux. Sauf précision et sélection du défaut <i>Minorité raciale</i> ou du talent <i>Race spéciale</i>, l’humain incarné par le joueur n’appartient pas à un peuple humain particulier, il s’agit donc d’un humain dit « Sang-mêlé » (ce qui correspond à environ 75% des humains de Kalidhia).\nLes humains n’ont pas de talent spécial ni de pouvoir particulier mais comme ils sont très nombreux et qu’ils « dirigent » le monde, celui-ci est fait pour eux... Prendre un personnage humain est donc un pari sur l'avenir car, à la création, il s'agit de la race la moins favorisée. Par contre, ces personnages deviendront sans doute les plus puissants du groupe : les humains peuvent progresser dans quasiment tous les domaines et leur diversité est leur grande force. On ne peut donc que conseiller ce choix pour les joueurs indécis, car avec un Humain, ils pourront orienter leur carrière selon leur bon plaisir...\nA la création un humain aura des scores moyens, c’est-à-dire qu’il n’aura aucune faiblesse et que la quasi-totalité des métiers lui seront ouverts. Pas de talent spécifique ou de défaut.",
+    "costInCreationPoint" : 0,
+    "bonusPointToCharacteristic" : 0,
+    "isHighRace": false,
+    "characteristics" : {
+      "COURAGE": 8,
+      "WILLPOWER": 8,
+      "CHARISMA": 8,
+      "BEAUTY": 8,
+      "CONSTITUTION": 8,
+      "INTELLIGENCE": 8,
+      "PERCEPTION": 8,
+      "DEXTERITY": 8,
+      "STRENGTH": 8
+    }
+  },
+  {
+    "name": "HIGH_HUMAN",
+    "description": "Les hauts-humains sont très rares (1% de la population humaine totale) et peuvent se rencontrer aussi bien chez les sangs-mêlés que dans les minorités. Il s’agit en effet d’une mosaïque de familles qui vivaient dans l’entourage direct des dieux du temps où ceux-ci marchaient sur Kalidhia. Ces humains ont d’ailleurs souvent des positions sociales importantes (dans la noblesse) et une affinité avec les carrières religieuses.",
+    "costInCreationPoint": 8,
+    "bonusPointToCharacteristic": 3,
+    "isHighRace": true,
+    "characteristics": {
+      "COURAGE": 8,
+      "WILLPOWER": 8,
+      "CHARISMA": 8,
+      "BEAUTY": 8,
+      "CONSTITUTION": 8,
+      "INTELLIGENCE": 8,
+      "PERCEPTION": 8,
+      "DEXTERITY": 8,
+      "STRENGTH": 8
+    }
+  }, {
+    "name" : "HALF_ORK",
+    "description" : "Issus d’un plus ou moins lointain héritage génétique « malheureux », ils ne forment pas un peuple différencié, mais vivent au milieu des humains. Les ½ Orks sont généralement plus forts, plus robustes que les humains dits normaux, mais bien souvent, il est très difficile de distinguer les ½ orks des humains, sauf quand ils ont des traits marqués de « peau-verte ». Ils ont les sens très développés mais sont souvent frustres et peu sociables. Les ½ Orks sont donc surtout de bons guerriers, de bons forestiers mais ils ne pourront exercer les métiers intellectuels que difficilement.\nLes peuples « civilisés » : nains, elfes et humains, ont une haine viscérale envers les ½ Orks et cela rend souvent difficile la vie d’un personnage de cette race. Le défaut <i>Minorité raciale</i> >est donné à tous les personnages ½ Ork.\nA la création un ½ ork peut avoir des scores élevés en Courage et Perception mais n’aura que des valeurs assez faibles en Charisme et Beauté. Il bénéficiera de deux acuités sensorielles (olfactive et visuelle) et pourra avoir les autres à moitié coût s’il prend en contrepartie un trait de Peau-verte supplémentaire parmi : <i>peau grisâtre, pilosité abondante ou pilosité très faible, canines hyper-développées, mâchoire hyper-développée, oreilles avec deux lobes ou avec deux pointes, yeux verts vifs, pupilles verticales, membres supérieurs allongés ou courtauds</i>.",
+    "costInCreationPoint" : 2,
+    "bonusPointToCharacteristic" : 0,
+    "isHighRace": false,
+    "characteristics" : {
+      "COURAGE": 10,
+      "WILLPOWER": 7,
+      "CHARISMA": 6,
+      "BEAUTY": 6,
+      "CONSTITUTION": 9,
+      "INTELLIGENCE": 7,
+      "PERCEPTION": 10,
+      "DEXTERITY": 7,
+      "STRENGTH": 9
+    }
+  }, {
+    "name" : "HALF_ELF",
+    "description" : "Il s’agit encore de métis, hybrides de deux peuples. Mais à la différence des ½ Orks, ils sont plutôt bien considérés (sauf par les nains, bien entendu). Ils sont généralement un peu plus adroits que les humains et possèdent quelques pouvoirs magiques innés (1 sort tous les 5 niveaux). Mais leur constitution est tout de même assez frêle et ils auront quelques difficultés à devenir des combattants émérites.",
+    "costInCreationPoint" : 2,
+    "bonusPointToCharacteristic" : 0,
+    "isHighRace": false,
+    "characteristics" : {
+      "COURAGE": 8,
+      "WILLPOWER": 8,
+      "CHARISMA": 8,
+      "BEAUTY":9,
+      "CONSTITUTION": 7,
+      "INTELLIGENCE": 8,
+      "PERCEPTION": 8,
+      "DEXTERITY": 9,
+      "STRENGTH": 7
+    }
+  }, {
+    "name" : "ELF",
+    "description" : "Les elfes sont des êtres habiles de leurs mains et de leur personne. Ils apprécient les arts et tout ce qui touche à l’esthétisme. Leur silhouette est proche de celle des humains, mais ils seront plus petits et plus graciles. Même si certains elfes ont vécu durant plusieurs siècles sans voir passer les années, ce fut surtout grâce à la magie plutôt qu’à leur nature car un elfe qui dépasse 100 ans de vie est un vieillard.\nDepuis plus de 7000 ans, les elfes peuvent manier le fluide magique de façon innée. Tout elfe peut donc lancer des sorts, même en début de carrière. Mais seuls les ½ Elfes et les Ha uts-Elfes peuvent développer ce talent et devenir magicien. Les autres doivent se contenter de gagner un peu de magie en vieillissant et de gagner des sorts par l’expérience sans avoir besoin de les apprendre (1 sort tous les 3 niveaux).\nCe talent de magie innée et leur forte habileté compensent largement leur faiblesse physique. À la création, les personnages elfiques sont donc relativement puissants, même s’ils ne sont ni forts ni robustes. Mais ils ne peuvent pas beaucoup se diversifier car de nombreux genres majeurs leur sont fermés, ils évolueront don c un peu moins que les autres.",
+    "costInCreationPoint" : 4,
+    "bonusPointToCharacteristic" : 0,
+    "isHighRace": false,
+    "characteristics" : {
+      "COURAGE": 7,
+      "WILLPOWER": 7,
+      "CHARISMA": 8,
+      "BEAUTY": 9,
+      "CONSTITUTION": 7,
+      "INTELLIGENCE": 9,
+      "PERCEPTION": 9,
+      "DEXTERITY": 9,
+      "STRENGTH": 7
+    }
+  }, {
+    "name" : "HIGH_ELF",
+    "description" : "Les hauts-elfes sont rares (environ 10% de la totalité des elfes) et appartiennent quasiment tous à une famille noble, mais il faut dire qu’il s’agit du peuple qui compte le plus de nobles. Ils ont les cheveux blancs et les yeux gris argentés parfois même sans pupille visible. Par tradition, les familles de haut-elfes envoient quelques-uns de leurs membres à la seule Académie militaire du pays. Les autres elfes ne sont jamais de véritables guerriers mais de simples militaires (soldats, éclaireurs, gardes, etc). Enfin, alors que les elfes et les elfes des bois ne peuvent développer leur art de la magie, les hauts-elfes peuvent devenir mages et ils contrôlent donc les différentes assemblées de Mages-Gris du pays elfe.",
+    "costInCreationPoint" : 8,
+    "bonusPointToCharacteristic" : 3,
+    "isHighRace": true,
+    "characteristics" : {
+      "COURAGE": 7,
+      "WILLPOWER": 7,
+      "CHARISMA": 8,
+      "BEAUTY": 9,
+      "CONSTITUTION": 7,
+      "INTELLIGENCE": 9,
+      "PERCEPTION": 9,
+      "DEXTERITY": 9,
+      "STRENGTH": 7
+    }
+  }, {
+    "name" : "WOODEN_ELF",
+    "description" : "Les elfes bruns sont trois fois moins nombreux que les elfes gris. Ils ont un mode de vie principalement rural et fréquentent surtout les forêts, d’où leur surnom d’elfe des bois. Tout comme les autres elfes, ils possèdent le don de magie innée (1 sort tous les 3 niveaux), mais leurs sorts sont uniquement tournés vers la manipulation de la nature.\nEncore plus habiles archers, ils ont aussi des sens aiguisés ce qui en fait des chasseurs redoutables. Par contre, ils ne sont pas du tout portés sur le combat au corps à corps et ne font pas de très bons voleurs car ils fuient trop facilement devant un danger.",
+    "costInCreationPoint" : 6,
+    "bonusPointToCharacteristic" : 0,
+    "isHighRace": false,
+    "characteristics" : {
+      "COURAGE": 6,
+      "WILLPOWER": 7,
+      "CHARISMA": 8,
+      "BEAUTY": 9,
+      "CONSTITUTION": 7,
+      "INTELLIGENCE": 8,
+      "PERCEPTION": 10,
+      "DEXTERITY": 10,
+      "STRENGTH": 7
+    }
+  }, {
+    "name" : "DWARF",
+    "description" : "D'un physique un peu plus éloigné de l'archétype humain et antithèse des elfes, les nains mesurent environ 1m50. Ils sont forts comme l’acier qu'ils travaillent d’ailleurs avec art. Ils méprisent généralement les arts magiques non liés à la matière, abhorrent les démons et tout ce qui s’y rapporte et préfèrent compter sur une bonne hache ou sur leur instinct sur-développé : talent de leur race...\nLes nains font de redoutables guerriers mais aussi des artisans hors pairs, des marchands très actifs ou bien des maîtres-mineurs. Mais ils seront toujours intéressés par l’or, les joyaux et les œuvres d’orfèvreries.\nA la création un nain pourra avoir un score élevé en Force et peu de faiblesses. Il bénéficiera aussi de bonnes capacités d’apprentissage en combat et de talents innés comme 6e sens accru et Instinct de la matière. Il aura de bons scores dans quelques sports mais peu de volonté pour les développer davantage.",
+    "costInCreationPoint" : 4,
+    "bonusPointToCharacteristic" : 0,
+    "isHighRace": false,
+    "characteristics" : {
+      "COURAGE": 9,
+      "WILLPOWER": 8,
+      "CHARISMA": 7,
+      "BEAUTY": 7,
+      "CONSTITUTION": 9,
+      "INTELLIGENCE": 8,
+      "PERCEPTION": 7,
+      "DEXTERITY": 7,
+      "STRENGTH": 10
+    }
+  }, {
+    "name" : "HIGH_DWARF",
+    "description" : "Les hauts nains sont assez rares et facilement reconnaissables à leurs yeux violets. Ils forment la noblesse du peuple nain tandis que ses héros et ses guerriers sont plutôt des nains non issu de la haute-race. À leur arrivée sur Kalidhia, les nains possédaient tous les yeux violets et une vigueur hors du commun. Ce n’est qu’à partir de –6500 que les nains tels qu’on les connaît commencent à apparaître (c’est-à-dire sans les yeux violets). La proportion est aujourd’hui inversée puisque les hauts-nains ne représentent plus qu’environ 15% de la population naine totale.",
+    "costInCreationPoint" : 8,
+    "bonusPointToCharacteristic" : 3,
+    "isHighRace": true,
+    "characteristics" : {
+      "COURAGE": 9,
+      "WILLPOWER": 8,
+      "CHARISMA": 7,
+      "BEAUTY": 7,
+      "CONSTITUTION": 9,
+      "INTELLIGENCE": 8,
+      "PERCEPTION": 7,
+      "DEXTERITY": 7,
+      "STRENGTH": 10
+    }
+  }, {
+    "name" : "HOBBIT",
+    "description" : "On les nomme aussi les Semi-hommes : leur taille dépassant rarement 1 mètre de haut. Comme ils ont plus tendance (et le désir) à développer de l'embonpoint que des muscles, les métiers de combattants leur sont presque tous fermés. Leur grande adresse et leur furtivité légendaire en font sans doute les meilleurs éclaireurs de Kalidhia. Les hobbits font aussi des personnages sympathiques, que les autres peuples de continent ne découvrent qu’à peine car les hobbits n’occupent pas une place importante dans l’économie ou la politique du monde.\nA la création un hobbit sera donc habile et rapide mais peu résistant (le talent du même nom ayant un coût x2 pour un hobbit). Il ne fera pas un bon combattant mais son aide sera précieuse s’il se spécialise dans les métiers où ce peuple excelle (éclaireur, filou, diplomate ou cambrioleur). Ses principaux talents seront une acuité tactile et gustative hors du commun ainsi qu’une grande famille prête à aider (ce talent aura un coût divisé par 2 pour un hobbit).",
+    "costInCreationPoint" : 4,
+    "bonusPointToCharacteristic" : 0,
+    "isHighRace": false,
+    "characteristics" : {
+      "COURAGE": 7,
+      "WILLPOWER": 9,
+      "CHARISMA": 9,
+      "BEAUTY": 7,
+      "CONSTITUTION": 6,
+      "INTELLIGENCE": 9,
+      "PERCEPTION": 9,
+      "DEXTERITY": 10,
+      "STRENGTH": 6
+    }
+  }, {
+    "name" : "GNOME",
+    "description" : "Imaginez un Nain de la taille d’un Hobbit, changez son instinct par une vision innée des infrarouges et vous aurez un gnome... C'est-à-dire un être petit mais très (très) robuste, plus à l'aise sous terre une hache à la main que dans une ville civilisée ou une forêt. La société gnome est très hiérarchisée et organisée, ce peuple luttant sans cesse contre les gobelins qui vivent dans la même région qu’eux dans le Nord-Est du Pays nain.\nLes gnomes sont de bons guerriers, indestructibles comme le roc qu’ils affectionnent mais ils sont à déconseiller aux joueurs débutants car trop spécialisés. Ils possèdent à la création le talent de résistant et de résistance à la douleur (qu’ils n’ont pas à acheter) et sont le seul peuple de Kalidhia à posséder une vision thermographique. Les gnomes font aussi de bons érudits car ils ont une passion pour le langage écrit et ses subtilités ; en revanche, ils sont assez peu sensibles à la magie et très peu d’entre eux, voire quasiment aucun, ne peuvent la pratiquer.",
+    "costInCreationPoint" : 6,
+    "bonusPointToCharacteristic" : 0,
+    "isHighRace": false,
+    "characteristics" : {
+      "COURAGE": 9,
+      "WILLPOWER": 9,
+      "CHARISMA": 6,
+      "BEAUTY": 6,
+      "CONSTITUTION": 10,
+      "INTELLIGENCE": 8,
+      "PERCEPTION": 9,
+      "DEXTERITY": 7,
+      "STRENGTH": 8
+    }
+  }]

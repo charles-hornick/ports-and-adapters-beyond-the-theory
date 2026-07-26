@@ -15,6 +15,7 @@
         <module>cqs-spring</module>
         <module>supra</module>
         <module>bootstrap</module>
+        <module>compendium-json</module>
     </modules>
 
     <name>Behond the theory</name>

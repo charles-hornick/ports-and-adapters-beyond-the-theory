@@ -1,0 +1,869 @@
+[
+  {
+    "name": "ADEPT",
+    "type": "SPECIAL",
+    "description": "L’adepte parcourt la vie en harmonie avec une divinité, il a pour mission d’apporter au monde les bienfaits de son dieu. Mais il a aussi par ses actions, sa ferveur de croyant et une légère tendance au prosélytisme, une autre fonction qui est de favoriser le culte de sa déité. Les adeptes sont un peu les représentants de commerce des dieux, ce sont eux qui parcourent le monde en répandant les bienfaits de leur culte, ils n’ont pas comme objectif premier de convertir de nouveaux croyants (c’est le boulot des prêtres), mais de témoigner de la puissance du dieu. Et pour le récompenser de sa dévotion (matérialisée par un Indice de satisfaction du dieu envers le fidèle), le personnage va acquérir quelques pouvoirs divins.\nExemples : un adepte de Guérimm, le dieu nain de la forge, peut aussi bien être un guerrier amateur d’artisanat et fier de l’art de la forge des nains qu’un forgeron de village ou un dirigeant de guilde de forgerons.\nL’adepte conserve les caractéristiques du genre qu’il exerçait auparavant tout en bénéficiant de quelques modificateurs supplémentaires, ce genre ne peut donc pas être pris à la création du personnage ! En effet, il faut déjà que le personnage découvre vers quel dieu ou totem il veut se diriger avant d’affirmer cet engagement. Il faut aussi signaler qu’un adepte conservera ses pouvoirs même s’il change de genre, mais à condition qu’il continue à suivre la voie de son dieu.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "MAGE_APPRENTICE",
+    "type": "MINOR_SPECIAL",
+    "description": "Le personnage vient tout juste de quitter les bancs d’une salle de classe d’une assemblée de magie. Son mentor vient de lui remettre son focus et son premier livre de sort, ce qui montre qu’il n’est plus tout à fait un élève mais bel et bien un mage doté de pouvoirs magiques. En revanche, ses sorts ne seront pour l’instant qu’une pâle réplique de la puissance de ses aînés. Si le joueur choisi d’incarner un mage (en commençant par un apprenti-mage), il lui faut savoir qu’il n’aura que peu de possibilité d’évolution en terme de genres. Mais, il découvrira que la magie de Kalidhia est suffisamment riche et variée pour que son personnage puisse évoluer vers différentes directions au sein de ce genre.\nIl existe différentes écoles de magicien au sein de l’ordre des Mages-Gris ; à la fin de son apprentissage, le Mage devra choisir l’une des 5 écoles à savoir : école généraliste, école élémentaliste, école des guérisseurs, école militaire ou école naturaliste.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "PRIEST_APPRENTICE",
+    "type": "MINOR_SPECIAL",
+    "archetypes": [
+      "PALADHIM_PRIEST_APPRENTICE"
+    ],
+    "description": "Un prêtre suit un dieu précis, il doit se plier à des préceptes de comportement et modeler sa vie en fonction des désirs de sa divinité. La relation entre le dieu et son serviteur est matérialisée par un indice de satisfaction (IS) qui varie suivant le comportement du personnage. En échange de ses bons services, le prêtre bénéficiera d’un certain nombre de pouvoirs magiques puissants qui dépendront de son statut au sein du clergé (aspirant-prêtre, prêtre, haut-prêtre) et du dieu adoré. Un aspirant-prêtre sort tout juste d’une période de noviciat dans un monastère (qui dure entre 6 mois et 2 ans), il possède désormais quelques pouvoirs. L’aspirant prêtre conserve les caractéristiques du genre qu’il exerçait auparavant, ce n’est donc pas un genre qu’un personnage peut prendre à la création ! Ensuite, sa carrière logique est de continuer à progresser dans l’ordre en devenant prêtre (et éventuellement haut-prêtre). Après un minimum de 2 niveaux de vie au sein de l’ordre en temps qu’aspirant, le personnage pourra passer prêtre, si le dieu est satisfait de son serviteur d’au moins 80%.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "PALADHIM_PRIEST_APPRENTICE",
+    "type": "MINOR_SPECIAL",
+    "description": "Il doit se plier à des préceptes de comportement et modeler sa vie en fonction des désirs de Paladhim. La relation entre le dieu et son serviteur est matérialisée par un indice de satisfaction (IS) qui varie suivant le comportement du personnage. En échange de ses bons services, le prêtre bénéficiera d’un certain nombre de pouvoirs magiques puissants qui dépendront de son statut au sein du clergé (aspirant-prêtre, prêtre, haut-prêtre) et du dieu adoré. Un aspirant-prêtre sort tout juste d’une période de noviciat dans un monastère (qui dure entre 6 mois et 2 ans), il possède désormais quelques pouvoirs. L’aspirant prêtre conserve les caractéristiques du genre qu’il exerçait auparavant, ce n’est donc pas un genre qu’un personnage peut prendre à la création ! Ensuite, sa carrière logique est de continuer à progresser dans l’ordre en devenant prêtre (et éventuellement haut-prêtre). Après un minimum de 2 niveaux de vie au sein de l’ordre en temps qu’aspirant, le personnage pourra passer prêtre, si le dieu est satisfait de son serviteur d’au moins 80%.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "ADVENTURER",
+    "type": "MINOR",
+    "description": "Ce genre est celui des petits aventuriers qui essayent de se frayer un chemin à travers le monde, ils ne sont ni très habiles au combat, ni doués pour la rapine ou reconnus pour leur érudition mais ils sont débrouillards et très polyvalents. C’est un bon genre pour commencer une carrière ou pour combler de graves lacunes, mais il est évident qu’un personnage de niveau 6 ayant déjà été guerrier, éclaireur et cambrioleur n’aura rien à gagner à devenir aventurier.",
+    "archetypes": [
+      "ELF_ADVENTURER"
+    ],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "ELF_ADVENTURER",
+    "type": "MINOR",
+    "description": "Issus d’une lointaine tradition elfique, les aventuriers elfes sont généralement des fidèles d’Elys, le dieu de la liberté. Ils parcourent Kalidhia, ou plus humblement leur province d’origine, en essayant de travailler de-ci de-là et de découvrir de nouveaux horizons ou de faire des rencontres.\nLeurs affinités sont souvent : elfes, mercenaires, instinctivement (opposé de l’affinité : après réflexion).",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "HALF_ELF",
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "HUMAN",
+        "HIGH_HUMAN",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {}
+    },
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "BARBARIAN",
+    "type": "MAJOR",
+    "description": "Les barbares de Kalidhia sont des personnages qui ont été élevés dans un milieu où la vie est si précaire qu’elle devient un combat de tous les instants. A la différence des Erédiens, les barbares ne vivent pas pour les épreuves ou pour les conflits, ils les subissent tout simplement et d’ailleurs, la plupart des barbares ne possèdent pas le don de la rage berserk. Le fait d’avoir toujours vécu dans une situation d’hostilité extrême, soit à cause de leur environnement naturel (climat), soit à cause de conflits permanents, leur a juste donné des compétences de survie particulièrement élevées. Ils ont un mode de vie rural, relativement « primitif », mais possèdent des sens sur-développés et une relation étroite avec la nature. Certains barbares sortent quand même du lot, par exemple dans la jungle de Dùn, au sud de Kalidhia, où l’on peut rencontrer plusieurs tribus composées de barbares possédant la rage berserk. Ces Dùnains, qui dans leur langue se nomment Kiséguélé , sont noirs de peau et athlétiques, ils vivent dans les profondeurs de la jungle (le pire environnement du continent), dans une ambiance de lutte tribale permanente. Ils sont nettement plus sauvages que les Erédiens et leur fureur ne vient pas de Rondra, mais d’une autre source divine qui se nomme Guita. On raconte qu’il existerait aussi quelques nains qui ont vécu isolé des autres membres de leur peuple qui peuvent se mettre dans un état de rage berserk sans pratiquer de culte apparent à aucune divinité.",
+    "archetypes": [
+      "EREDIAN_BARBARIAN"
+    ],
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HALF_ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "HIGH_HUMAN",
+        "GNOME",
+        "HOBBIT"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 12,
+        "WILLPOWER": 11,
+        "CONSTITUTION": 13,
+        "DEXTERITY": 11,
+        "STRENGTH": 13
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "EREDIAN_BARBARIAN",
+    "type": "MAJOR",
+    "description": "Les barbares Erédiens appartiennent à un peuple très particulier, une minorité humaine qui ressemble un peu à nos vikings mais les talents de navigateur en moins. Ils ne vivent que dans le Nord du monde, dans les provinces d’Ered-dur et du Paléon. Leur mode de vie est rustique et approprié à la vie dans le grand Nord, la vie des jeunes hommes n’est qu’épreuves, combats et rites de passages. Les Erédiens sont parvenus à conserver une certaine identité ethnique, non loin des Inuïts, dans le nord du continent. Ces grands hommes roux habillés de peaux de bêtes sont de redoutables adversaires, ils peuvent être rencontrés comme mercenaires ou gardes du corps. Les barbares Erédiens sont les fidèles suivants de Rondra, le dieu des épreuves et des conflits. Ils possèdent un talent précieux, celui de la rage berserk, un don divin qui leur a été accordé il y a 9 000 ans. Historiquement, les barbares Erédiens sont les descendants de l’ancienne garde d’honneur de Rondra. Mais depuis que le Dieu ne marche plus au milieu d’eux, ils se sont retranchés dans les terres les plus hostiles du continent afin de mettre à l’épreuve les dons de leur ancien maître. Tout les Erédiens ont donc normalement pour culte celui de Rondra, dieu des conflits et des épreuves. Dans les niveaux supérieurs à 5, on compte même de nombreux Erédiens adeptes de Rondra. Leurs affinités sont souvent : montagne, mercenaires, endurance.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HALF_ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "HIGH_HUMAN",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 12,
+        "CONSTITUTION": 13,
+        "PERCEPTION": 11,
+        "STRENGTH": 13
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "STREET_PERFORMER",
+    "type": "MINOR",
+    "description": "Jongleurs des rues, artistes sans le sous de tavernes, racoleurs, vendeurs à la sauvette et crieurs publics peuvent correspondre au genre de bateleur. Ces personnages sont habiles de leurs langues, parfois de leurs doigts et vivent surtout en milieu urbain. Certains se dirigeront vers des carrières de filous et de criminel, alors que d’autres se rallieront aux troubadours et aux acrobates privilégiant ainsi la voie de la scène et de la lumière, plutôt que celle de l’ombre et de la nuit.",
+    "archetypes": [
+      "STREET_URCHIN"
+    ],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "BRIGAND",
+    "type": "MINOR",
+    "description": "Les brigands sont les escrocs de base qui n’ont pas encore suffisamment de talents ou d’expérience pour être de véritables détrousseurs. Les brigands vont donc surtout être les hommes de main de personnages plus importants ou alors se contenter de simples rackets dans la rue ou sur une voie de passage et du pillage d’endroits peu protégés. Ils travaillent fréquemment avec des filous, assurant le côté physique des opérations car les filous, qui sont plutôt discrets, ont l’habitude de refuser les actions de force. Les brigands peuvent tout de même faire carrière au sein d’une guilde, même s’ils seront surtout utilisés pour les tâches ingrates nécessitant peu de finesse.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "BURGLAR",
+    "type": "MAJOR",
+    "description": "Les cambrioleurs sont des voleurs relativement rares, à la différence des Filous, que l’ont dit aussi nombreux dans les capitales que les rats. Les cambrioleurs en revanche sont les as de la profession de voleur, ce sont des monte-en-l’air accomplis, spécialisés dans la fouille, le crochetage et l’exploration des bâtisses « délaissées » par leur propriétaire.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "DWARF",
+        "HIGH_DWARF",
+        "GNOME"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 11,
+        "CHARISMA": 11,
+        "INTELLIGENCE": 12,
+        "PERCEPTION": 12,
+        "DEXTERITY": 13
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "HUNTER",
+    "type": "MINOR",
+    "description": "Issus du milieu rural, les chasseurs peuvent être spécialisés dans la chasse aux loups, dans le piégeage de gibier ou même, dans certaines régions, servir de pisteur pour les militaires. Les chasseurs sont souvent peu à l’aise en ville et limités au niveau des relations sociales.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "KNIGHT",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Les chevaliers forment l’élite de la cavalerie lourde humaine. Mais au-delà de leurs compétences martiales très élevées, ces guerriers, maîtres d’armes et cavaliers, se sont hissés aux plus hauts postes de la société féodale humaine. Les chevaliers sont donc souvent nobles et issus de la haute société ou alors ce sont des militaires de carrière qui ont gagné leurs galons dans les grandes académies militaires. Les chevaliers sont généralement attachés à une troupe militaire d’élite (Lances d’argent ou Garde d’Acier) mais ils peuvent aussi être simplement au service d’une famille, d’un territoire ou d’une divinité.",
+    "archetypes": [
+      "PALADIN"
+    ],
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "HIGH_HUMAN",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 14,
+        "WILLPOWER": 11,
+        "CHARISMA": 11,
+        "CONSTITUTION": 13,
+        "INTELLIGENCE": 11,
+        "DEXTERITY": 11,
+        "STRENGTH": 15
+      }
+    },
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "TRADER",
+    "type": "MINOR",
+    "description": "Ce genre mineur représente un des fondements de l’économie mais ce métier est tellement loin de la vie d’aventurier qu’il ne peut représenter qu’un genre mineur (à la différence de marchand). Un personnage joueur commerçant appartient à la guilde des marchands et pourra plus tard en devenir un membre actif, ce qui est impossible si le P.J. n’a pas été soit commerçant, soit marchand. A la création, il conviendra de fixer de quel type de commerce ou d’échoppe le personnage était responsable.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "COURIER",
+    "type": "MINOR",
+    "description": "Qu’ils soient chargés de conduire des chevaux pur-sangs de haras en haras ou de transporter des messages ou des colis pour des guildes, les convoyeurs se rencontrent surtout sur les routes ou dans les auberges. Très bons cavaliers, certains d’entre eux semblent même être capable de mener des troupeaux immenses avec comme seule aide le concours de quelques chiens de berger (et éventuellement de quelques soldats si la région est dangereuse).",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "HIGHWAYMAN",
+    "type": "MAJOR",
+    "description": "Ce genre majeur de voleur regroupe les spécialistes dans l’art du vol forcé et généralement armé, ils peuvent agir dans les bas quartiers des grandes villes ou dans la rase campagne, alors on les nomme bandits de grands chemins. Certains sont relativement sophistiqués alors que d’autres sont simplement des brutes épaisses. Les détrousseurs sont rudes à la tâche et maîtres dans l’art de l’intimidation, mais ils ont mauvaise réputation et sont souvent recherchés comme criminel dans une ou deux provinces.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "HOBBIT"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 11,
+        "DEXTERITY": 12,
+        "STRENGTH": 12
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "PIRATE",
+    "type": "MAJOR",
+    "description": "Ce terme correspond à leur désignation officielle dans les textes de loi Kalidhien, mais entre eux ou au sein de la population, les détrousseurs des mers sont plutôt nommés « Pirates ».",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "WOODEN_ELF",
+        "GNOME",
+        "HOBBIT"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 11,
+        "CONSTITUTION": 11,
+        "PERCEPTION": 12,
+        "DEXTERITY": 11,
+        "STRENGTH": 12
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "SCOUT",
+    "type": "MINOR",
+    "description": "Les éclaireurs travaillent dans l’armée ou comme mercenaire. Ce sont des soldats, souvent des cavaliers, équipés d’armes et d’armures légères de façon à pouvoir se déplacer librement et rapidement. Souvent envoyés à l’avant des troupes pour effectuer des missions de repérage, ce sont des spécialistes de la survie et de l’analyse du terrain. De nombreux éclaireurs suivent ensuite des carrières militaires voire deviennent traqueurs.",
+    "archetypes": [
+      "HOBBIT_SCOUT"
+    ],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "HOBBIT_SCOUT",
+    "type": "MINOR",
+    "description": "Les hobbits ne possèdent par de troupe militaire en tant que telle, en revanche, ils sont fréquemment utilisés dans les troupes de fantassins pour ouvrir le chemin car ce sont des personnages très discrets et particulièrement agiles. Il existe même une troupe d’élite un peu spéciale nommée « les frères des fourrés » qui correspond en réalité à une association regroupant les meilleurs éclaireurs hobbits. Leurs affinités sont souvent : un milieu au choix, hobbits, discrètement.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "PALADIN_SQUIRE",
+    "type": "MINOR_SPECIAL",
+    "description": "Écuyer ayant manifesté l’intention d’entrer dans le clergé de Paladhim comme paladin ou prêtre, les élèves-paladins ont reçu ou reçoivent une formation à la fois militaire et religieuse. Ainsi formés à l’art de la guerre, l’utilisation de l’épée longue et à la lecture, ils forment un fertile vivier de jeunes soldats d’autant plus enflammés que leurs actions sont guidées par la fougue due à leur jeunesse ainsi que par leur ferveur religieuse. Ils se doivent de posséder une affinité envers les humains.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "CLAN_ELITE",
+    "type": "MAJOR",
+    "description": "Le personnage est un des meilleurs éléments de son clan, ce terme étant utilisé ici dans un sens très large, le clan peut aussi bien être une tribu, un village, une communauté, un gang... Le personnage possède des aptitudes supérieures à celles des autres membres de son groupe, il peut en être le leader, le champion ou tout simplement un membre de leur groupe d’élite (au choix du joueur et selon les capacités propres du personnage). De plus, un personnage ayant été élite de clan aura des facilités pour intégrer un véritable corps d’élite (ceux-ci sont réservés à des personnages au minimum niveau 5).",
+    "archetypes": [
+      "AMAZON_ELITE"
+    ],
+    "prerequisite": {
+      "forbiddenRaces": [],
+      "characteristicsToMatch": {
+        "COURAGE": 12,
+        "CONSTITUTION": 11,
+        "PERCEPTION": 12,
+        "DEXTERITY": 11,
+        "STRENGTH": 12
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "AMAZON_ELITE",
+    "type": "MAJOR",
+    "description": "Ces troupes d’élites sont de redoutables combattantes mais elles pratiquent aussi un art de combat très acrobatique, la gymnastique de combat. La plupart des amazones suivent la déesse Khamala, la protectrice des femmes, elles vivent selon un code très strict, mais certaines refusent le mode de vie de leur groupe et deviennent des renégates. Un joueur désirant jouer une élite amazone devra jouer une renégate (pour une raison au choix) et il devra décider si oui ou non il suit le culte de Khamala. Enfin, notons que les élites amazones ne sont pas seulement de bonnes guerrières mais qu’elles sont rompues à l’art de l’espionnage et maîtrise de puissantes techniques de méditation. Nombre d’entre elles sont des beautés fatales et possèdent un talent d’apparence : charismatique, séduisant ou éblouissant.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "HALF_ELF",
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "HIGH_HUMAN",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 12,
+        "CHARISMA": 12,
+        "BEAUTY": 13,
+        "INTELLIGENCE": 10,
+        "STRENGTH": 12
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "DOCKER",
+    "type": "MINOR",
+    "description": "Le terme d’employés regroupe les manutentionnaires, les manœuvres, les dockers et les transbordeurs qui sont la main d'œuvre de base de toutes les cités et sans qui le monde ne pourraient plus tourner rond. Ces employés sont regroupés en corporations : les guildes ; ils sont durs à la tâche et âpres au gain, mais il est vrai qu’ils ne sont réputés ni pour leur intelligence, ni pour leur talent d’escrime. En revanche, ils ont toujours vécu au sein et pour la société, ils connaissent donc bien les rouages.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "ROGUE",
+    "type": "MINOR",
+    "description": "Ce sont les voleurs de bas étages, les pickpockets de places de marché, bref de petites frappes, plus habiles avec un stylet et du bagou qu’avec un passe-partout. Agissant de façon discrète et évitant le plus possible les situations nécessitant de la force, ils travaillent fréquemment avec des brigands. Ils n’ont pas le sang froid des détrousseurs ou l’art des cambrioleurs, mais c’est parfois mieux que rien... Les filous peuvent tout de même faire carrière au sein d’une guilde, même s’ils seront surtout utilisés pour les tâches ingrates nécessitant peu de finesse.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "STREET_URCHIN",
+    "type": "MINOR",
+    "description": "Les gamins des rues sont souvent des orphelins ou des enfants abandonnés qui se sont élevés plus ou moins seuls dans une grande cité de Kalidhia (capitale de province). Oscillants entre la filouterie et la survie simple, ils possèdent généralement une gouaille et une fraîcheur qui en fait d’excellents bateleurs (à la façon de Gavroche). Leurs affinités sont souvent : province d’origine, peuple (au choix suivant le milieu où ils ont été élevés), urbain.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "GUARD",
+    "type": "MINOR",
+    "description": "Pour contrer les filous, il y a les gardes, des soldats spécialisés dans la protection (généralement de biens, marchandises ou de maisons). Les gardes du corps professionnels sont issus de cette profession mais sont généralement en possession du titre correspondant, ils ont donc généralement une expérience plus importante voire un passé de mercenaire.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "BORDER_GUARD",
+    "type": "MAJOR",
+    "description": "Les gardes frontières sont des soldats d’élites placés dans les zones les plus dangereuses, ils occupent des fortins le long des zones hostiles et doivent être aux aguets en permanence, sortant périodiquement pour faire de longues rondes dont ils ne sont jamais certains de revenir. Ils ont donc développé des aptitudes presque équivalentes à celles des barbares, mais sans en atteindre le même degré de perfection (les barbares eux sont nés dans ce milieu hostile, ils n’y ont pas été mutés...).",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "HOBBIT"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 14,
+        "CHARISMA": 10,
+        "CONSTITUTION": 14,
+        "PERCEPTION": 13,
+        "DEXTERITY": 11,
+        "STRENGTH": 13
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "NOBLEMAN",
+    "type": "MINOR",
+    "description": "Les nobles et les personnes de bonne éducation forment un milieu très spécifique où les relations sociales sont aussi importantes que l’art de la chasse ou de l’équitation. Mais les gentilshommes ont surtout une connaissance très superficielle de toutes ces spécialités, préférant faire appel à des spécialistes quand le besoin s’en fait ressentir. Il ne s’agit donc que d’un genre mineur, pris au début d’une carrière par les personnages issus de la haute société, qui ensuite se spécialiseront dans les lettres, les armes ou entreront dans un clergé ; ou bien d’un genre pris librement en cours de carrière par des personnages ayant déjà une spécialité mais désireux de se doter d’un vernis de diplomatie et de savoir-vivre.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "WARRIOR",
+    "type": "MAJOR",
+    "description": "Les guerriers sont des combattants très spécialisés issus de l’armée, l’apprentissage d’un guerrier commence généralement à 14 ans. L’apprenti passe entre 1 et 2 ans dans une école militaire et ensuite il fait ses classes dans l’armée régulière comme simple soldat pendant environ 2 ans, puis il devient un véritable guerrier. Alors, s’il continu dans l’armée régulière, il se voit offert la possibilité d’intégrer une Académie d’élite où il se perfectionnera en escrime afin d’intégrer le groupe d’élite de la province.",
+    "archetypes": [
+      "KRAEN_WARRIOR",
+      "HYSTANIAN_ELITE_WARRIOR"
+    ],
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "GNOME",
+        "HOBBIT"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 13,
+        "WILLPOWER": 10,
+        "CHARISMA": 10,
+        "CONSTITUTION": 12,
+        "STRENGTH": 13
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "KRAEN_WARRIOR",
+    "type": "MAJOR",
+    "description": "Les guerriers nains ou gnomes sont parfois connus sous le nom de guerriers Kraën, terme qui désigne en réalité les deux peuples et veux dire « les élus ». Les nains sont d’excellents guerriers et leur grande force leur permet de venir à bout de la plupart de leurs ennemis. Les gnomes sont en revanche handicapés par leur petite taille, mais celle-ci devient leur meilleur atout quand il s’agit de se battre dans des endroits clos ou de dimensions restreintes et là, personne ne peut venir à bout d’un bon guerrier gnome.... Ces deux peuples se battent principalement à la hache à une main et portent des armures lourdes ainsi qu’un bouclier, mais on connaît aussi de nombreux Kraën qui se battent avec des haches à deux mains, spécialement adaptée à leur taille, ou avec des armes contondantes. Leurs affinités sont souvent : Montagne, nain ou pays nain + une affinité au choix",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "HALF_ELF",
+        "HUMAN",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 12,
+        "CONSTITUTION": 12,
+        "STRENGTH": 14
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "HYSTANIAN_ELITE_WARRIOR",
+    "type": "MAJOR",
+    "description": "Les guerriers d’élites des hommes d’airains sont de redoutables combattants qui manient l’ensemble des arts de la guerre avec la dextérité des maîtres. Les légendes racontent que ces guerriers sont extrêmement fidèles à leur seigneur et son prêt à mourir pour lui sur un simple ordre de sa part. A l’heure du début de la Saga Kalidhienne (en l’an +15) aucun de ces « samouraï » n’a foulé le continent depuis 200 ans. Seuls 3 guerriers sans maître foulent le sol de Kalidhia mais ils sont tous trois de niveau supérieur à 10, c’est pourquoi nous considérerons qu’un P.J. ne peut pas prendre ce genre majeur et qu’il est pour l’instant réservé aux PNJs. Leurs affinités sont : Hystanoï, noblesse et protection.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "HALF_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 13,
+        "WILLPOWER": 10,
+        "CHARISMA": 10,
+        "CONSTITUTION": 12,
+        "STRENGTH": 13
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "GUIDE",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Les convoyeurs sont chargés de convoyer des objets, des animaux ou des marchandises à travers une partie d’une province voire à travers le continent entier. Les guides eux se limitent à l’escorte et au convoyage des personnes et les qualifications requises sont donc bien plus sévères, un guide doit être capable de mener un groupe de marchands d’un bout à l’autre du monde, sans qu’il lui arrive le moindre problème. En plus de pré-requis élevés, pour pouvoir adopter ce genre majeur, le personnage doit avoir été chasseur, convoyeur ou éclaireur et affilié à la guilde des mercenaires durant au moins 2 ans.",
+    "prerequisite": {
+      "forbiddenRaces": [],
+      "characteristicsToMatch": {
+        "COURAGE": 11,
+        "WILLPOWER": 12,
+        "CHARISMA": 12,
+        "CONSTITUTION": 12,
+        "INTELLIGENCE": 11,
+        "PERCEPTION": 14,
+        "DEXTERITY": 13,
+        "STRENGTH": 12
+      }
+    },
+    "previousProfessions": ["HUNTER", "COURIER", "SCOUT", "HOBBIT_SCOUT"],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "SCHOLAR",
+    "type": "MAJOR",
+    "description": "La maîtrise des lettres n’est pas très courante sur Kalidhia et les personnages qui sont spécialisés dans l’étude et les écrits sont pour la plupart issus de familles aisées. En parallèle à leur vie d’érudit, certains lettrés ont entamé ou mènent une vie religieuse voire la pratique des arts magiques. Le genre de lettré est donc un des rares métiers que peut exercer un prêtre ou un mage, sans avoir pour autant à abandonner sa spécialité.",
+    "prerequisite": {
+      "forbiddenRaces": [],
+      "characteristicsToMatch": {
+        "WILLPOWER": 12,
+        "INTELLIGENCE": 13,
+        "PERCEPTION": 11
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "COURTIER",
+    "type": "MAJOR",
+    "description": "Le terme de gentilhomme s’applique aux personnages nobles ou qui vivent dans l’environnement spécial de la haute société, les libertins sont aussi des personnes qui fréquentent la haute société ou les milieux aisés, mais ils y évoluent en y appliquant les arts de la flatterie, de la séduction, du beau parler, de la tromperie et du libertinage. Certain(e)s seront de véritables prostitué(e)s de luxe, d’autres pratiqueront le jeu, la danse et la flatterie et il peut même s’agir de véritables nobles ou de gentilshommes. Il existe aussi des courtisans non nobles, affiliés aux guildes des voleurs ou au service d’un noble important qui correspondent bien à l’image des libertin(e)s, maître(sse)s de leurs charmes, qui séduisent leurs « clients » afin de leur dérober des biens, ou qui se dénichent un protecteur afin de vivre à l’abri du besoin.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HALF_ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "HUMAN",
+        "HIGH_HUMAN",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "WILLPOWER": 11,
+        "CHARISMA": 13,
+        "BEAUTY": 12,
+        "PERCEPTION": 12,
+        "DEXTERITY": 13
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "GENERALIST_MAGE",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Les mages possèdent le don de la magie et ils peuvent utiliser le Fluide magique qui enveloppe toutes les choses et tous les êtres afin de réaliser des sortilèges. Lors d’une prise de contact avec Kalidhia, le mage doit obligatoirement appartenir à l’Ordre des Mages-Gris et se choisir une spécialité et son école. (La création d’un mage renégat étant réservée aux joueurs expérimentés qui connaissent déjà Kalidhia). Un mage-gris devra aussi choisir une assemblée d’affiliation ainsi que les listes de sorts qu’il maîtrise. Les mages possèdent des points de magie, comme les elfes, mais à l’inverse des elfes, ils pourront développer leurs pouvoirs et maîtriser de très nombreux sorts et acquérir un puissance supérieure à celle de bien des guerriers. Mais un mage sera aussi limité par son ordre car ce dernier désire éviter les dérapages qui ont conduit à l’avènement des Princes-Sorciers : il sera donc contraint de porter une robe brodée de son symbole et d’avoir un focus auquel il sera lié (tout écart à ces règles conduisant à un procès et à la mise à mort du personnage par l’ordre des Paladins ou par l’autorité locale)\nNormalement, un personnage devenu Mage ne peut plus changer de genre (ou à la limite devenir Lettré).",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "WILLPOWER": 10,
+        "CHARISMA": 12,
+        "INTELLIGENCE": 12,
+        "PERCEPTION": 10
+      }
+    },
+    "previousProfessions": ["MAGE_APPRENTICE"],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "ELEMENTALIST_MAGE",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Les mages possèdent le don de la magie et ils peuvent utiliser le Fluide magique qui enveloppe toutes les choses et tous les êtres afin de réaliser des sortilèges. Lors d’une prise de contact avec Kalidhia, le mage doit obligatoirement appartenir à l’Ordre des Mages-Gris et se choisir une spécialité et son école. (La création d’un mage renégat étant réservée aux joueurs expérimentés qui connaissent déjà Kalidhia). Un mage-gris devra aussi choisir une assemblée d’affiliation ainsi que les listes de sorts qu’il maîtrise. Les mages possèdent des points de magie, comme les elfes, mais à l’inverse des elfes, ils pourront développer leurs pouvoirs et maîtriser de très nombreux sorts et acquérir un puissance supérieure à celle de bien des guerriers. Mais un mage sera aussi limité par son ordre car ce dernier désire éviter les dérapages qui ont conduit à l’avènement des Princes-Sorciers : il sera donc contraint de porter une robe brodée de son symbole et d’avoir un focus auquel il sera lié (tout écart à ces règles conduisant à un procès et à la mise à mort du personnage par l’ordre des Paladins ou par l’autorité locale)\nNormalement, un personnage devenu Mage ne peut plus changer de genre (ou à la limite devenir Lettré).",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "WOODEN_ELF",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "WILLPOWER": 12,
+        "CHARISMA": 10,
+        "INTELLIGENCE": 12,
+        "PERCEPTION": 12
+      }
+    },
+    "previousProfessions": ["MAGE_APPRENTICE"],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "HEALER_MAGE",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Les mages possèdent le don de la magie et ils peuvent utiliser le Fluide magique qui enveloppe toutes les choses et tous les êtres afin de réaliser des sortilèges. Lors d’une prise de contact avec Kalidhia, le mage doit obligatoirement appartenir à l’Ordre des Mages-Gris et se choisir une spécialité et son école. (La création d’un mage renégat étant réservée aux joueurs expérimentés qui connaissent déjà Kalidhia). Un mage-gris devra aussi choisir une assemblée d’affiliation ainsi que les listes de sorts qu’il maîtrise. Les mages possèdent des points de magie, comme les elfes, mais à l’inverse des elfes, ils pourront développer leurs pouvoirs et maîtriser de très nombreux sorts et acquérir un puissance supérieure à celle de bien des guerriers. Mais un mage sera aussi limité par son ordre car ce dernier désire éviter les dérapages qui ont conduit à l’avènement des Princes-Sorciers : il sera donc contraint de porter une robe brodée de son symbole et d’avoir un focus auquel il sera lié (tout écart à ces règles conduisant à un procès et à la mise à mort du personnage par l’ordre des Paladins ou par l’autorité locale)\nNormalement, un personnage devenu Mage ne peut plus changer de genre (ou à la limite devenir Lettré).",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "WOODEN_ELF"
+      ],
+      "characteristicsToMatch": {
+        "CHARISMA": 13,
+        "INTELLIGENCE": 13,
+        "PERCEPTION": 13
+      }
+    },
+    "previousProfessions": ["MAGE_APPRENTICE"],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "WAR_MAGE",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Les mages possèdent le don de la magie et ils peuvent utiliser le Fluide magique qui enveloppe toutes les choses et tous les êtres afin de réaliser des sortilèges. Lors d’une prise de contact avec Kalidhia, le mage doit obligatoirement appartenir à l’Ordre des Mages-Gris et se choisir une spécialité et son école. (La création d’un mage renégat étant réservée aux joueurs expérimentés qui connaissent déjà Kalidhia). Un mage-gris devra aussi choisir une assemblée d’affiliation ainsi que les listes de sorts qu’il maîtrise. Les mages possèdent des points de magie, comme les elfes, mais à l’inverse des elfes, ils pourront développer leurs pouvoirs et maîtriser de très nombreux sorts et acquérir un puissance supérieure à celle de bien des guerriers. Mais un mage sera aussi limité par son ordre car ce dernier désire éviter les dérapages qui ont conduit à l’avènement des Princes-Sorciers : il sera donc contraint de porter une robe brodée de son symbole et d’avoir un focus auquel il sera lié (tout écart à ces règles conduisant à un procès et à la mise à mort du personnage par l’ordre des Paladins ou par l’autorité locale)\nNormalement, un personnage devenu Mage ne peut plus changer de genre (ou à la limite devenir Lettré).",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HALF_ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "GNOME",
+        "HOBBIT"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 10,
+        "WILLPOWER": 12,
+        "INTELLIGENCE": 12,
+        "STRENGTH": 10
+      }
+    },
+    "previousProfessions": ["MAGE_APPRENTICE"],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "NATURALIST_MAGE",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Les mages possèdent le don de la magie et ils peuvent utiliser le Fluide magique qui enveloppe toutes les choses et tous les êtres afin de réaliser des sortilèges. Lors d’une prise de contact avec Kalidhia, le mage doit obligatoirement appartenir à l’Ordre des Mages-Gris et se choisir une spécialité et son école. (La création d’un mage renégat étant réservée aux joueurs expérimentés qui connaissent déjà Kalidhia). Un mage-gris devra aussi choisir une assemblée d’affiliation ainsi que les listes de sorts qu’il maîtrise. Les mages possèdent des points de magie, comme les elfes, mais à l’inverse des elfes, ils pourront développer leurs pouvoirs et maîtriser de très nombreux sorts et acquérir un puissance supérieure à celle de bien des guerriers. Mais un mage sera aussi limité par son ordre car ce dernier désire éviter les dérapages qui ont conduit à l’avènement des Princes-Sorciers : il sera donc contraint de porter une robe brodée de son symbole et d’avoir un focus auquel il sera lié (tout écart à ces règles conduisant à un procès et à la mise à mort du personnage par l’ordre des Paladins ou par l’autorité locale)\nNormalement, un personnage devenu Mage ne peut plus changer de genre (ou à la limite devenir Lettré).",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "HIGH_HUMAN",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "CHARISMA": 12,
+        "INTELLIGENCE": 12,
+        "PERCEPTION": 12,
+        "DEXTERITY": 10
+      }
+    },
+    "previousProfessions": ["MAGE_APPRENTICE"],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "MERCHANT",
+    "type": "MAJOR",
+    "description": "Membres éminents de la guilde du même nom, les marchands dirigent l’économie de Kalidhia aux côtés des artisans. Souvent mal considérés par les nobles ou les membres du clergé, il est pourtant de plus en plus clair que les marchands ont une réelle importance dans le destin du monde et que leurs avis, ordres ou influence ne peuvent plus être niées. Pour un personnage- joueur, incarner un marchand sera le moyen d’entrer dans le milieu fermé de la guilde et donc de bénéficier d’importants contacts ainsi que d’une érudition spécialisée ; en revanche, il est évident que les marchands ne sont pas des personnages optimisés pour l’aventure et qu’ils seront beaucoup plus à l’aise dans une cité que dans un souterrain peuplé de monstres...",
+    "prerequisite": {
+      "forbiddenRaces": [],
+      "characteristicsToMatch": {
+        "WILLPOWER": 13,
+        "CHARISMA": 11,
+        "INTELLIGENCE": 12,
+        "PERCEPTION": 11
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "SAILOR",
+    "type": "MINOR",
+    "description": "Les marins sont les matelots qui se démènent tant bien que mal pour faire avancer les différents bateaux Kalidhiens sur l’océan ou les fleuves. La navigation de Kalidhia se limite à du canotage le long des côtes sans s’éloigner beaucoup de la terre ferme. Mais certains archipels étant très riches en récifs et en courants traîtres, les marins sont parfois de véritables artistes, capables de trouver un itinéraire sans danger au milieu des écueils. La navigation sur les fleuves étant importante, il faut aussi conserver à l’esprit qu’en près d’un quart des marins de Kalidhia n’a jamais vu la mer.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "BEGGAR",
+    "type": "MINOR",
+    "description": "Les mendiants sont les rebuts de la société diront les uns, ce sont de simples criminels diront les autres, mais ce qui est certain c’est que personne n’imagine une ville ou un village sans mendiant et que personne ne fait attention à eux. On peut aussi noter que la plupart des mendiants forment un groupe soudé, qui fonctionne au sein des guildes des voleurs ou en parallèle.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "COMBAT_MERCENARY",
+    "type": "MAJOR",
+    "description": "Tous les personnages expérimentés qui vivent par la pointe de leur épée deviennent mercenaires à un moment ou l’autre de leur carrière, il s’agit du meilleur moyen pour devenir un véritable aventurier, reconnu et respecté comme tel. Les mercenaires combattants ne sont employés que pour les missions où leur art du combat sera utile, par exemple comme garde, soldat ou guerrier ou pour des missions moins avouables où la force prime sur la réflexion.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 12,
+        "WILLPOWER": 10,
+        "CONSTITUTION": 12,
+        "STRENGTH": 13
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "WANDERING_MERCENARY",
+    "type": "MAJOR",
+    "description": "Les mercenaires itinérants sont des personnages polyvalents, spécialisés dans le combat et la survie. Ils sont généralement employés comme gardes ou pour des missions d’explorations. Bref, le mercenaire itinérant est l’archétype de l’aventurier spécialisé. Ils sont théoriquement capables de résoudre n’importe quelle mission, qu’il s’agisse d’une opération de choc ou de quelque chose de plus subtil, où la finesse d’esprit est aussi utile que la puissance de la force brute.",
+    "prerequisite": {
+      "forbiddenRaces": [],
+      "characteristicsToMatch": {
+        "COURAGE": 12,
+        "WILLPOWER": 12,
+        "CONSTITUTION": 12,
+        "INTELLIGENCE": 11,
+        "PERCEPTION": 10,
+        "DEXTERITY": 11,
+        "STRENGTH": 12
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "STREET_MERCENARY",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Étroitement liés au milieu urbain, les mercenaires des rues se rencontrent très fréquemment dans les capitales de provinces, où ils essaient de mener à bien la mission de leur employeur. Hommes de l’ombre, ils sont souvent recrutés pour les missions importantes qui risquent de tourner mal ou pour remplacer à l’occasion des gardes, brigands ou des filous. Bien qu’ils soient généralement assez expérimentés, les mercenaires des rues peuvent avoir des origines et des spécialités diverses : filous, gardes, mercenaires, détrousseurs, etc.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "GNOME",
+        "HOBBIT"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 12,
+        "CHARISMA": 10,
+        "CONSTITUTION": 12,
+        "INTELLIGENCE": 12,
+        "PERCEPTION": 12,
+        "DEXTERITY": 12,
+        "STRENGTH": 14
+      }
+    },
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "MILITIAMAN",
+    "type": "MINOR",
+    "description": "Les miliciens protègent les villages ou les villes, ils peuvent être rencontrés dans un hameau de 25 habitants ou dans les capitales de province, les miliciens sont maîtres dans l’art de protéger sans prendre de risques, de prévenir les menaces sans se mettre en péril, certains peuvent les qualifier de lâches, eux se considèrent plutôt comme prudents. Mais il est évident qu’ils sont plus à l’aise lorsqu’il leur faut lutter contre le feu ou maîtriser une rixe entre piliers de bar plutôt que d’affronter un groupe de mercenaires prêts à en découdre.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "MINER",
+    "type": "MINOR",
+    "description": "Membres de la guilde du même nom, les mineurs sont les ouvriers des ténèbres qui extraient la pierre, les joyaux ou les minerais utiles à l’industrie ou à l’artisanat. Robustes et endurant, ils connaissent bien leur travail et ont développé une communauté soudée et solidaire.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "PALADIN",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Les paladins sont à la fois chevaliers et adeptes, ils suivent une divinité très récente et très singulière : Paladhim. Paladhim est le dieu qui sauva le monde de la tyrannie des Princes-Sorcier, il prône la protection des faibles et la vie simple sans magie. Les paladins sont tous des humains, souvent nobles et issus des chevaliers de Nostrie. Ainsi, à la différence de nombreux autres jeux, les Paladins de Kalidhia sont obligatoirement liés à un dieu : Paladhim, qu’ils servent avec ferveur et dévotion. Les Paladins sont donc tous des chevaliers, maîtres d’armes, formés àl’académie militaire des Gardes d’acier de Nostrie et qui en plus ont suivis une formation religieuse dans un temple de Paladhim, pour devenir adeptes de ce dieu. Ce genre majeur ne peut donc être pris à la création du personnage, mais il est le fruit d’une progression en passant par le genre d’élève-paladin, qui correspond globalement à la période où le personnage fait son apprentissage (à la façon d’un écuyer) et son noviciat. Normalement, un personnage devenu Paladin ne devrait plus changer de genre, à moins qu’il ne décide de quitter le métier des armes pour devenir prêtre de Paladhim. Les paladins se doivent de posséder une affinité envers les humains.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "HALF_ELF",
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "HIGH_HUMAN",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 14,
+        "WILLPOWER": 11,
+        "CHARISMA": 11,
+        "CONSTITUTION": 13,
+        "INTELLIGENCE": 11,
+        "DEXTERITY": 11,
+        "STRENGTH": 15
+      }
+    },
+    "previousProfessions": ["PALADIN_SQUIRE"],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "RANGER",
+    "type": "MAJOR",
+    "description": "Les patrouilleurs sont des soldats spécialisés, généralement des vétérans issus d’une longue carrière de soldat de terrain ou d’éclaireur. En petits groupes, allant parfois jusqu’à une dizaine, ils ont pour mission de quadriller une zone géographique et de vérifier que les habitants de celle- ci peuvent vivre en paix. Leur travail peut donc aller de la chasse aux loups au déboisement de zones menacées d’incendie et comprendre parfois des actions plus offensives contre des bandes de brigands ou de peaux-vertes.",
+    "prerequisite": {
+      "forbiddenRaces": [],
+      "characteristicsToMatch": {
+        "COURAGE": 12,
+        "WILLPOWER": 12,
+        "CONSTITUTION": 13,
+        "INTELLIGENCE": 11,
+        "PERCEPTION": 13
+      }
+    },
+    "costInCreationPoint": 6
+  },
+  {
+    "name": "PRIEST",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Un prêtre suit un dieu précis et il doit se plier à ses préceptes, il doit modeler sa vie en fonction des désirs de son dieu. Le prêtre passera généralement sa vie au service de son dieu, et ils sont peu nombreux les prêtres à avoir abandonné leur divinité. La relation entre le dieu et son serviteur est matérialisée par un indice de satisfaction qui varie suivant le comportement du personnage. Mais les dieux sont des créatures qui savent récompenser leurs fidèles serviteurs et les prêtres bénéficient d’une partie des pouvoirs de leur dieu (dits pouvoirs divins) et d’une fraction de magie divine qui varie selon leur importance dans la hiérarchie de leur clergé. Avec ces points, les prêtres sont capables d’effectuer des prodiges, plus puissants que les sorts des mages, mais ils sont limités aux pouvoirs de leur dieu et ces pouvoirs dépendent bien évidemment de la nature de leur divinité.\nNormalement, un personnage devenu prêtre ne peut plus changer de genre (ou à la limite devenir Lettré).",
+    "archetypes": [
+      "PALADHIM_PRIEST"
+    ],
+    "prerequisite": {
+      "forbiddenRaces": [],
+      "characteristicsToMatch": {
+        "WILLPOWER": 13,
+        "CHARISMA": 12,
+        "INTELLIGENCE": 13,
+        "PERCEPTION": 11
+      }
+    },
+    "previousProfessions": ["PRIEST_APPRENTICE"],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "PALADHIM_PRIEST",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Paladhim est le dieu des humains qui sauva le monde de la tyrannie des Princes-Sorciers, il prône la protection des faibles et la vie simple sans magie. Depuis 300 ans, l’ordre comprend 2 groupes, les frères protecteurs qui protègent les faibles et les frères de l’épée qui luttent pour eux. L’ordre comprend aussi des adeptes et chose particulière, des chevaliers en armure dotés des pouvoirs d’adeptes : les paladins. On peut aussi noter que depuis quelques temps, les frères de l’épée porte à leur côté le symbole de leur charge et suivent des enseignements d’escrime. Les prêtres de Paladhim se doivent de posséder une affinité envers les humains.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HALF_ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "WILLPOWER": 13,
+        "CHARISMA": 12,
+        "INTELLIGENCE": 13,
+        "PERCEPTION": 11
+      }
+    },
+    "previousProfessions": ["PALADHIM_PRIEST_APPRENTICE"],
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "PEASANT",
+    "type": "MINOR",
+    "description": "Les paysans sont les travailleurs de la terre, terre qui d’ailleurs ne leur appartient généralement pas. Ils connaissent relativement bien la nature au travers de ses bienfaits et de ses méfaits, ils ont aussi développé un sens aigu de la survie. En revanche, ils ne sont pas réellement formés à la vie en ville ni à l’aventure, mais leur bon sens légendaire peut toujours aider un groupe de personnages débutants.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "QUESTOR",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Le questeur est l’équivalent du traqueur mais dans une interprétation plus urbaine et plus intellectuelle ; les enquêteurs des gardes d’élites des provinces, les inspecteurs des guildes sont des questeurs. Ce genre peut aussi être celui des précepteurs des enfants de nobles ou de riches familles, des juges ou des avocats qui règlent les problèmes juridiques qui se produisent dans les hautes sphères politiques ou financières.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "ELF",
+        "HIGH_ELF",
+        "WOODEN_ELF",
+        "GNOME",
+        "HOBBIT"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 11,
+        "WILLPOWER": 12,
+        "CHARISMA": 10,
+        "INTELLIGENCE": 14,
+        "PERCEPTION": 14
+      }
+    },
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "SOLDIER",
+    "type": "MINOR",
+    "description": "Ils forment la base des armées, les guerriers étant trop rares pour ne former autre chose que des unités de choc ou des groupes de vétérans. Les soldats ont passé plusieurs mois ou plusieurs années au sein de leur régiment et ont développé de bonnes bases dans l’art du combat au corps à corps ou à distance, le gros intérêt de ce genre est qu’il donne de bonnes compétences de combattant à un personnage même si celui-ci ne possède pas les capacité requises pour devenir mercenaire. Un personnage-joueur soldat ne pourra devenir un guerrier (sauf cas exceptionnel) car il ne pourra passer les 5 ans à l’apprentissage nécessaire, mais s’il possède les qualités requises, il pourra devenir un bon mercenaire combattant.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "MARINE",
+    "type": "MINOR",
+    "description": "Spécialement formés pour lutter contre les pirates et les brigands des fleuves, les soldats embarqués sont des gardes ou des militaires qui ont eu l’habitude de naviguer. Ils sont plus spécialisés que les soldats classiques et ont obligatoirement une affinité en relation soit avec la mer ou les fleuves, soit avec leur métier de militaire.",
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "TRACKER",
+    "type": "MAJOR_EVOLUTION",
+    "description": "Le genre de traqueur est assez complexe, il regroupe aussi bien des combattants spécialisés dans la recherche comme les chasseurs de primes, que des forestiers-pisteurs dont les services se louent à prix d’or. Les traqueurs ne font confiance qu’à leurs compétences de survie et à leurs sens, ils ne sont pas réputés pour réfléchir (à la différence des Questeurs) mais ils ont la réputation d’avoir le regard aussi affûté que les frères-aigle.",
+    "prerequisite": {
+      "forbiddenRaces": [],
+      "characteristicsToMatch": {
+        "COURAGE": 11,
+        "WILLPOWER": 12,
+        "CONSTITUTION": 12,
+        "INTELLIGENCE": 12,
+        "PERCEPTION": 14,
+        "DEXTERITY": 13
+      }
+    },
+    "costInCreationPoint": 0
+  },
+  {
+    "name": "TROUBADOUR",
+    "type": "MAJOR",
+    "description": "Les troubadours parcourent le monde de taverne en taverne, seuls les plus réputés d’entre eux trouvent un mécène et un protecteur qui leur permet de vivre confortablement. Ils sont habiles, rusés et la plupart d’entre eux possède un grand charme naturel. Leur vivacité d’esprit et leurs talents étant leurs seules ressources face à la brutalité du monde réel, bien différent des légendes chantées par les ménestrels.",
+    "prerequisite": {
+      "forbiddenRaces": [
+        "WOODEN_ELF",
+        "DWARF",
+        "HIGH_DWARF",
+        "GNOME",
+        "HOBBIT",
+        "HALF_ORK"
+      ],
+      "characteristicsToMatch": {
+        "COURAGE": 11,
+        "CHARISMA": 14,
+        "BEAUTY": 13,
+        "INTELLIGENCE": 12,
+        "PERCEPTION": 13,
+        "DEXTERITY": 11
+      }
+    },
+    "costInCreationPoint": 0
+  }
+]

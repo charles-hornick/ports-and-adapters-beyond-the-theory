@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:sqlite:supra.db
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      maximum-pool-size: 1          # SQLite = single writer
+      connection-init-sql: "PRAGMA journal_mode=WAL"
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema-sqlite.sql

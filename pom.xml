@@ -14,6 +14,7 @@
         <module>cqs-core</module>
         <module>cqs-spring</module>
         <module>supra</module>
+        <module>storage-sqlite</module>
         <module>bootstrap</module>
         <module>compendium-json</module>
     </modules>

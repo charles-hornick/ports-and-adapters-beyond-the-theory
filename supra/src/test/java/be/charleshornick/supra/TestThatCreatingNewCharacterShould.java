@@ -7,7 +7,6 @@ import be.charleshornick.supra.fixture.SnapshotFixture;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.pragmatica.lang.Result;
-import org.pragmatica.lang.utils.Causes;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.fail;

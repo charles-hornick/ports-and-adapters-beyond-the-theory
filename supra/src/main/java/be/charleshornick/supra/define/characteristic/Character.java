@@ -9,7 +9,6 @@ import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
 import be.charleshornick.supra.state.InvestedPoint;
 import be.charleshornick.supra.race.Race;
 import org.pragmatica.lang.Result;
-import org.pragmatica.lang.utils.Causes;
 
 class Character implements Recorder {
 

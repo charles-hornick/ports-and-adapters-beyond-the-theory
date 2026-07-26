@@ -11,8 +11,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>cqs-core</module>
+        <module>cqs-spring</module>
         <module>supra</module>
-        <module>facade-test</module>
         <module>bootstrap</module>
     </modules>
 
@@ -24,10 +25,24 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jakarta.inject.version>2.0.1</jakarta.inject.version>
+        <pragmatica.core.version>0.25.0</pragmatica.core.version>
         <spring-boot.version>4.0.2</spring-boot.version>
+        <sqlite.version>3.53.2.0</sqlite.version>
     </properties>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <parameters>true</parameters>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

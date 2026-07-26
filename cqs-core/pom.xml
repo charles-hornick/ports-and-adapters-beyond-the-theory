@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>be.charleshornick</groupId>
+        <artifactId>beyond-the-theory</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>cqs-core</artifactId>
+
+    <name>Library - CQS-Core</name>
+    <description>Library exposing the CQS mechanism used by primary adapters to communication with the application.</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jspecify</groupId>
+            <artifactId>jspecify</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.pragmatica-lite</groupId>
+            <artifactId>core</artifactId>
+            <version>0.21.0</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -5,7 +5,6 @@ import be.charleshornick.supra.fault.SupraCause;
 import be.charleshornick.supra.state.CreationPointConsumer;
 import be.charleshornick.supra.race.Race;
 import org.pragmatica.lang.Result;
-import org.pragmatica.lang.utils.Causes;
 
 import java.util.List;
 import java.util.Map;

@@ -1,12 +1,12 @@
 package be.charleshornick.supra.compendium.json;
 
-import be.charleshornick.supra.define.profession.ForLoadingProfession;
-import be.charleshornick.supra.profession.Profession;
-import be.charleshornick.supra.profession.ProfessionName;
-import be.charleshornick.supra.retrieve.profession.ForGettingProfession;
-import jakarta.annotation.Nonnull;
+import be.charleshornick.supra.chargen.define.profession.ForLoadingProfession;
+import be.charleshornick.supra.chargen.profession.Profession;
+import be.charleshornick.supra.chargen.profession.ProfessionName;
+import be.charleshornick.supra.chargen.retrieve.profession.ForGettingProfession;
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Named;
+import org.jspecify.annotations.NonNull;
 import org.pragmatica.lang.Option;
 import tools.jackson.databind.ObjectMapper;
 
@@ -50,8 +50,8 @@ class ProfessionProjectionLoader implements ForLoadingProfession, ForGettingProf
     }
 
     @Override
-    @Nonnull
-    public Option<Profession> getProfessionDetails(@Nonnull final ProfessionName professionName) {
+    @NonNull
+    public Option<Profession> getProfessionDetails(@NonNull final ProfessionName professionName) {
         return Option.option(professionName)
                 .map(this.professionMap::get);
     }

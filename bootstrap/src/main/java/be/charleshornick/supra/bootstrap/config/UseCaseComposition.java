@@ -1,21 +1,21 @@
 package be.charleshornick.supra.bootstrap.config;
 
-import be.charleshornick.supra.ForStoringSnapshot;
-import be.charleshornick.supra.create.CreateCharacter;
-import be.charleshornick.supra.create.ForRegisteringName;
-import be.charleshornick.supra.define.ForLoadingSnapshot;
-import be.charleshornick.supra.define.characteristic.DefineCharacteristic;
-import be.charleshornick.supra.define.profession.DefineProfession;
-import be.charleshornick.supra.define.profession.ForLoadingProfession;
-import be.charleshornick.supra.define.race.DefineRace;
-import be.charleshornick.supra.define.race.ForLoadingRace;
-import be.charleshornick.supra.retrieve.profession.ForGettingProfession;
-import be.charleshornick.supra.retrieve.profession.GetAllProfessions;
-import be.charleshornick.supra.retrieve.race.ForGettingRaces;
-import be.charleshornick.supra.retrieve.race.GetAllRaces;
-import be.charleshornick.supra.retrieve.snapshot.ForGettingSnapshot;
-import be.charleshornick.supra.retrieve.snapshot.GetAllSnapshots;
-import be.charleshornick.supra.retrieve.snapshot.GetLastestSnapshot;
+import be.charleshornick.supra.chargen.ForStoringSnapshot;
+import be.charleshornick.supra.chargen.create.CreateCharacter;
+import be.charleshornick.supra.chargen.create.ForRegisteringName;
+import be.charleshornick.supra.chargen.define.ForLoadingSnapshot;
+import be.charleshornick.supra.chargen.define.characteristic.DefineCharacteristic;
+import be.charleshornick.supra.chargen.define.profession.DefineProfession;
+import be.charleshornick.supra.chargen.define.profession.ForLoadingProfession;
+import be.charleshornick.supra.chargen.define.race.DefineRace;
+import be.charleshornick.supra.chargen.define.race.ForLoadingRace;
+import be.charleshornick.supra.chargen.retrieve.profession.ForGettingProfession;
+import be.charleshornick.supra.chargen.retrieve.profession.GetAllProfessions;
+import be.charleshornick.supra.chargen.retrieve.race.ForGettingRaces;
+import be.charleshornick.supra.chargen.retrieve.race.GetAllRaces;
+import be.charleshornick.supra.chargen.retrieve.snapshot.ForGettingSnapshot;
+import be.charleshornick.supra.chargen.retrieve.snapshot.GetAllSnapshots;
+import be.charleshornick.supra.chargen.retrieve.snapshot.GetLatestSnapshot;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -48,8 +48,8 @@ class UseCaseComposition {
     }
 
     @Bean
-    GetLastestSnapshot getLastestSnapshot(final ForGettingSnapshot storage) {
-        return new GetLastestSnapshot(storage);
+    GetLatestSnapshot getLastestSnapshot(final ForGettingSnapshot storage) {
+        return new GetLatestSnapshot(storage);
     }
 
     @Bean

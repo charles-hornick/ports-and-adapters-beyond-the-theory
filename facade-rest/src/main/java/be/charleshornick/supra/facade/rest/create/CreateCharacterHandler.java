@@ -1,6 +1,6 @@
 package be.charleshornick.supra.facade.rest.create;
 
-import be.charleshornick.supra.create.CreateCharacter;
+import be.charleshornick.supra.chargen.create.CreateCharacter;
 import be.charleshornick.supra.lib.cqs.core.CommandHandler;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;

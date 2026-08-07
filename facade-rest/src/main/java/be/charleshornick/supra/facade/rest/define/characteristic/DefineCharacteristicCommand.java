@@ -1,43 +1,38 @@
 package be.charleshornick.supra.facade.rest.define.characteristic;
 
-import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.chargen.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.chargen.fault.SupraCause;
 import be.charleshornick.supra.lib.cqs.core.Command;
+import org.jspecify.annotations.Nullable;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.Verify;
-import org.pragmatica.lang.utils.Causes;
 
-import java.util.Locale;
-import java.util.function.Predicate;
+import static be.charleshornick.supra.facade.rest.Wire.normalize;
+import static be.charleshornick.supra.facade.rest.Wire.normalizeUpper;
 
-public record DefineCharacteristicCommand(String characterName, String characteristicName, PointOperation operation) implements Command {
+public record DefineCharacteristicCommand(String characterName,
+                                          PrimaryCharacteristicName characteristic,
+                                          PointOperation operation) implements Command {
 
     public enum PointOperation { ADD, REMOVE }
 
-    public DefineCharacteristicCommand {
-        characterName = characterName.strip();
-        characteristicName = characteristicName.strip().toUpperCase(Locale.ROOT);
-    }
+    public static Result<DefineCharacteristicCommand> from(@Nullable final String characterName,
+                                                           @Nullable final String characteristicName,
+                                                           @Nullable final PointOperation operation) {
+        final var name = normalize(characterName);
+        final var characteristic = normalizeUpper(characteristicName);
 
-    public PrimaryCharacteristicName characteristic() {
-        return PrimaryCharacteristicName.valueOf(this.characteristicName);
-    }
-
-    public Result<DefineCharacteristicCommand> validate() {
         return Result.all(
-                Verify.ensure(this.characterName, Verify.Is::notBlank, Causes.cause("characterName.blank")),
-                Verify.ensure(this.characteristicName, isCharacteristicValid(), Causes.cause("characteristic.blank")),
-                Verify.ensure(this.operation, Verify.Is::notNull, Causes.cause("operation.missing"))
-        ).map((_, _, _) -> this);
+                Verify.ensure(name, Verify.Is::notBlank, new SupraCause.InvalidInput("characterName", "blank")),
+                parseCharacteristic(characteristic),
+                Verify.ensure(operation, Verify.Is::notNull, new SupraCause.InvalidInput("operation", "missing"))
+        ).map(DefineCharacteristicCommand::new);
     }
 
-    private static Predicate<String> isCharacteristicValid() {
-        return (name) -> {
-            try {
-                PrimaryCharacteristicName.valueOf(name);
-                return true;
-            } catch (final IllegalArgumentException e) {
-                return false;
-            }
-        };
+    private static Result<PrimaryCharacteristicName> parseCharacteristic(final String characteristic) {
+        return Result.tryOf(
+                () -> PrimaryCharacteristicName.valueOf(characteristic),
+                _ -> new SupraCause.InvalidInput("characteristicName", "unknown")
+        );
     }
 }

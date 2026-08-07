@@ -13,14 +13,14 @@
     <modules>
         <module>cqs-core</module>
         <module>cqs-spring</module>
-        <module>supra</module>
+        <module>character-creation</module>
         <module>facade-rest</module>
         <module>storage-sqlite</module>
         <module>bootstrap</module>
         <module>compendium-json</module>
     </modules>
 
-    <name>Behond the theory</name>
+    <name>Beyond the theory</name>
     <description>A practical exploration of Ports &amp; Adapters architecture using an RPG character creation system. Companion code for the "Ports &amp; Adapters: Beyond the Theory" article series.</description>
 
     <properties>
@@ -32,7 +32,21 @@
         <pragmatica.core.version>0.25.0</pragmatica.core.version>
         <spring-boot.version>4.0.2</spring-boot.version>
         <sqlite.version>3.53.2.0</sqlite.version>
+        <surefire.plugin.version>3.5.4</surefire.plugin.version>
+        <compiler.plugin.version>3.14.1</compiler.plugin.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
@@ -44,13 +58,18 @@
                         <parameters>true</parameters>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire.plugin.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.1</version>
+                <version>${compiler.plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>

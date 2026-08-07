@@ -1,9 +1,9 @@
 package be.charleshornick.supra.compendium.json;
 
-import be.charleshornick.supra.characteristic.PrimaryCharacteristic;
-import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
-import be.charleshornick.supra.race.Race;
-import be.charleshornick.supra.race.RaceName;
+import be.charleshornick.supra.chargen.characteristic.PrimaryCharacteristic;
+import be.charleshornick.supra.chargen.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.chargen.race.Race;
+import be.charleshornick.supra.chargen.race.RaceName;
 import java.util.ArrayList;
 import java.util.Map;
 

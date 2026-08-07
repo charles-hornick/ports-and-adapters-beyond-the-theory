@@ -1,12 +1,12 @@
 package be.charleshornick.supra.compendium.json;
 
-import be.charleshornick.supra.define.race.ForLoadingRace;
-import be.charleshornick.supra.race.Race;
-import be.charleshornick.supra.race.RaceName;
-import be.charleshornick.supra.retrieve.race.ForGettingRaces;
-import jakarta.annotation.Nonnull;
+import be.charleshornick.supra.chargen.define.race.ForLoadingRace;
+import be.charleshornick.supra.chargen.race.Race;
+import be.charleshornick.supra.chargen.race.RaceName;
+import be.charleshornick.supra.chargen.retrieve.race.ForGettingRaces;
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Named;
+import org.jspecify.annotations.NonNull;
 import org.pragmatica.lang.Option;
 import tools.jackson.databind.ObjectMapper;
 
@@ -47,8 +47,8 @@ class RacesProjectionLoader implements ForLoadingRace, ForGettingRaces {
     }
 
     @Override
-    @Nonnull
-    public Option<Race> getRaceDetails(@Nonnull final RaceName raceName) {
+    @NonNull
+    public Option<Race> getRaceDetails(@NonNull final RaceName raceName) {
         return Option.option(raceName)
                 .map(this.raceProjections::get);
     }

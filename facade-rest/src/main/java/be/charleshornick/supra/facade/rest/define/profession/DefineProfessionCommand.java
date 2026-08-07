@@ -1,41 +1,31 @@
 package be.charleshornick.supra.facade.rest.define.profession;
 
+import be.charleshornick.supra.chargen.fault.SupraCause;
 import be.charleshornick.supra.lib.cqs.core.Command;
-import be.charleshornick.supra.profession.ProfessionName;
+import be.charleshornick.supra.chargen.profession.ProfessionName;
 import org.jspecify.annotations.Nullable;
 import org.pragmatica.lang.Result;
 import org.pragmatica.lang.Verify;
-import org.pragmatica.lang.utils.Causes;
 
-import java.util.function.Predicate;
+import static be.charleshornick.supra.facade.rest.Wire.normalize;
+import static be.charleshornick.supra.facade.rest.Wire.normalizeUpper;
 
-public record DefineProfessionCommand(@Nullable String characterName, @Nullable String professionName) implements Command {
+public record DefineProfessionCommand(String characterName, ProfessionName profession) implements Command {
 
-    public DefineProfessionCommand {
-        characterName = (characterName != null) ? characterName.strip() : "";
-        professionName = (professionName != null) ? professionName.strip() : "";
-    }
+    public static Result<DefineProfessionCommand> from(@Nullable final String characterName, @Nullable final String professionName) {
+        final var name = normalize(characterName);
+        final var profession = normalizeUpper(professionName);
 
-    public ProfessionName profession() {
-        return ProfessionName.valueOf(this.professionName);
-    }
-
-    public Result<DefineProfessionCommand> validate() {
         return Result.all(
-                Verify.ensure(this.characterName, Verify.Is::notBlank, Causes.cause("characterName.blank")),
-                Verify.ensure(this.professionName, Verify.Is::notBlank, Causes.cause("professionName.blank")),
-                Verify.ensure(this.professionName, isProfessionNameValid(), Causes.cause("professionName.invalid"))
-        ).map((_, _, _) -> this);
+                Verify.ensure(name, Verify.Is::notBlank, new SupraCause.InvalidInput("characterName", "blank")),
+                parseProfession(profession)
+        ).map(DefineProfessionCommand::new);
     }
 
-    private static Predicate<String> isProfessionNameValid() {
-        return (name) -> {
-            try {
-                ProfessionName.valueOf(name);
-                return true;
-            } catch (final IllegalArgumentException e) {
-                return false;
-            }
-        };
+    private static Result<ProfessionName> parseProfession(final String profession) {
+        return Result.tryOf(
+                () -> ProfessionName.valueOf(profession),
+                _ -> new SupraCause.InvalidInput("professionName", "unknown")
+        );
     }
 }

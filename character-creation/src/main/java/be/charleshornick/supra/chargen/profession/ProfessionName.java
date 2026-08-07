@@ -1,0 +1,74 @@
+package be.charleshornick.supra.chargen.profession;
+
+public enum ProfessionName {
+    UNDEFINED(true),
+
+    ADEPT(false),
+    ADVENTURER(false),
+    AMAZON_ELITE(false),
+    BARBARIAN(false),
+    BEGGAR(false),
+    BORDER_GUARD(false),
+    BRIGAND(false),
+    BURGLAR(false),
+    CLAN_ELITE(false),
+    COMBAT_MERCENARY(false),
+    COURIER(false),
+    COURTIER(false),
+    DOCKER(false),
+    ELEMENTALIST_MAGE(false),
+    ELF_ADVENTURER(false),
+    EREDIAN_BARBARIAN(false),
+    GENERALIST_MAGE(false),
+    GUARD(false),
+    GUIDE(false),
+    HEALER_MAGE(false),
+    HIGHWAYMAN(false),
+    HOBBIT_SCOUT(false),
+    HUNTER(false),
+    HYSTANIAN_ELITE_WARRIOR(false),
+    KNIGHT(false),
+    KRAEN_WARRIOR(false),
+    MAGE_APPRENTICE(false),
+    MARINE(false),
+    MERCHANT(false),
+    MILITIAMAN(false),
+    MINER(false),
+    NATURALIST_MAGE(false),
+    NOBLEMAN(false),
+    PALADHIM_PRIEST(false),
+    PALADHIM_PRIEST_APPRENTICE(false),
+    PALADIN(false),
+    PALADIN_SQUIRE(false),
+    PEASANT(false),
+    PIRATE(false),
+    PRIEST(false),
+    PRIEST_APPRENTICE(false),
+    QUESTOR(false),
+    RANGER(false),
+    ROGUE(false),
+    SAILOR(false),
+    SCHOLAR(false),
+    SCOUT(false),
+    SOLDIER(false),
+    STREET_MERCENARY(false),
+    STREET_PERFORMER(false),
+    STREET_URCHIN(false),
+    TRACKER(false),
+    TRADER(false),
+    TROUBADOUR(false),
+    WANDERING_MERCENARY(false),
+    WAR_MAGE(false),
+    WARRIOR(false),
+    ;
+
+    private final boolean technical;
+
+    ProfessionName(boolean technical) { this.technical = technical; }
+
+    public static boolean isUndefined(final String name) {
+        return name != null && name.equalsIgnoreCase(UNDEFINED.name());
+    }
+
+    public boolean isTechnical() { return this.technical; }
+}

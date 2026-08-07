@@ -1,6 +1,6 @@
 package be.charleshornick.supra.facade.rest.define.race;
 
-import be.charleshornick.supra.define.race.DefineRace;
+import be.charleshornick.supra.chargen.define.race.DefineRace;
 import be.charleshornick.supra.lib.cqs.core.CommandHandler;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;

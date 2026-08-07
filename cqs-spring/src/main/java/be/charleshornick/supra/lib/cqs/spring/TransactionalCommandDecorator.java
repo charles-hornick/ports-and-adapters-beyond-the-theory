@@ -6,6 +6,8 @@ import org.pragmatica.lang.Result;
 import org.pragmatica.lang.Unit;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import java.util.Objects;
+
 public final class TransactionalCommandDecorator<C extends Command>
         implements CommandHandler<C> {
 
@@ -19,11 +21,11 @@ public final class TransactionalCommandDecorator<C extends Command>
 
     @Override
     public Result<Unit> handle(final C command) {
-        return tx.execute(status -> {
+        return Objects.requireNonNull(tx.execute(status -> {
             final Result<Unit> result = delegate.handle(command);
-            result.onFailure(cause -> status.setRollbackOnly());
+            result.onFailure(_ -> status.setRollbackOnly());
             return result;
-        });
+        }));
     }
 
     @Override

@@ -5,6 +5,8 @@ import be.charleshornick.supra.lib.cqs.core.QueryHandler;
 import org.pragmatica.lang.Result;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import java.util.Objects;
+
 public final class ReadOnlyQueryDecorator<R, Q extends Query<R>> implements QueryHandler<R, Q> {
 
     private final QueryHandler<R, Q> delegate;
@@ -17,7 +19,7 @@ public final class ReadOnlyQueryDecorator<R, Q extends Query<R>> implements Quer
 
     @Override
     public Result<R> handle(final Q query) {
-        return tx.execute(_ -> delegate.handle(query));
+        return Objects.requireNonNull(tx.execute(_ -> delegate.handle(query)));
     }
 
     @Override

@@ -1,0 +1,44 @@
+package be.charleshornick.supra.chargen.profession;
+
+import be.charleshornick.supra.chargen.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.chargen.race.Race;
+import be.charleshornick.supra.chargen.race.RaceName;
+
+import java.util.*;
+
+public record Prerequisite(Map<PrimaryCharacteristicName, Integer> characteristicsToMatch, List<RaceName> forbiddenRace) {
+
+    public Prerequisite {
+        characteristicsToMatch = (characteristicsToMatch != null) ? Map.copyOf(characteristicsToMatch) : Map.of();
+        forbiddenRace = (forbiddenRace != null) ? List.copyOf(forbiddenRace) : List.of();
+    }
+
+    public static Prerequisite emptyPrerequisite() {
+        return new Prerequisite(Map.of(), List.of());
+    }
+
+    public static Prerequisite with(final Map<PrimaryCharacteristicName, Integer> characteristics, final List<RaceName> races) {
+        return new Prerequisite(
+                (characteristics != null) ? characteristics : Map.of(),
+                (races != null) ? races : List.of()
+        );
+    }
+
+    public boolean arePrerequisiteFulfilled(final Race race, final Map<PrimaryCharacteristicName, Integer> investedPoint) {
+        return this.isRaceAllowed(race.name()) &&
+                this.areCharacteristicsMatched(investedPoint);
+    }
+
+    private boolean isRaceAllowed(final RaceName name) {
+        return !this.forbiddenRace.contains(name);
+    }
+
+    private boolean areCharacteristicsMatched(final Map<PrimaryCharacteristicName, Integer> characteristics) {
+        return this.characteristicsToMatch.entrySet().stream()
+                .allMatch(e -> characteristics.getOrDefault(e.getKey(), 0) >= e.getValue());
+    }
+
+    public boolean isRaceForbidden(final Race race) {
+        return this.forbiddenRace.contains(race.name());
+    }
+}

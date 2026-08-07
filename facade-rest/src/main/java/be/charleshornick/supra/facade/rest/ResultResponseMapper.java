@@ -1,6 +1,6 @@
 package be.charleshornick.supra.facade.rest;
 
-import be.charleshornick.supra.fault.SupraCause;
+import be.charleshornick.supra.chargen.fault.SupraCause;
 import org.pragmatica.lang.Cause;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

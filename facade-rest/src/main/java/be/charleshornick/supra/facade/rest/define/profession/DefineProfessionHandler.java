@@ -1,6 +1,6 @@
 package be.charleshornick.supra.facade.rest.define.profession;
 
-import be.charleshornick.supra.define.profession.DefineProfession;
+import be.charleshornick.supra.chargen.define.profession.DefineProfession;
 import be.charleshornick.supra.lib.cqs.core.CommandHandler;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;

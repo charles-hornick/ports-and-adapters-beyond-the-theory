@@ -16,13 +16,12 @@
         <dependency>
             <groupId>org.jspecify</groupId>
             <artifactId>jspecify</artifactId>
-            <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.pragmatica-lite</groupId>
             <artifactId>core</artifactId>
-            <version>0.21.0</version>
+            <version>${pragmatica.core.version}</version>
         </dependency>
     </dependencies>
 </project>

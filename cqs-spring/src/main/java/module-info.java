@@ -1,5 +1,5 @@
 module be.charleshornick.supra.lib.cqs.spring {
-    requires transitive be.charleshornick.supra.lib.cqs;
+    requires transitive be.charleshornick.supra.lib.cqs.core;
 
     requires core;
     requires spring.beans;

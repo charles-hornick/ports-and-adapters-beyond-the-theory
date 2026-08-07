@@ -1,6 +1,6 @@
 package be.charleshornick.supra.facade.rest.define.characteristic;
 
-import be.charleshornick.supra.define.characteristic.DefineCharacteristic;
+import be.charleshornick.supra.chargen.define.characteristic.DefineCharacteristic;
 import be.charleshornick.supra.lib.cqs.core.CommandHandler;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;

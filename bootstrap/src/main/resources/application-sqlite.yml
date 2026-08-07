@@ -3,8 +3,10 @@ spring:
     url: jdbc:sqlite:supra.db
     driver-class-name: org.sqlite.JDBC
     hikari:
-      maximum-pool-size: 1          # SQLite = single writer
-      connection-init-sql: "PRAGMA journal_mode=WAL"
+      maximum-pool-size: 1
+      data-source-properties:
+        foreign_keys: true
+        journal_mode: WAL
   sql:
     init:
       mode: always

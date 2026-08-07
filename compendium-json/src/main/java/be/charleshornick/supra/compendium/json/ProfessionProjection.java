@@ -1,9 +1,9 @@
 package be.charleshornick.supra.compendium.json;
 
-import be.charleshornick.supra.profession.Prerequisite;
-import be.charleshornick.supra.profession.Profession;
-import be.charleshornick.supra.profession.ProfessionName;
-import be.charleshornick.supra.profession.ProfessionType;
+import be.charleshornick.supra.chargen.profession.Prerequisite;
+import be.charleshornick.supra.chargen.profession.Profession;
+import be.charleshornick.supra.chargen.profession.ProfessionName;
+import be.charleshornick.supra.chargen.profession.ProfessionType;
 
 import java.util.List;
 

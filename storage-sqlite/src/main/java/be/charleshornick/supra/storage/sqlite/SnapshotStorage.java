@@ -1,17 +1,19 @@
 package be.charleshornick.supra.storage.sqlite;
 
-import be.charleshornick.supra.ForStoringSnapshot;
-import be.charleshornick.supra.characteristic.PrimaryCharacteristicName;
-import be.charleshornick.supra.create.ForRegisteringName;
-import be.charleshornick.supra.define.ForLoadingSnapshot;
-import be.charleshornick.supra.fault.SupraCause;
-import be.charleshornick.supra.profession.Profession;
-import be.charleshornick.supra.race.Race;
-import be.charleshornick.supra.retrieve.profession.ForGettingProfession;
-import be.charleshornick.supra.retrieve.race.ForGettingRaces;
-import be.charleshornick.supra.retrieve.snapshot.ForGettingSnapshot;
-import be.charleshornick.supra.state.snapshot.Action;
-import be.charleshornick.supra.state.snapshot.Snapshot;
+import be.charleshornick.supra.chargen.ForStoringSnapshot;
+import be.charleshornick.supra.chargen.characteristic.PrimaryCharacteristicName;
+import be.charleshornick.supra.chargen.create.ForRegisteringName;
+import be.charleshornick.supra.chargen.define.ForLoadingSnapshot;
+import be.charleshornick.supra.chargen.fault.SupraCause;
+import be.charleshornick.supra.chargen.profession.Profession;
+import be.charleshornick.supra.chargen.profession.ProfessionName;
+import be.charleshornick.supra.chargen.race.Race;
+import be.charleshornick.supra.chargen.race.RaceName;
+import be.charleshornick.supra.chargen.retrieve.profession.ForGettingProfession;
+import be.charleshornick.supra.chargen.retrieve.race.ForGettingRaces;
+import be.charleshornick.supra.chargen.retrieve.snapshot.ForGettingSnapshot;
+import be.charleshornick.supra.chargen.state.snapshot.Action;
+import be.charleshornick.supra.chargen.state.snapshot.Snapshot;
 import jakarta.inject.Inject;
 import org.jspecify.annotations.NonNull;
 import org.pragmatica.lang.Option;
@@ -40,7 +42,7 @@ class SnapshotStorage implements ForStoringSnapshot, ForLoadingSnapshot, ForGett
     private static final String SELECT_ORDERED_SNAPSHOTS = """
         SELECT *
         FROM snapshots
-        WHERE LOWER(character_name) = LOWER(:name)
+        WHERE character_name = :name
         ORDER BY version DESC
         """;
     private static final String SELECT_LATEST_SNAPSHOT = SELECT_ORDERED_SNAPSHOTS + " LIMIT 1";
@@ -70,8 +72,7 @@ class SnapshotStorage implements ForStoringSnapshot, ForLoadingSnapshot, ForGett
     }
 
     private Result<Snapshot> storeSnapshot(final Snapshot snapshot, final String investedPoints) {
-        return Result.lift(
-                e -> new SupraCause.Technical("snapshot.store.failed", e),
+        return Result.tryOf(
                 () -> {
                     this.jdbc.sql(INSERT_SNAPSHOT_QUERY)
                             .param("name", snapshot.name())
@@ -84,7 +85,8 @@ class SnapshotStorage implements ForStoringSnapshot, ForLoadingSnapshot, ForGett
                             .update();
 
                     return snapshot;
-                }
+                },
+                e -> new SupraCause.Technical("snapshot.store.failed", e)
         );
     }
 
@@ -98,12 +100,12 @@ class SnapshotStorage implements ForStoringSnapshot, ForLoadingSnapshot, ForGett
     @Override
     @NonNull
     public Result<Option<Snapshot>> theLatest(final @NonNull String name) {
-        return Result.lift(
-                e -> new SupraCause.Technical("snapshot.store.unexpected.error", e),
+        return Result.tryOf(
                 () -> this.jdbc.sql(SELECT_LATEST_SNAPSHOT)
                         .param("name", name)
                         .query(this::mapRow)
-                        .optional()
+                        .optional(),
+                e -> new SupraCause.Technical("snapshot.store.unexpected.error", e)
         ).map(Option::from);
     }
 
@@ -115,41 +117,47 @@ class SnapshotStorage implements ForStoringSnapshot, ForLoadingSnapshot, ForGett
                 .param("name", name)
                 .query(this::mapRow)
                 .list(),
-                e -> new SupraCause.Technical("snapshot.store.unexpected.error", e)
+                e -> (e instanceof MappingException me) ? me.cause() : new SupraCause.Technical("snapshot.store.unexpected.error", e)
         );
     }
 
     private Snapshot mapRow(final ResultSet rs, final int rowNum) throws SQLException {
-        final var raceName = rs.getString("race_name");
-        final var professionName = rs.getString("profession_name");
-
-        return this.deserialize(rs.getString("invested_points"))
-                .flatMap(points -> this.buildSnapshot(
-                        rs,
-                        points,
-                        this.getRaceFromName(raceName),
-                        this.getProfessionFromName(professionName)
-                ))
+        return Result.all(
+                        this.deserialize(rs.getString("invested_points")),
+                        this.getRaceFromName(rs.getString("race_name")),
+                        this.getProfessionFromName(rs.getString("profession_name"))
+                )
+                .flatMap((points, race, profession) -> this.buildSnapshot(rs, points, race, profession))
                 .fold(
-                        cause -> { throw new IllegalArgumentException(cause.message()); },
+                        cause -> { throw new MappingException(cause); },
                         result -> result
                 );
     }
 
-    private Race getRaceFromName(final String name) {
+    private Result<Race> getRaceFromName(final String name) {
+        if (RaceName.isUndefined(name)) {
+            return Result.success(Race.undefined());
+        }
+
         return this.forGettingRaces.details()
                 .stream()
                 .filter(race -> race.name().name().equals(name))
                 .findFirst()
-                .orElseGet(Race::undefined);
+                .map(Result::success)
+                .orElseGet(() -> Result.failure(new SupraCause.Technical("race.unknown.in.compendium." + name, null)));
     }
 
-    private Profession getProfessionFromName(final String name) {
+    private Result<Profession> getProfessionFromName(final String name) {
+        if (ProfessionName.isUndefined(name)) {
+            return Result.success(Profession.undefined());
+        }
+
         return this.forGettingProfession.details()
                 .stream()
                 .filter(race -> race.name().name().equals(name))
                 .findFirst()
-                .orElseGet(Profession::undefined);
+                .map(Result::success)
+                .orElseGet(() -> Result.failure(new SupraCause.Technical("profession.unknown.in.compendium." + name, null)));
     }
 
     private Result<Snapshot> buildSnapshot(final ResultSet rs,
@@ -204,7 +212,7 @@ class SnapshotStorage implements ForStoringSnapshot, ForLoadingSnapshot, ForGett
     }
 
     private static boolean isConstraintViolation(final Throwable e) {
-        Throwable current = e;
+        var current = e;
         while (current != null) {
             if (current instanceof SQLiteException sqlite) {
                 return sqlite.getResultCode() == SQLiteErrorCode.SQLITE_CONSTRAINT_PRIMARYKEY

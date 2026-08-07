@@ -3,6 +3,7 @@ package be.charleshornick.supra.bootstrap.config;
 import be.charleshornick.supra.lib.cqs.spring.ReadOnlyTransaction;
 import be.charleshornick.supra.lib.cqs.spring.TransactionalHandlerPostProcessor;
 import be.charleshornick.supra.lib.cqs.spring.WriteTransaction;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +29,8 @@ class TransactionComposition {
     }
 
     @Bean
-    BeanPostProcessor transactionalHandlerPostProcessor(final WriteTransaction write, final ReadOnlyTransaction readOnly) {
-        return new TransactionalHandlerPostProcessor(write.template(), readOnly.template());
+    static BeanPostProcessor transactionalHandlerPostProcessor(final ObjectProvider<WriteTransaction> write,
+                                                               final ObjectProvider<ReadOnlyTransaction> readOnly) {
+        return new TransactionalHandlerPostProcessor(() -> write.getObject().template(), () -> readOnly.getObject().template());
     }
 }

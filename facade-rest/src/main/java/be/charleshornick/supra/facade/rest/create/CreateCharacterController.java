@@ -1,7 +1,7 @@
 package be.charleshornick.supra.facade.rest.create;
 
 import be.charleshornick.supra.facade.rest.ResultResponseMapper;
-import be.charleshornick.supra.fault.SupraCause;
+import be.charleshornick.supra.chargen.fault.SupraCause;
 import be.charleshornick.supra.lib.cqs.core.Bus;
 import org.pragmatica.lang.Option;
 import org.springframework.http.ResponseEntity;
@@ -24,15 +24,13 @@ final class CreateCharacterController {
     }
 
     @PostMapping
-    ResponseEntity<String> createCharacter(@RequestBody(required = false) final CreateCharacterRequest request) {
-        return Option.option(request)
+    ResponseEntity<String> createCharacter(@RequestBody(required = false) final CreateCharacterCommand command) {
+        return Option.option(command)
                 .toResult(new SupraCause.InvalidInput("body", "empty"))
-                .map(CreateCharacterRequest::toCommand)
-                .flatMap(CreateCharacterCommand::validate)
                 .flatMap(this.bus::executeCommand)
                 .fold(
                     ResultResponseMapper::toError,
-                    _ -> ResponseEntity.created(buildUri("/{name}", request.characterName())).build()
+                    _ -> ResponseEntity.created(buildUri("/{name}", command.characterName())).build()
                 );
     }
 

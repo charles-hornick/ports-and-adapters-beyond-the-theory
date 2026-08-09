@@ -18,6 +18,7 @@
         <module>storage-sqlite</module>
         <module>bootstrap</module>
         <module>compendium-json</module>
+        <module>facade-batch</module>
     </modules>
 
     <name>Beyond the theory</name>

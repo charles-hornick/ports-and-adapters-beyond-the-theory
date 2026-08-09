@@ -26,6 +26,12 @@
         </dependency>
         <dependency>
             <groupId>be.charleshornick</groupId>
+            <artifactId>facade-batch</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>be.charleshornick</groupId>
             <artifactId>cqs-core</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>

@@ -3,4 +3,4 @@ server:
 
 spring:
   profiles:
-    default: sqlite
+    default: sqlite,batch
